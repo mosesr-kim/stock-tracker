@@ -8,3 +8,11 @@
 // xhr.setRequestHeader("x-rapidapi-key", "869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7");
 // xhr.setRequestHeader("x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com");
 // xhr.send();
+var $search = document.querySelector('.searchForm');
+
+$search.addEventListener('submit', handleSearch);
+
+function handleSearch(event) {
+  event.preventDefault();
+  data.search = $search.elements.search.value;
+}
