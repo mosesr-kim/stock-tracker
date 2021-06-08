@@ -1,4 +1,6 @@
 /* exported data */
 var data = {
-  search: []
+  search: '',
+  searchResult: '',
+  trending: ''
 };
