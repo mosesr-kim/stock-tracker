@@ -55,8 +55,75 @@ input::-webkit-input-placeholder {
   margin-top: 4px;
 }
 
-.mobileHeader {
-  display: none;
+.container {
+  font-family: 'Roboto', sans-serif;
+  color: #011627;
+  background: #f2f2f2;
+  border: 1px solid #ff9f1c;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: center;
+  max-width: 80%;
+  margin: auto;
+  font-size: 14px;
+}
+
+.stockSymbol {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.subHeaderRow {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.todayLow {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.companySummary {
+  font-size: 20px;
+  width: 80%;
+  margin: auto;
+}
+
+.buttonRow {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.readMore {
+  border: 1px solid #011627;
+  background-color: #f2f2f2;
+  margin-top: 0;
+  padding: 5px;
+  font-weight: 300;
+}
+
+i.fas.fa-plus-circle {
+  color: #2ec4b6;
+  font-size: 30px;
+}
+
+.positive {
+  color: green;
+  font-weight: 500;
+}
+
+.negative {
+  color: red;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 675px) {

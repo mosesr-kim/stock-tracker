@@ -5,34 +5,41 @@ $search.addEventListener('submit', handleSearch);
 
 function handleSearch(event) {
   event.preventDefault();
+  data.search = $search.elements.search.value;
   console.log($search.elements.search.value);
   if ($search.elements.search.value.toUpperCase() === 'GME') {
+    data.searchResult = gmeSearch;
     console.log(gmeSearch);
-    $search.reset();
     createStockEntry(gmeSearch);
+    $search.reset();
   } else if ($search.elements.search.value.toUpperCase() === 'AMC') {
+    data.searchResult = amcSearch;
     console.log(amcSearch);
+    createStockEntry(amcSearch);
     $search.reset();
-    return amcSearch;
   } else if ($search.elements.search.value.toUpperCase() === 'BB') {
+    data.searchResult = bbSearch;
     console.log(bbSearch);
+    createStockEntry(bbSearch);
     $search.reset();
-    return bbSearch;
   } else if ($search.elements.search.value.toUpperCase() === 'NOK') {
+    data.searchResult = nokSearch;
     console.log(nokSearch);
+    createStockEntry(nokSearch);
     $search.reset();
-    return nokSearch;
   } else if ($search.elements.search.value.toUpperCase() === 'TSLA') {
+    data.searchResult = tslaSearch;
     console.log(tslaSearch);
+    createStockEntry(tslaSearch);
     $search.reset();
-    return tslaSearch;
   } else if ($search.elements.search.value.toUpperCase() === 'GOOGL') {
+    data.searchResult = googlSearch;
     console.log(googlSearch);
+    createStockEntry(googlSearch);
     $search.reset();
-    return googlSearch;
   } else {
     $search.reset();
-    return 'Please enter a valid stock ticker symbol';
+
   }
   // $search.reset();
   // (Code below is commented out to avoid rate limiting restrictions)
@@ -75,7 +82,7 @@ function handleSearch(event) {
 
 // container
 //   row
-//     h1 h1 h1
+//     h1 h1 <span class="stock price">h1</span>
 //   row
 //     h2 h2 h2
 //   p
@@ -88,12 +95,12 @@ function createStockEntry(data) {
   $main.appendChild(stockContainer);
 
   var headerRow = document.createElement('div');
-  headerRow.className = 'row';
+  headerRow.className = 'row headerRow';
   stockContainer.appendChild(headerRow);
 
   var stockName = document.createElement('h1');
   stockName.className = 'stockName';
-  stockName.textContent = data.price.longName + ':';
+  stockName.textContent = data.price.longName;
   headerRow.appendChild(stockName);
 
   var stockSymbol = document.createElement('h1');
@@ -102,44 +109,78 @@ function createStockEntry(data) {
   headerRow.appendChild(stockSymbol);
 
   var stockPrice = document.createElement('h1');
-  stockPrice.className = 'stockPrice';
-  stockPrice.textContent = '$' + data.price.regularMarketPrice.fmt;
   headerRow.appendChild(stockPrice);
 
+  var stockPriceSpan = document.createElement('span');
+  stockPriceSpan.className = 'stockPrice positive';
+  stockPriceSpan.textContent = '$' + data.price.regularMarketPrice.fmt;
+  stockPrice.appendChild(stockPriceSpan);
+
   var subHeaderRow = document.createElement('div');
-  subHeaderRow.className = 'row';
+  subHeaderRow.className = 'row subHeaderRow';
   stockContainer.appendChild(subHeaderRow);
 
   var todayPercentage = document.createElement('h2');
-  todayPercentage.className = 'stockToday';
-  todayPercentage.textContent = 'Today: ' + data.price.regularMarketChangePercent.fmt;
+  todayPercentage.textContent = 'Today: ';
   subHeaderRow.appendChild(todayPercentage);
 
+  var todayPercentageSpan = document.createElement('span');
+  if (checkPercentage(data.price.regularMarketChangePercent.raw) === true) {
+    todayPercentageSpan.className = 'stockToday positive';
+  } else {
+    todayPercentageSpan.className = 'stockToday negative';
+  }
+  todayPercentageSpan.textContent = data.price.regularMarketChangePercent.fmt;
+  todayPercentage.appendChild(todayPercentageSpan);
+
   var todayLow = document.createElement('h2');
-  todayLow.className = 'stockLow';
-  todayLow.textContent = 'Low: $' + data.price.regularMarketDayLow.fmt;
+  todayLow.className = 'todayLow';
+  todayLow.textContent = 'Low: ';
   subHeaderRow.appendChild(todayLow);
 
+  var todayLowSpan = document.createElement('span');
+  todayLowSpan.className = 'negative';
+  todayLowSpan.textContent = '$' + data.price.regularMarketDayLow.fmt;
+  todayLow.appendChild(todayLowSpan);
+
   var todayHigh = document.createElement('h2');
-  todayHigh.className = 'stockHigh';
-  todayHigh.textContent = 'High: $' + data.price.regularMarketDayHigh.fmt;
+  todayHigh.className = 'todayHigh';
+  todayHigh.textContent = 'High: ';
   subHeaderRow.appendChild(todayHigh);
+
+  var todayHighSpan = document.createElement('span');
+  todayHighSpan.className = 'positive';
+  todayHighSpan.textContent = '$' + data.price.regularMarketDayHigh.fmt;
+  todayHigh.appendChild(todayHighSpan);
 
   var companySummary = document.createElement('p');
   companySummary.className = 'companySummary';
-  companySummary.textContent = data.assetProfile.longBusinessSummary;
+  companySummary.textContent = summarize(data.assetProfile.longBusinessSummary) + '...';
   stockContainer.appendChild(companySummary);
 
   var buttonRow = document.createElement('div');
   buttonRow.className = 'buttonRow';
   stockContainer.appendChild(buttonRow);
 
-  var readMoreButton = document.createElement('button');
+  var readMoreButton = document.createElement('a');
   readMoreButton.className = 'readMore';
+  readMoreButton.setAttribute('href', '#');
   readMoreButton.textContent = 'Read More';
   buttonRow.appendChild(readMoreButton);
 
   var addStock = document.createElement('i');
   addStock.className = 'fas fa-plus-circle';
   buttonRow.appendChild(addStock);
+}
+
+function summarize(summary) {
+  var newString = '';
+  for (var i = 0; i < (summary.length / 2); i++) {
+    newString += summary[i];
+  }
+  return newString;
+}
+
+function checkPercentage(percentage) {
+  return percentage > 0;
 }
