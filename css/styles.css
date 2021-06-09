@@ -3,7 +3,7 @@ header {
   border-bottom: 1px solid #ff9f1c;
 }
 
-.browse {
+h1.browse {
   color: #011627;
   font-family: 'Roboto', sans-serif;
   margin-left: 15px;
@@ -17,11 +17,11 @@ a {
   font-weight: 500;
 }
 
-.trending {
+a.trending {
   margin-left: 25px;
 }
 
-.watchlist {
+a.watchlist {
   margin-left: 20px;
 }
 
@@ -124,6 +124,12 @@ i.fas.fa-plus-circle {
 .negative {
   color: red;
   font-weight: 500;
+}
+
+.watchlistHeader {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin-left: 15px;
 }
 
 @media screen and (max-width: 675px) {

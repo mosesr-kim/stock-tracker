@@ -1,7 +1,8 @@
 /* exported data */
 var data = {
-  search: '',
-  searchResult: '',
-  trending: '',
-  watchlist: []
+  search: null,
+  searchResult: null,
+  trending: null,
+  watchlist: [],
+  view: null
 };

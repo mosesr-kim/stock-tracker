@@ -1,5 +1,6 @@
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
+var $watchlistEntries = document.querySelector('.watchlistEntries');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -85,7 +86,8 @@ function createStockEntry(data) {
   removeSearchEntry();
 
   var stockContainer = document.createElement('div');
-  stockContainer.className = 'container';
+  stockContainer.className = 'view container';
+  stockContainer.setAttribute('data-view', 'search');
   $main.appendChild(stockContainer);
 
   var headerRow = document.createElement('div');
@@ -182,8 +184,7 @@ function checkPercentage(percentage) {
 function handleAddStock(event) {
   if (event.target.className.includes('fa-plus-circle')) {
     data.watchlist.push(data.searchResult);
-    console.log(data.watchlist);
-    console.log(event.target.className);
+    createWatchlistEntry();
   }
 }
 
@@ -191,4 +192,80 @@ function removeSearchEntry() {
   if (document.querySelectorAll('.container').length > 0) {
     document.querySelectorAll('.container')[0].remove();
   }
+}
+
+// container
+//   row
+//     h2 <span>
+//   row
+//     h3 <span>
+//   row
+//     h3 <span>
+//   row
+//     h3 <span>
+
+function createWatchlistEntry() {
+  var watchlistEntryContainer = document.createElement('div');
+  watchlistEntryContainer.className = 'watchlistEntryContainer';
+  $watchlistEntries.appendChild(watchlistEntryContainer);
+
+  var namePriceRow = document.createElement('div');
+  namePriceRow.className = 'row';
+  watchlistEntryContainer.appendChild(namePriceRow);
+
+  var stockSymbol = document.createElement('h2');
+  stockSymbol.className = 'watchlistStockSymbol';
+  stockSymbol.textContent = data.watchlist[data.watchlist.length - 1].price.symbol;
+  namePriceRow.appendChild(stockSymbol);
+
+  var stockPrice = document.createElement('span');
+  stockPrice.className = 'stockPrice positive';
+  stockPrice.textContent = '$' + data.watchlist[data.watchlist.length - 1].price.regularMarketPrice.fmt;
+  namePriceRow.appendChild(stockPrice);
+
+  var todayRow = document.createElement('div');
+  todayRow.className = 'row';
+  watchlistEntryContainer.appendChild(todayRow);
+
+  var todayLabel = document.createElement('h3');
+  todayLabel.className = 'todayLabel';
+  todayLabel.textContent = 'Today: ';
+  todayRow.appendChild(todayLabel);
+
+  var todayPercentage = document.createElement('span');
+  if (checkPercentage(data.watchlist[data.watchlist.length - 1].price.regularMarketChangePercent.raw) === true) {
+    todayPercentage.className = 'stockToday positive';
+  } else {
+    todayPercentage.className = 'stockToday negative';
+  }
+  todayPercentage.textContent = data.watchlist[data.watchlist.length - 1].price.regularMarketChangePercent.fmt;
+  todayRow.appendChild(todayPercentage);
+
+  var lowRow = document.createElement('div');
+  lowRow.className = 'row';
+  watchlistEntryContainer.appendChild(lowRow);
+
+  var lowLabel = document.createElement('h3');
+  lowLabel.className = 'lowLabel';
+  lowLabel.textContent = 'Low: ';
+  lowRow.appendChild(lowLabel);
+
+  var lowPrice = document.createElement('span');
+  lowPrice.className = 'lowPrice negative';
+  lowPrice.textContent = '$' + data.watchlist[data.watchlist.length - 1].price.regularMarketDayLow.fmt;
+  lowRow.appendChild(lowPrice);
+
+  var highRow = document.createElement('div');
+  highRow.className = 'row';
+  watchlistEntryContainer.appendChild(highRow);
+
+  var highLabel = document.createElement('h3');
+  highLabel.className = 'highLabel';
+  highLabel.textContent = 'High: ';
+  highRow.appendChild(highLabel);
+
+  var highPrice = document.createElement('span');
+  highPrice.className = 'highPrice positive';
+  highPrice.textContent = '$' + data.watchlist[data.watchlist.length - 1].price.regularMarketDayHigh.fmt;
+  highRow.appendChild(highPrice);
 }
