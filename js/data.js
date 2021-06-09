@@ -2,5 +2,6 @@
 var data = {
   search: '',
   searchResult: '',
-  trending: ''
+  trending: '',
+  watchlist: []
 };

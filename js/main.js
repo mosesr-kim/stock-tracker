@@ -2,6 +2,7 @@ var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 
 $search.addEventListener('submit', handleSearch);
+$main.addEventListener('click', handleAddStock);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -183,4 +184,10 @@ function summarize(summary) {
 
 function checkPercentage(percentage) {
   return percentage > 0;
+}
+
+function handleAddStock(event) {
+  if (event.target.className.includes('fa-plus-circle')) {
+    console.log(event.target.className);
+  }
 }
