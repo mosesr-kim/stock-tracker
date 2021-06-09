@@ -81,16 +81,9 @@ function handleSearch(event) {
 //   xhr.send();
 // }
 
-// container
-//   row
-//     h1 h1 <span class="stock price">h1</span>
-//   row
-//     h2 h2 h2
-//   p
-//   row
-//     button icon
-
 function createStockEntry(data) {
+  removeSearchEntry();
+
   var stockContainer = document.createElement('div');
   stockContainer.className = 'container';
   $main.appendChild(stockContainer);
@@ -188,6 +181,14 @@ function checkPercentage(percentage) {
 
 function handleAddStock(event) {
   if (event.target.className.includes('fa-plus-circle')) {
+    data.watchlist.push(data.searchResult);
+    console.log(data.watchlist);
     console.log(event.target.className);
+  }
+}
+
+function removeSearchEntry() {
+  if (document.querySelectorAll('.container').length > 0) {
+    document.querySelectorAll('.container')[0].remove();
   }
 }
