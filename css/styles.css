@@ -14,18 +14,21 @@ a {
   color: #011627;
   font-family: 'Roboto', sans-serif;
   margin-top: 35px;
+  font-weight: 500;
 }
 
 .trending {
-  margin-left: 50px;
+  margin-left: 25px;
 }
 
-.watchlist { margin-left: 50px; }
+.watchlist {
+  margin-left: 20px;
+}
 
 .searchBar {
   font-family: 'Roboto', sans-serif;
   margin-top: 30px;
-  margin-left: 50px;
+  margin-left: 25px;
   border: 1px solid #011627;
   border-radius: 25px;
   width: 300px;
@@ -47,12 +50,70 @@ input::-webkit-input-placeholder {
   color: #011627;
 }
 
-input[type="text"] {
-  font-size: 16px;
-  color: #011627;
-}
-
 .magnifying {
   margin-left: 6px;
   margin-top: 4px;
+}
+
+.mobileHeader {
+  display: none;
+}
+
+@media screen and (max-width: 675px) {
+  .desktopHeader {
+    display: flex;
+    justify-content: center;
+  }
+
+  .searchForm {
+    padding-bottom: 10px;
+    border-top: 1px solid #ff9f1c;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .searchBar {
+    margin-top: 10px;
+  }
+
+  .browse {
+    margin-bottom: 0;
+    margin-top: 50px;
+  }
+
+  .trending {
+    margin-top: 63px;
+  }
+
+  .watchlist {
+    margin-top: 63px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .browse {
+    font-size: 24px;
+  }
+
+  .trending {
+    font-size: 12px;
+  }
+
+  .watchlist {
+    font-size: 12px;
+  }
+
+  .searchBar {
+    width: 200px;
+  }
+
+  #search {
+    width: 165px;
+  }
+
+  input::-webkit-input-placeholder {
+    font-size: 12px;
+  }
 }

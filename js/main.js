@@ -5,11 +5,13 @@ $search.addEventListener('submit', handleSearch);
 function handleSearch(event) {
   event.preventDefault();
   $search.reset();
-  // the code that gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
+  // (Code below is commented out to avoid rate limiting restrictions)
+  // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
   // data.search = $search.elements.search.value;
   // searchRequest(data.search);
 }
 
+// (Code below is commented out to avoid rate limiting restrictions)
 // The function to request Stock/V2/Get-Profile of a certain stock ticker symbol.
 // function searchRequest(search) {
 //   var xhr = new XMLHttpRequest();
@@ -25,6 +27,7 @@ function handleSearch(event) {
 //   xhr.send();
 // }
 
+// (Code below is commented out to avoid rate limiting restrictions)
 // The function to request market/get-trending-tickers
 // function trendingRequest() {
 //   var xhr = new XMLHttpRequest();
