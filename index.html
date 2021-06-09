@@ -8,13 +8,30 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
+    <div class="row desktopHeader">
+      <h1 class="browse">Browse</h1>
+      <a href="#" class="trending">Trending Stocks</a>
+      <a href="#" class="watchlist">Watchlist</a>
+      <form action="" class="searchForm">
+        <div class="searchBar">
+          <label for="search"><i class="fas fa-search magnifying"></i></label>
+          <input type="text" placeholder="Search Companies..." id="search" name="search">
+        </div>
+      </form>
+    </div>
   </header>
   <main>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
 </body>
 </html>
