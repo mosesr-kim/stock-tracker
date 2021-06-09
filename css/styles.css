@@ -76,11 +76,13 @@ input::-webkit-input-placeholder {
 
   .searchBar {
     margin-top: 10px;
+    margin-left: 0;
   }
 
   .browse {
     margin-bottom: 0;
     margin-top: 50px;
+    margin-left: 0;
   }
 
   .trending {

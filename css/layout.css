@@ -2,3 +2,8 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.container {
+  width: 75%;
+  margin: auto;
+}
