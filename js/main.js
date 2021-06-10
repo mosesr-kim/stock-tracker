@@ -1,12 +1,16 @@
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
+var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
+var $watchlistButton = document.querySelector('.watchlist');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
+$watchlistButton.addEventListener('click', handleWatchlist);
 
 function handleSearch(event) {
   event.preventDefault();
+  $searchContainer.className = 'view searchContainer';
   data.search = $search.elements.search.value;
   console.log($search.elements.search.value);
   if ($search.elements.search.value.toUpperCase() === 'GME') {
@@ -85,14 +89,13 @@ function handleSearch(event) {
 function createStockEntry(data) {
   removeSearchEntry();
 
-  var stockContainer = document.createElement('div');
-  stockContainer.className = 'view container';
-  stockContainer.setAttribute('data-view', 'search');
-  $main.appendChild(stockContainer);
+  var searchContainerResult = document.createElement('div');
+  searchContainerResult.className = 'row searchContainerResult';
+  $searchContainer.appendChild(searchContainerResult);
 
   var headerRow = document.createElement('div');
   headerRow.className = 'row headerRow';
-  stockContainer.appendChild(headerRow);
+  searchContainerResult.appendChild(headerRow);
 
   var stockName = document.createElement('h1');
   stockName.className = 'stockName';
@@ -114,7 +117,7 @@ function createStockEntry(data) {
 
   var subHeaderRow = document.createElement('div');
   subHeaderRow.className = 'row subHeaderRow';
-  stockContainer.appendChild(subHeaderRow);
+  searchContainerResult.appendChild(subHeaderRow);
 
   var todayPercentage = document.createElement('h2');
   todayPercentage.textContent = 'Today: ';
@@ -152,11 +155,11 @@ function createStockEntry(data) {
   var companySummary = document.createElement('p');
   companySummary.className = 'companySummary';
   companySummary.textContent = summarize(data.assetProfile.longBusinessSummary) + '...';
-  stockContainer.appendChild(companySummary);
+  searchContainerResult.appendChild(companySummary);
 
   var buttonRow = document.createElement('div');
   buttonRow.className = 'buttonRow';
-  stockContainer.appendChild(buttonRow);
+  searchContainerResult.appendChild(buttonRow);
 
   var readMoreButton = document.createElement('a');
   readMoreButton.className = 'readMore';
@@ -183,26 +186,18 @@ function checkPercentage(percentage) {
 
 function handleAddStock(event) {
   if (event.target.className.includes('fa-plus-circle')) {
+    data.view = 'watchlist';
     data.watchlist.push(data.searchResult);
     createWatchlistEntry();
+    viewSwap(data.view);
   }
 }
 
 function removeSearchEntry() {
-  if (document.querySelectorAll('.container').length > 0) {
-    document.querySelectorAll('.container')[0].remove();
+  if (document.querySelector('.searchContainerResult')) {
+    document.querySelector('.searchContainerResult').remove();
   }
 }
-
-// container
-//   row
-//     h2 <span>
-//   row
-//     h3 <span>
-//   row
-//     h3 <span>
-//   row
-//     h3 <span>
 
 function createWatchlistEntry() {
   var watchlistEntryContainer = document.createElement('div');
@@ -268,4 +263,20 @@ function createWatchlistEntry() {
   highPrice.className = 'highPrice positive';
   highPrice.textContent = '$' + data.watchlist[data.watchlist.length - 1].price.regularMarketDayHigh.fmt;
   highRow.appendChild(highPrice);
+}
+
+function viewSwap(view) {
+  var $views = document.querySelectorAll('.view');
+  var containerName = view + 'Container';
+  for (var i = 0; i < $views.length; i++) {
+    if (view === $views[i].getAttribute('data-view')) {
+      $views[i].className = containerName;
+    } else {
+      $views[i].className = 'hidden';
+    }
+  }
+}
+
+function handleWatchlist(event) {
+  viewSwap('watchlist');
 }

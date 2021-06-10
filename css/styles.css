@@ -55,12 +55,14 @@ input::-webkit-input-placeholder {
   margin-top: 4px;
 }
 
-.container {
+.searchContainerResult {
   font-family: 'Roboto', sans-serif;
   color: #011627;
   background: #f2f2f2;
   border: 1px solid #ff9f1c;
   border-radius: 5px;
+  width: 50%;
+  margin: auto;
   margin-top: 25px;
 }
 
