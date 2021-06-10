@@ -55,15 +55,26 @@ input::-webkit-input-placeholder {
   margin-top: 4px;
 }
 
+.searchContainer {
+  border-bottom: 1px solid #ff9f1c;
+}
+
+.searchResultHeader {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin-left: 15px;
+}
+
 .searchContainerResult {
   font-family: 'Roboto', sans-serif;
   color: #011627;
   background: #f2f2f2;
-  border: 1px solid #ff9f1c;
+  border: 1px solid #363434;
   border-radius: 5px;
   width: 50%;
   margin: auto;
   margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .headerRow {
@@ -106,6 +117,8 @@ input::-webkit-input-placeholder {
 }
 
 .readMore {
+  display: flex;
+  align-items: center;
   border: 1px solid #011627;
   background-color: #f2f2f2;
   margin-top: 0;
@@ -128,10 +141,84 @@ i.fas.fa-plus-circle {
   font-weight: 500;
 }
 
+.watchlistContainer {
+  border-bottom: 1px solid #ff9f1c;
+}
+
 .watchlistHeader {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   margin-left: 15px;
+}
+
+.watchlistEntryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #363434;
+  border-radius: 5px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+.namePriceRow {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.watchlistStockSymbol {
+  margin-bottom: 0;
+}
+
+span.stockPrice {
+  margin-left: 10px;
+  padding-top: 20px;
+}
+
+.todayRow {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.todayLabel {
+  margin-bottom: 0;
+}
+
+span.stockPercentage {
+  margin-left: 10px;
+  padding-top: 20px;
+}
+
+.lowRow {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.lowLabel {
+  margin-bottom: 0;
+}
+
+span.lowPrice {
+  margin-left: 10px;
+  padding-top: 20px;
+}
+
+.highRow {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+span.highPrice {
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 675px) {

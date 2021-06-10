@@ -1,6 +1,7 @@
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
+var $searchResultHeader = document.querySelector('.searchResultHeader');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
 var $watchlistButton = document.querySelector('.watchlist');
 
@@ -91,7 +92,7 @@ function createStockEntry(data) {
 
   var searchContainerResult = document.createElement('div');
   searchContainerResult.className = 'row searchContainerResult';
-  $searchContainer.appendChild(searchContainerResult);
+  $searchResultHeader.appendChild(searchContainerResult);
 
   var headerRow = document.createElement('div');
   headerRow.className = 'row headerRow';
@@ -154,8 +155,18 @@ function createStockEntry(data) {
 
   var companySummary = document.createElement('p');
   companySummary.className = 'companySummary';
-  companySummary.textContent = summarize(data.assetProfile.longBusinessSummary) + '...';
+  companySummary.textContent = firstHalf(data.assetProfile.longBusinessSummary);
   searchContainerResult.appendChild(companySummary);
+
+  var dots = document.createElement('span');
+  dots.className = 'dots';
+  dots.textContent = '...';
+  companySummary.appendChild(dots);
+
+  var more = document.createElement('span');
+  more.className = 'more hidden';
+  more.textContent = secondHalf(data.assetProfile.longBusinessSummary);
+  companySummary.appendChild(more);
 
   var buttonRow = document.createElement('div');
   buttonRow.className = 'buttonRow';
@@ -164,6 +175,7 @@ function createStockEntry(data) {
   var readMoreButton = document.createElement('a');
   readMoreButton.className = 'readMore';
   readMoreButton.setAttribute('href', '#');
+  readMoreButton.setAttribute('onclick', 'readMore()');
   readMoreButton.textContent = 'Read More';
   buttonRow.appendChild(readMoreButton);
 
@@ -172,9 +184,17 @@ function createStockEntry(data) {
   buttonRow.appendChild(addStock);
 }
 
-function summarize(summary) {
+function firstHalf(summary) {
   var newString = '';
   for (var i = 0; i < (summary.length / 2); i++) {
+    newString += summary[i];
+  }
+  return newString;
+}
+
+function secondHalf(summary) {
+  var newString = '';
+  for (var i = summary.length / 2; i < summary.length; i++) {
     newString += summary[i];
   }
   return newString;
@@ -205,7 +225,7 @@ function createWatchlistEntry() {
   $watchlistEntries.appendChild(watchlistEntryContainer);
 
   var namePriceRow = document.createElement('div');
-  namePriceRow.className = 'row';
+  namePriceRow.className = 'row namePriceRow';
   watchlistEntryContainer.appendChild(namePriceRow);
 
   var stockSymbol = document.createElement('h2');
@@ -219,7 +239,7 @@ function createWatchlistEntry() {
   namePriceRow.appendChild(stockPrice);
 
   var todayRow = document.createElement('div');
-  todayRow.className = 'row';
+  todayRow.className = 'row todayRow';
   watchlistEntryContainer.appendChild(todayRow);
 
   var todayLabel = document.createElement('h3');
@@ -229,15 +249,15 @@ function createWatchlistEntry() {
 
   var todayPercentage = document.createElement('span');
   if (checkPercentage(data.watchlist[data.watchlist.length - 1].price.regularMarketChangePercent.raw) === true) {
-    todayPercentage.className = 'stockToday positive';
+    todayPercentage.className = 'stockPercentage positive';
   } else {
-    todayPercentage.className = 'stockToday negative';
+    todayPercentage.className = 'stockPercentage negative';
   }
   todayPercentage.textContent = data.watchlist[data.watchlist.length - 1].price.regularMarketChangePercent.fmt;
   todayRow.appendChild(todayPercentage);
 
   var lowRow = document.createElement('div');
-  lowRow.className = 'row';
+  lowRow.className = 'row lowRow';
   watchlistEntryContainer.appendChild(lowRow);
 
   var lowLabel = document.createElement('h3');
@@ -251,7 +271,7 @@ function createWatchlistEntry() {
   lowRow.appendChild(lowPrice);
 
   var highRow = document.createElement('div');
-  highRow.className = 'row';
+  highRow.className = 'row highRow';
   watchlistEntryContainer.appendChild(highRow);
 
   var highLabel = document.createElement('h3');
@@ -279,4 +299,23 @@ function viewSwap(view) {
 
 function handleWatchlist(event) {
   viewSwap('watchlist');
+}
+
+function readMore(event) {
+  debugger
+  var $dots = document.querySelector('.dots');
+  var $more = document.querySelector('.more');
+  var $readMore = document.querySelector('.readMore');
+  var $readLess = document.querySelector('.readLess');
+  if ($dots.className === 'dots hidden') {
+    $dots.className = 'dots';
+    $readMore.textContent = 'Read More';
+    $readMore.setAttribute('onclick', 'readMore()')
+    $more.className = 'more hidden';
+  } else {
+    $dots.className = 'dots hidden';
+    $readMore.textContent = 'Read Less';
+    $readMore.setAttribute('onclick', 'readMore()')
+    $more.className = 'more';
+  }
 }
