@@ -1,23 +1,37 @@
+/* global requests */
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
 var $watchlistButton = document.querySelector('.watchlist');
 var $noStocks = document.querySelector('.noStocks');
+var $editHeader = document.querySelector('.editHeader');
+var $searchResultHeader = document.querySelector('.searchResultHeader');
+var $modalContainer = document.querySelector('.modalContainer');
+var $cancelButton = document.querySelector('.cancelButton');
+var $confirmButton = document.querySelector('.confirmButton');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
 $watchlistButton.addEventListener('click', handleWatchlist);
+$watchlistEntries.addEventListener('click', watchlistToSearch);
+$main.addEventListener('click', modal);
+$cancelButton.addEventListener('click', cancel);
+$confirmButton.addEventListener('click', handleDeleteStock);
 
 function handleSearch(event) {
   event.preventDefault();
   $searchContainer.className = 'view searchContainer';
+  $searchResultHeader.className = 'row searchResultHeader';
+  $editHeader.className = 'hidden';
   data.search = $search.elements.search.value;
   for (var key in requests) {
     if (data.search.toUpperCase() === key) {
       data.searchResult = requests[key];
       var stockSearchDOM = createStockEntry(requests[key]);
       $searchContainer.appendChild(stockSearchDOM);
+      var deleteButton = document.querySelector('.fa-minus-circle');
+      deleteButton.className = 'hidden';
     }
     $search.reset();
   }
@@ -155,6 +169,10 @@ function createStockEntry(data) {
   addStock.className = 'fas fa-plus-circle';
   buttonRow.appendChild(addStock);
 
+  var deleteStock = document.createElement('i');
+  deleteStock.className = 'fas fa-minus-circle';
+  buttonRow.appendChild(deleteStock);
+
   return searchContainerResult;
 }
 
@@ -192,6 +210,34 @@ function handleAddStock(event) {
     $watchlistEntries.appendChild(watchlistDOM);
     viewSwap(data.view);
   }
+}
+
+function modal(event) {
+  if (event.target.className.includes('fa-minus-circle')) {
+    $modalContainer.className = 'modalContainer';
+  }
+}
+
+function cancel(event) {
+  $modalContainer.className = 'hidden';
+}
+
+function handleDeleteStock(event) {
+  var stockSymbol = $searchContainer.querySelector('.stockSymbol').textContent;
+  for (var i = 0; i < data.watchlist.length; i++) {
+    if (stockSymbol === data.watchlist[i].price.symbol) {
+      data.watchlist.splice([i], 1);
+      var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
+      for (var z = 0; z < watchlistEntries.length; z++) {
+        if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) { watchlistEntries[z].remove(); }
+      }
+    }
+  }
+  if (data.watchlist.length === 0) {
+    $noStocks.className = 'noStocks';
+  }
+  viewSwap('watchlist');
+  $modalContainer.className = 'hidden';
 }
 
 function removeSearchEntry(data) {
@@ -310,3 +356,21 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
   viewSwap('watchlist');
 });
+
+function watchlistToSearch(event) {
+  if (event.target.closest('.watchlistEntryContainer')) {
+    $searchContainer.className = 'view searchContainer';
+    $editHeader.className = 'row editHeader';
+    $searchResultHeader.className = 'hidden';
+    removeSearchEntry();
+    var stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
+    for (var i = 0; i < data.watchlist.length; i++) {
+      if (stockSymbol === data.watchlist[i].price.symbol) {
+        var editWatchlist = createStockEntry(data.watchlist[i]);
+        $searchContainer.appendChild(editWatchlist);
+        var addButton = document.querySelector('.fa-plus-circle');
+        addButton.className = 'hidden';
+      }
+    }
+  }
+}

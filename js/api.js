@@ -1,3 +1,5 @@
+/* exported requests, trendingTickers */
+
 var trendingTickers = {
   finance: {
     result: [
