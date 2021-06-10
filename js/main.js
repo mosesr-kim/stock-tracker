@@ -18,10 +18,8 @@ function handleSearch(event) {
       data.searchResult = requests[key];
       var stockSearchDOM = createStockEntry(requests[key]);
       $searchContainer.appendChild(stockSearchDOM);
-      $search.reset();
-    } else {
-      $search.reset();
     }
+    $search.reset();
   }
   // (Code below is commented out to avoid rate limiting restrictions)
   // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
