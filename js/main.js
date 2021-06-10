@@ -1,4 +1,3 @@
-/* exported data */
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
@@ -14,35 +13,28 @@ function handleSearch(event) {
   event.preventDefault();
   $searchContainer.className = 'view searchContainer';
   data.search = $search.elements.search.value;
-  console.log($search.elements.search.value);
   if ($search.elements.search.value.toUpperCase() === 'GME') {
     data.searchResult = gmeSearch;
-    console.log(gmeSearch);
     createStockEntry(gmeSearch);
     $search.reset();
   } else if ($search.elements.search.value.toUpperCase() === 'AMC') {
     data.searchResult = amcSearch;
-    console.log(amcSearch);
     createStockEntry(amcSearch);
     $search.reset();
   } else if ($search.elements.search.value.toUpperCase() === 'BB') {
     data.searchResult = bbSearch;
-    console.log(bbSearch);
     createStockEntry(bbSearch);
     $search.reset();
   } else if ($search.elements.search.value.toUpperCase() === 'NOK') {
     data.searchResult = nokSearch;
-    console.log(nokSearch);
     createStockEntry(nokSearch);
     $search.reset();
   } else if ($search.elements.search.value.toUpperCase() === 'TSLA') {
     data.searchResult = tslaSearch;
-    console.log(tslaSearch);
     createStockEntry(tslaSearch);
     $search.reset();
   } else if ($search.elements.search.value.toUpperCase() === 'GOOGL') {
     data.searchResult = googlSearch;
-    console.log(googlSearch);
     createStockEntry(googlSearch);
     $search.reset();
   } else {
@@ -176,9 +168,10 @@ function createStockEntry(data) {
   var readMoreButton = document.createElement('a');
   readMoreButton.className = 'readMore';
   readMoreButton.setAttribute('href', '#');
-  readMoreButton.setAttribute('onclick', 'readMore()');
   readMoreButton.textContent = 'Read More';
   buttonRow.appendChild(readMoreButton);
+
+  readMoreButton.addEventListener('click', readMore);
 
   var addStock = document.createElement('i');
   addStock.className = 'fas fa-plus-circle';
@@ -195,7 +188,7 @@ function firstHalf(summary) {
 
 function secondHalf(summary) {
   var newString = '';
-  for (var i = summary.length / 2; i < summary.length; i++) {
+  for (var i = Math.floor(summary.length / 2); i < summary.length; i++) {
     newString += summary[i];
   }
   return newString;
@@ -284,6 +277,7 @@ function createWatchlistEntry(data) {
   highPrice.className = 'highPrice positive';
   highPrice.textContent = '$' + data.price.regularMarketDayHigh.fmt;
   highRow.appendChild(highPrice);
+
   $noStocks.setAttribute('class', 'hidden');
 }
 
@@ -307,16 +301,13 @@ function readMore(event) {
   var $dots = document.querySelector('.dots');
   var $more = document.querySelector('.more');
   var $readMore = document.querySelector('.readMore');
-  var $readLess = document.querySelector('.readLess');
   if ($dots.className === 'dots hidden') {
     $dots.className = 'dots';
     $readMore.textContent = 'Read More';
-    $readMore.setAttribute('onclick', 'readMore()')
     $more.className = 'more hidden';
   } else {
     $dots.className = 'dots hidden';
     $readMore.textContent = 'Read Less';
-    $readMore.setAttribute('onclick', 'readMore()')
     $more.className = 'more';
   }
 }
