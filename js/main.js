@@ -1,7 +1,6 @@
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
-var $searchResultHeader = document.querySelector('.searchResultHeader');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
 var $watchlistButton = document.querySelector('.watchlist');
 
@@ -92,7 +91,7 @@ function createStockEntry(data) {
 
   var searchContainerResult = document.createElement('div');
   searchContainerResult.className = 'row searchContainerResult';
-  $searchResultHeader.appendChild(searchContainerResult);
+  $searchContainer.appendChild(searchContainerResult);
 
   var headerRow = document.createElement('div');
   headerRow.className = 'row headerRow';

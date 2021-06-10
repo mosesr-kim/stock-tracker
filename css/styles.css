@@ -1,12 +1,7 @@
 header {
   background-color: #f2f2f2;
   border-bottom: 1px solid #ff9f1c;
-}
-
-h1.browse {
-  color: #011627;
-  font-family: 'Roboto', sans-serif;
-  margin-left: 15px;
+  padding-bottom: 25px;
 }
 
 a {
@@ -18,16 +13,18 @@ a {
 }
 
 a.trending {
+  font-size: 24px;
   margin-left: 25px;
 }
 
 a.watchlist {
+  font-size: 24px;
   margin-left: 20px;
 }
 
 .searchBar {
   font-family: 'Roboto', sans-serif;
-  margin-top: 30px;
+  margin-top: 35px;
   margin-left: 25px;
   border: 1px solid #011627;
   border-radius: 25px;
@@ -62,7 +59,7 @@ input::-webkit-input-placeholder {
 .searchResultHeader {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 .searchContainerResult {
@@ -73,7 +70,6 @@ input::-webkit-input-placeholder {
   border-radius: 5px;
   width: 50%;
   margin: auto;
-  margin-top: 25px;
   margin-bottom: 25px;
 }
 
@@ -148,7 +144,7 @@ i.fas.fa-plus-circle {
 .watchlistHeader {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 .watchlistEntryContainer {
@@ -165,6 +161,7 @@ i.fas.fa-plus-circle {
 .namePriceRow {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -181,6 +178,7 @@ span.stockPrice {
 .todayRow {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -197,6 +195,7 @@ span.stockPercentage {
 .lowRow {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -213,6 +212,7 @@ span.lowPrice {
 .highRow {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -221,7 +221,38 @@ span.highPrice {
   margin-left: 10px;
 }
 
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 1250px) {
+  .headerRow {
+    font-size: 10px;
+  }
+
+  .subHeaderRow {
+    font-size: 10px;
+  }
+
+  .companySummary {
+    font-size: 16px;
+  }
+
+  .searchContainerResult {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 691px) {
+  header {
+    background-color: white;
+    padding-bottom: 0;
+  }
+
+  a.trending {
+    margin-left: 0;
+  }
+
+  a.watchlist {
+    margin-left: 25px;
+  }
+
   .desktopHeader {
     display: flex;
     justify-content: center;
@@ -254,30 +285,16 @@ span.highPrice {
   .watchlist {
     margin-top: 63px;
   }
-}
 
-@media screen and (max-width: 350px) {
-  .browse {
-    font-size: 24px;
+  .watchlistEntries {
+    display: flex;
+    justify-content: space-evenly;
   }
 
-  .trending {
-    font-size: 12px;
-  }
-
-  .watchlist {
-    font-size: 12px;
-  }
-
-  .searchBar {
-    width: 200px;
-  }
-
-  #search {
-    width: 165px;
-  }
-
-  input::-webkit-input-placeholder {
-    font-size: 12px;
+  .watchlistEntryContainer {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin-left: 0;
   }
 }
