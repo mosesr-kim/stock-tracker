@@ -126,6 +126,11 @@ i.fas.fa-plus-circle {
   font-size: 30px;
 }
 
+i.fas.fa-minus-circle {
+  color: #e71d36;
+  font-size: 30px;
+}
+
 .positive {
   color: green;
   font-weight: 500;

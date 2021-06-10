@@ -11,6 +11,7 @@ $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
 $watchlistButton.addEventListener('click', handleWatchlist);
 $watchlistEntries.addEventListener('click', watchlistToSearch);
+$main.addEventListener('click', handleDeleteStock);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -23,6 +24,8 @@ function handleSearch(event) {
       data.searchResult = requests[key];
       var stockSearchDOM = createStockEntry(requests[key]);
       $searchContainer.appendChild(stockSearchDOM);
+      var deleteButton = document.querySelector('.fa-minus-circle');
+      deleteButton.className = 'hidden';
     }
     $search.reset();
   }
@@ -160,6 +163,10 @@ function createStockEntry(data) {
   addStock.className = 'fas fa-plus-circle';
   buttonRow.appendChild(addStock);
 
+  var deleteStock = document.createElement('i');
+  deleteStock.className = 'fas fa-minus-circle';
+  buttonRow.appendChild(deleteStock);
+
   return searchContainerResult;
 }
 
@@ -196,6 +203,36 @@ function handleAddStock(event) {
     var watchlistDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(watchlistDOM);
     viewSwap(data.view);
+  }
+}
+
+function destroyChildren(element) {
+  while (element.firstChild) {
+    element.firstChild.remove();
+  }
+}
+
+function handleDeleteStock(event) {
+  if (event.target.className.includes('fa-minus-circle')) {
+    var stockSymbol = event.target.closest('.searchContainerResult').querySelector('.stockSymbol').textContent;
+    console.log(stockSymbol);
+    for (var i = 0; i < data.watchlist.length; i++) {
+      if (stockSymbol === data.watchlist[i].price.symbol) {
+        data.watchlist.splice([i], 1);
+        destroyChildren($watchlistEntries);
+        viewSwap('watchlist');
+        for (var z = 0; z < data.watchlist.length; z++) {
+          var watchlistDOM = createWatchlistEntry(data.watchlist[z]);
+          $watchlistEntries.appendChild(watchlistDOM);
+        }
+      }
+    }
+    if (data.watchlist.length === 0) {
+      var noStocks = document.createElement('h2');
+      noStocks.className = 'noStocks';
+      noStocks.textContent = 'No stocks in watchlist...';
+      $watchlistEntries.appendChild(noStocks);
+    }
   }
 }
 
@@ -322,12 +359,13 @@ function watchlistToSearch(event) {
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
     removeSearchEntry();
-    var closest = event.target.closest('.watchlistEntryContainer');
-    var stockSymbol = closest.querySelector('.watchlistStockSymbol').textContent;
+    var stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
     for (var i = 0; i < data.watchlist.length; i++) {
       if (stockSymbol === data.watchlist[i].price.symbol) {
         var editWatchlist = createStockEntry(data.watchlist[i]);
         $searchContainer.appendChild(editWatchlist);
+        var addButton = document.querySelector('.fa-plus-circle');
+        addButton.className = 'hidden';
       }
     }
   }
