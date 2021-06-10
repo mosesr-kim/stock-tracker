@@ -1,10 +1,26 @@
 var $search = document.querySelector('.searchForm');
+var $main = document.querySelector('main');
+var $searchContainer = document.querySelector('.searchContainer');
+var $watchlistEntries = document.querySelector('.watchlistEntries');
+var $watchlistButton = document.querySelector('.watchlist');
+var $noStocks = document.querySelector('.noStocks');
 
 $search.addEventListener('submit', handleSearch);
+$main.addEventListener('click', handleAddStock);
+$watchlistButton.addEventListener('click', handleWatchlist);
 
 function handleSearch(event) {
   event.preventDefault();
-  $search.reset();
+  $searchContainer.className = 'view searchContainer';
+  data.search = $search.elements.search.value;
+  for (var key in requests) {
+    if (data.search.toUpperCase() === key) {
+      data.searchResult = requests[key];
+      var stockSearchDOM = createStockEntry(requests[key]);
+      $searchContainer.appendChild(stockSearchDOM);
+    }
+    $search.reset();
+  }
   // (Code below is commented out to avoid rate limiting restrictions)
   // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
   // data.search = $search.elements.search.value;
@@ -42,3 +58,255 @@ function handleSearch(event) {
 //   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
 //   xhr.send();
 // }
+
+function createStockEntry(data) {
+  removeSearchEntry();
+
+  var searchContainerResult = document.createElement('div');
+  searchContainerResult.className = 'row searchContainerResult';
+
+  var headerRow = document.createElement('div');
+  headerRow.className = 'row headerRow';
+  searchContainerResult.appendChild(headerRow);
+
+  var stockName = document.createElement('h1');
+  stockName.className = 'stockName';
+  stockName.textContent = data.price.longName;
+  headerRow.appendChild(stockName);
+
+  var stockSymbol = document.createElement('h1');
+  stockSymbol.className = 'stockSymbol';
+  stockSymbol.textContent = data.price.symbol;
+  headerRow.appendChild(stockSymbol);
+
+  var stockPrice = document.createElement('h1');
+  headerRow.appendChild(stockPrice);
+
+  var stockPriceSpan = document.createElement('span');
+  stockPriceSpan.className = 'stockPrice positive';
+  stockPriceSpan.textContent = '$' + data.price.regularMarketPrice.fmt;
+  stockPrice.appendChild(stockPriceSpan);
+
+  var subHeaderRow = document.createElement('div');
+  subHeaderRow.className = 'row subHeaderRow';
+  searchContainerResult.appendChild(subHeaderRow);
+
+  var todayPercentage = document.createElement('h2');
+  todayPercentage.textContent = 'Today: ';
+  subHeaderRow.appendChild(todayPercentage);
+
+  var todayPercentageSpan = document.createElement('span');
+  if (checkPercentage(data.price.regularMarketChangePercent.raw) === true) {
+    todayPercentageSpan.className = 'stockToday positive';
+  } else {
+    todayPercentageSpan.className = 'stockToday negative';
+  }
+  todayPercentageSpan.textContent = data.price.regularMarketChangePercent.fmt;
+  todayPercentage.appendChild(todayPercentageSpan);
+
+  var todayLow = document.createElement('h2');
+  todayLow.className = 'todayLow';
+  todayLow.textContent = 'Low: ';
+  subHeaderRow.appendChild(todayLow);
+
+  var todayLowSpan = document.createElement('span');
+  todayLowSpan.className = 'negative';
+  todayLowSpan.textContent = '$' + data.price.regularMarketDayLow.fmt;
+  todayLow.appendChild(todayLowSpan);
+
+  var todayHigh = document.createElement('h2');
+  todayHigh.className = 'todayHigh';
+  todayHigh.textContent = 'High: ';
+  subHeaderRow.appendChild(todayHigh);
+
+  var todayHighSpan = document.createElement('span');
+  todayHighSpan.className = 'positive';
+  todayHighSpan.textContent = '$' + data.price.regularMarketDayHigh.fmt;
+  todayHigh.appendChild(todayHighSpan);
+
+  var companySummary = document.createElement('p');
+  companySummary.className = 'companySummary';
+  companySummary.textContent = firstHalf(data.assetProfile.longBusinessSummary);
+  searchContainerResult.appendChild(companySummary);
+
+  var dots = document.createElement('span');
+  dots.className = 'dots';
+  dots.textContent = '...';
+  companySummary.appendChild(dots);
+
+  var more = document.createElement('span');
+  more.className = 'more hidden';
+  more.textContent = secondHalf(data.assetProfile.longBusinessSummary);
+  companySummary.appendChild(more);
+
+  var buttonRow = document.createElement('div');
+  buttonRow.className = 'buttonRow';
+  searchContainerResult.appendChild(buttonRow);
+
+  var readMoreButton = document.createElement('a');
+  readMoreButton.className = 'readMore';
+  readMoreButton.setAttribute('href', '#');
+  readMoreButton.textContent = 'Read More';
+  buttonRow.appendChild(readMoreButton);
+
+  readMoreButton.addEventListener('click', readMore);
+
+  var addStock = document.createElement('i');
+  addStock.className = 'fas fa-plus-circle';
+  buttonRow.appendChild(addStock);
+
+  return searchContainerResult;
+}
+
+function firstHalf(summary) {
+  var newString = '';
+  for (var i = 0; i < (summary.length / 2); i++) {
+    newString += summary[i];
+  }
+  return newString;
+}
+
+function secondHalf(summary) {
+  var newString = '';
+  for (var i = Math.floor(summary.length / 2); i < summary.length; i++) {
+    newString += summary[i];
+  }
+  return newString;
+}
+
+function checkPercentage(percentage) {
+  return percentage > 0;
+}
+
+function handleAddStock(event) {
+  if (event.target.className.includes('fa-plus-circle')) {
+    for (var i = 0; i < data.watchlist.length; i++) {
+      if (data.watchlist[i].price.symbol === data.searchResult.price.symbol) {
+        viewSwap('watchlist');
+        return;
+      }
+    }
+    data.view = 'watchlist';
+    data.watchlist.push(data.searchResult);
+    var watchlistDOM = createWatchlistEntry(data.searchResult);
+    $watchlistEntries.appendChild(watchlistDOM);
+    viewSwap(data.view);
+  }
+}
+
+function removeSearchEntry(data) {
+  if (document.querySelector('.searchContainerResult')) {
+    document.querySelector('.searchContainerResult').remove();
+  }
+}
+
+function createWatchlistEntry(data) {
+  var watchlistEntryContainer = document.createElement('div');
+  watchlistEntryContainer.className = 'watchlistEntryContainer';
+
+  var namePriceRow = document.createElement('div');
+  namePriceRow.className = 'row namePriceRow';
+  watchlistEntryContainer.appendChild(namePriceRow);
+
+  var stockSymbol = document.createElement('h2');
+  stockSymbol.className = 'watchlistStockSymbol';
+  stockSymbol.textContent = data.price.symbol;
+  namePriceRow.appendChild(stockSymbol);
+
+  var stockPrice = document.createElement('span');
+  stockPrice.className = 'stockPrice positive';
+  stockPrice.textContent = '$' + data.price.regularMarketPrice.fmt;
+  namePriceRow.appendChild(stockPrice);
+
+  var todayRow = document.createElement('div');
+  todayRow.className = 'row todayRow';
+  watchlistEntryContainer.appendChild(todayRow);
+
+  var todayLabel = document.createElement('h3');
+  todayLabel.className = 'todayLabel';
+  todayLabel.textContent = 'Today: ';
+  todayRow.appendChild(todayLabel);
+
+  var todayPercentage = document.createElement('span');
+  if (checkPercentage(data.price.regularMarketChangePercent.raw) === true) {
+    todayPercentage.className = 'stockPercentage positive';
+  } else {
+    todayPercentage.className = 'stockPercentage negative';
+  }
+  todayPercentage.textContent = data.price.regularMarketChangePercent.fmt;
+  todayRow.appendChild(todayPercentage);
+
+  var lowRow = document.createElement('div');
+  lowRow.className = 'row lowRow';
+  watchlistEntryContainer.appendChild(lowRow);
+
+  var lowLabel = document.createElement('h3');
+  lowLabel.className = 'lowLabel';
+  lowLabel.textContent = 'Low: ';
+  lowRow.appendChild(lowLabel);
+
+  var lowPrice = document.createElement('span');
+  lowPrice.className = 'lowPrice negative';
+  lowPrice.textContent = '$' + data.price.regularMarketDayLow.fmt;
+  lowRow.appendChild(lowPrice);
+
+  var highRow = document.createElement('div');
+  highRow.className = 'row highRow';
+  watchlistEntryContainer.appendChild(highRow);
+
+  var highLabel = document.createElement('h3');
+  highLabel.className = 'highLabel';
+  highLabel.textContent = 'High: ';
+  highRow.appendChild(highLabel);
+
+  var highPrice = document.createElement('span');
+  highPrice.className = 'highPrice positive';
+  highPrice.textContent = '$' + data.price.regularMarketDayHigh.fmt;
+  highRow.appendChild(highPrice);
+
+  $noStocks.setAttribute('class', 'hidden');
+
+  return watchlistEntryContainer;
+}
+
+function viewSwap(view) {
+  var $views = document.querySelectorAll('.view');
+  var containerName = view + 'Container';
+  for (var i = 0; i < $views.length; i++) {
+    if (view === $views[i].getAttribute('data-view')) {
+      $views[i].className = containerName;
+    } else {
+      $views[i].className = 'hidden';
+    }
+  }
+}
+
+function handleWatchlist(event) {
+  viewSwap('watchlist');
+}
+
+function readMore(event) {
+  var $dots = document.querySelector('.dots');
+  var $more = document.querySelector('.more');
+  var $readMore = document.querySelector('.readMore');
+  if ($dots.className === 'dots hidden') {
+    $dots.className = 'dots';
+    $readMore.textContent = 'Read More';
+    $more.className = 'more hidden';
+  } else {
+    $dots.className = 'dots hidden';
+    $readMore.textContent = 'Read Less';
+    $more.className = 'more';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function (event) {
+  if (data.watchlist.length === 0) {
+    $noStocks.setAttribute('class', 'noStocks');
+  }
+  for (var i = 0; i < data.watchlist.length; i++) {
+    var watchlistDOM = createWatchlistEntry(data.watchlist[i]);
+    $watchlistEntries.appendChild(watchlistDOM);
+  }
+  viewSwap('watchlist');
+});
