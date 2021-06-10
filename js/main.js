@@ -200,6 +200,12 @@ function checkPercentage(percentage) {
 
 function handleAddStock(event) {
   if (event.target.className.includes('fa-plus-circle')) {
+    for (var i = 0; i < data.watchlist.length; i++) {
+      if (data.watchlist[i].price.symbol === data.searchResult.price.symbol) {
+        viewSwap('watchlist');
+        return;
+      }
+    }
     data.view = 'watchlist';
     data.watchlist.push(data.searchResult);
     createWatchlistEntry(data.searchResult);
