@@ -206,12 +206,6 @@ function handleAddStock(event) {
   }
 }
 
-function destroyChildren(element) {
-  while (element.firstChild) {
-    element.firstChild.remove();
-  }
-}
-
 function handleDeleteStock(event) {
   if (event.target.className.includes('fa-minus-circle')) {
     var stockSymbol = event.target.closest('.searchContainerResult').querySelector('.stockSymbol').textContent;
@@ -364,5 +358,4 @@ function watchlistToSearch(event) {
       }
     }
   }
-  // createStockEntry();
 }
