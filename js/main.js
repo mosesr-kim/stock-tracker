@@ -10,6 +10,7 @@ var $searchResultHeader = document.querySelector('.searchResultHeader');
 var $modalContainer = document.querySelector('.modalContainer');
 var $cancelButton = document.querySelector('.cancelButton');
 var $confirmButton = document.querySelector('.confirmButton');
+var $trendingContainer = document.querySelector('.trendingContainer');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -354,7 +355,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     var watchlistDOM = createWatchlistEntry(data.watchlist[i]);
     $watchlistEntries.appendChild(watchlistDOM);
   }
-  viewSwap('watchlist');
+  viewSwap('trending');
 });
 
 function watchlistToSearch(event) {

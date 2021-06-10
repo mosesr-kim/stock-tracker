@@ -281,6 +281,11 @@ span.highPrice {
   border-radius: 5px;
 }
 
+.trendingHeader {
+  font-size: 12px;
+  margin-left: 25px;
+}
+
 @media screen and (max-width: 1250px) {
   .headerRow {
     font-size: 10px;
