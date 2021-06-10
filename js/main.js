@@ -317,11 +317,19 @@ window.addEventListener('DOMContentLoaded', function (event) {
 });
 
 function watchlistToSearch(event) {
-  // if (event.target.closest('.watchlistEntryContainer')) {
-  //   viewSwap('search');
-  // }
-  $searchContainer.className = 'view searchContainer';
-  $editHeader.className = 'row editHeader';
-  $searchResultHeader.className = 'hidden';
-  removeSearchEntry();
+  if (event.target.closest('.watchlistEntryContainer')) {
+    $searchContainer.className = 'view searchContainer';
+    $editHeader.className = 'row editHeader';
+    $searchResultHeader.className = 'hidden';
+    removeSearchEntry();
+    var closest = event.target.closest('.watchlistEntryContainer');
+    var stockSymbol = closest.querySelector('.watchlistStockSymbol').textContent;
+    for (var i = 0; i < data.watchlist.length; i++) {
+      if (stockSymbol === data.watchlist[i].price.symbol) {
+        var editWatchlist = createStockEntry(data.watchlist[i]);
+        $searchContainer.appendChild(editWatchlist);
+      }
+    }
+  }
+  // createStockEntry();
 }
