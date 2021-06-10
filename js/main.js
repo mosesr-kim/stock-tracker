@@ -7,12 +7,17 @@ var $watchlistButton = document.querySelector('.watchlist');
 var $noStocks = document.querySelector('.noStocks');
 var $editHeader = document.querySelector('.editHeader');
 var $searchResultHeader = document.querySelector('.searchResultHeader');
+var $modalContainer = document.querySelector('.modalContainer');
+var $cancelButton = document.querySelector('.cancelButton');
+var $confirmButton = document.querySelector('.confirmButton');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
 $watchlistButton.addEventListener('click', handleWatchlist);
 $watchlistEntries.addEventListener('click', watchlistToSearch);
-$main.addEventListener('click', handleDeleteStock);
+$main.addEventListener('click', modal);
+$cancelButton.addEventListener('click', cancel);
+$confirmButton.addEventListener('click', handleDeleteStock);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -205,6 +210,16 @@ function handleAddStock(event) {
     $watchlistEntries.appendChild(watchlistDOM);
     viewSwap(data.view);
   }
+}
+
+function modal(event) {
+  if (event.target.className.includes('fa-minus-circle')) {
+    $modalContainer.className = 'modalContainer';
+  }
+}
+
+function cancel(event) {
+  $modalContainer.className = 'hidden';
 }
 
 function handleDeleteStock(event) {
