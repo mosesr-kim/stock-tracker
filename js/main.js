@@ -4,14 +4,19 @@ var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
 var $watchlistButton = document.querySelector('.watchlist');
 var $noStocks = document.querySelector('.noStocks');
+var $editHeader = document.querySelector('.editHeader');
+var $searchResultHeader = document.querySelector('.searchResultHeader');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
 $watchlistButton.addEventListener('click', handleWatchlist);
+$watchlistEntries.addEventListener('click', watchlistToSearch);
 
 function handleSearch(event) {
   event.preventDefault();
   $searchContainer.className = 'view searchContainer';
+  $searchResultHeader.className = 'row searchResultHeader';
+  $editHeader.className = 'hidden';
   data.search = $search.elements.search.value;
   for (var key in requests) {
     if (data.search.toUpperCase() === key) {
@@ -310,3 +315,13 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
   viewSwap('watchlist');
 });
+
+function watchlistToSearch(event) {
+  // if (event.target.closest('.watchlistEntryContainer')) {
+  //   viewSwap('search');
+  // }
+  $searchContainer.className = 'view searchContainer';
+  $editHeader.className = 'row editHeader';
+  $searchResultHeader.className = 'hidden';
+  removeSearchEntry();
+}
