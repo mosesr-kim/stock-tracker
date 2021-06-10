@@ -13,35 +13,16 @@ function handleSearch(event) {
   event.preventDefault();
   $searchContainer.className = 'view searchContainer';
   data.search = $search.elements.search.value;
-  if ($search.elements.search.value.toUpperCase() === 'GME') {
-    data.searchResult = gmeSearch;
-    createStockEntry(gmeSearch);
-    $search.reset();
-  } else if ($search.elements.search.value.toUpperCase() === 'AMC') {
-    data.searchResult = amcSearch;
-    createStockEntry(amcSearch);
-    $search.reset();
-  } else if ($search.elements.search.value.toUpperCase() === 'BB') {
-    data.searchResult = bbSearch;
-    createStockEntry(bbSearch);
-    $search.reset();
-  } else if ($search.elements.search.value.toUpperCase() === 'NOK') {
-    data.searchResult = nokSearch;
-    createStockEntry(nokSearch);
-    $search.reset();
-  } else if ($search.elements.search.value.toUpperCase() === 'TSLA') {
-    data.searchResult = tslaSearch;
-    createStockEntry(tslaSearch);
-    $search.reset();
-  } else if ($search.elements.search.value.toUpperCase() === 'GOOGL') {
-    data.searchResult = googlSearch;
-    createStockEntry(googlSearch);
-    $search.reset();
-  } else {
-    $search.reset();
-
+  for (var key in requests) {
+    if (data.search.toUpperCase() === key) {
+      data.searchResult = requests[key];
+      var stockSearchDOM = createStockEntry(requests[key]);
+      $searchContainer.appendChild(stockSearchDOM);
+      $search.reset();
+    } else {
+      $search.reset();
+    }
   }
-  // $search.reset();
   // (Code below is commented out to avoid rate limiting restrictions)
   // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
   // data.search = $search.elements.search.value;
@@ -85,7 +66,6 @@ function createStockEntry(data) {
 
   var searchContainerResult = document.createElement('div');
   searchContainerResult.className = 'row searchContainerResult';
-  $searchContainer.appendChild(searchContainerResult);
 
   var headerRow = document.createElement('div');
   headerRow.className = 'row headerRow';
@@ -176,6 +156,8 @@ function createStockEntry(data) {
   var addStock = document.createElement('i');
   addStock.className = 'fas fa-plus-circle';
   buttonRow.appendChild(addStock);
+
+  return searchContainerResult;
 }
 
 function firstHalf(summary) {
@@ -208,7 +190,8 @@ function handleAddStock(event) {
     }
     data.view = 'watchlist';
     data.watchlist.push(data.searchResult);
-    createWatchlistEntry(data.searchResult);
+    var watchlistDOM = createWatchlistEntry(data.searchResult);
+    $watchlistEntries.appendChild(watchlistDOM);
     viewSwap(data.view);
   }
 }
@@ -222,7 +205,6 @@ function removeSearchEntry(data) {
 function createWatchlistEntry(data) {
   var watchlistEntryContainer = document.createElement('div');
   watchlistEntryContainer.className = 'watchlistEntryContainer';
-  $watchlistEntries.appendChild(watchlistEntryContainer);
 
   var namePriceRow = document.createElement('div');
   namePriceRow.className = 'row namePriceRow';
@@ -285,6 +267,8 @@ function createWatchlistEntry(data) {
   highRow.appendChild(highPrice);
 
   $noStocks.setAttribute('class', 'hidden');
+
+  return watchlistEntryContainer;
 }
 
 function viewSwap(view) {
@@ -323,7 +307,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $noStocks.setAttribute('class', 'noStocks');
   }
   for (var i = 0; i < data.watchlist.length; i++) {
-    createWatchlistEntry(data.watchlist[i]);
+    var watchlistDOM = createWatchlistEntry(data.watchlist[i]);
+    $watchlistEntries.appendChild(watchlistDOM);
   }
   viewSwap('watchlist');
 });
