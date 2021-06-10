@@ -304,7 +304,6 @@ function handleWatchlist(event) {
 }
 
 function readMore(event) {
-  debugger
   var $dots = document.querySelector('.dots');
   var $more = document.querySelector('.more');
   var $readMore = document.querySelector('.readMore');
@@ -323,7 +322,6 @@ function readMore(event) {
 }
 
 window.addEventListener('DOMContentLoaded', function (event) {
-  debugger
   if (data.watchlist.length === 0) {
     $noStocks.setAttribute('class', 'noStocks');
   }
