@@ -223,22 +223,21 @@ function cancel(event) {
 }
 
 function handleDeleteStock(event) {
-  if (event.target.className.includes('fa-minus-circle')) {
-    var stockSymbol = event.target.closest('.searchContainerResult').querySelector('.stockSymbol').textContent;
-    for (var i = 0; i < data.watchlist.length; i++) {
-      if (stockSymbol === data.watchlist[i].price.symbol) {
-        data.watchlist.splice([i], 1);
-        var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
-        for (var z = 0; z < watchlistEntries.length; z++) {
-          if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) { watchlistEntries[z].remove(); }
-        }
-        viewSwap('watchlist');
+  var stockSymbol = $searchContainer.querySelector('.stockSymbol').textContent;
+  for (var i = 0; i < data.watchlist.length; i++) {
+    if (stockSymbol === data.watchlist[i].price.symbol) {
+      data.watchlist.splice([i], 1);
+      var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
+      for (var z = 0; z < watchlistEntries.length; z++) {
+        if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) { watchlistEntries[z].remove(); }
       }
     }
-    if (data.watchlist.length === 0) {
-      $noStocks.className = 'noStocks';
-    }
   }
+  if (data.watchlist.length === 0) {
+    $noStocks.className = 'noStocks';
+  }
+  viewSwap('watchlist');
+  $modalContainer.className = 'hidden';
 }
 
 function removeSearchEntry(data) {
