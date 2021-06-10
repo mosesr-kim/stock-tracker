@@ -215,23 +215,18 @@ function destroyChildren(element) {
 function handleDeleteStock(event) {
   if (event.target.className.includes('fa-minus-circle')) {
     var stockSymbol = event.target.closest('.searchContainerResult').querySelector('.stockSymbol').textContent;
-    console.log(stockSymbol);
     for (var i = 0; i < data.watchlist.length; i++) {
       if (stockSymbol === data.watchlist[i].price.symbol) {
         data.watchlist.splice([i], 1);
-        destroyChildren($watchlistEntries);
-        viewSwap('watchlist');
-        for (var z = 0; z < data.watchlist.length; z++) {
-          var watchlistDOM = createWatchlistEntry(data.watchlist[z]);
-          $watchlistEntries.appendChild(watchlistDOM);
+        var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
+        for (var z = 0; z < watchlistEntries.length; z++) {
+          if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) { watchlistEntries[z].remove(); }
         }
+        viewSwap('watchlist');
       }
     }
     if (data.watchlist.length === 0) {
-      var noStocks = document.createElement('h2');
-      noStocks.className = 'noStocks';
-      noStocks.textContent = 'No stocks in watchlist...';
-      $watchlistEntries.appendChild(noStocks);
+      $noStocks.className = 'noStocks';
     }
   }
 }
