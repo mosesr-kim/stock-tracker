@@ -1,16 +1,17 @@
 body {
   font-family: 'Roboto', sans-serif;
+  color: #073b4c;
 }
 
 header {
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #ff9f1c;
+  background-color: #118ab2;
+  border-bottom: 1px solid #ffd166;
   padding-bottom: 25px;
 }
 
 a {
   text-decoration: none;
-  color: #011627;
+  color: #073b4c;
   margin-top: 35px;
   font-weight: 500;
 }
@@ -18,17 +19,18 @@ a {
 a.trending {
   font-size: 24px;
   margin-left: 25px;
+  color: white;
 }
 
 a.watchlist {
   font-size: 24px;
   margin-left: 20px;
+  color: white;
 }
 
 .searchBar {
-  margin-top: 35px;
+  margin-top: 36px;
   margin-left: 25px;
-  border: 1px solid #011627;
   border-radius: 25px;
   width: 300px;
   height: 25px;
@@ -45,7 +47,7 @@ a.watchlist {
 input::-webkit-input-placeholder {
   font-size: 16px;
   letter-spacing: 1px;
-  color: #011627;
+  color: #073b4c;
 }
 
 .magnifying {
@@ -54,7 +56,7 @@ input::-webkit-input-placeholder {
 }
 
 .searchContainer {
-  border-bottom: 1px solid #ff9f1c;
+  border-bottom: 1px solid #ffd166;
 }
 
 .searchResultHeader {
@@ -63,9 +65,9 @@ input::-webkit-input-placeholder {
 }
 
 .searchContainerResult {
-  color: #011627;
-  background: #f2f2f2;
-  border: 1px solid #363434;
+  color: #073b4c;
+  background: #fcfcfc;
+  border: 1px solid #073b4c;
   border-radius: 5px;
   width: 50%;
   margin: auto;
@@ -114,30 +116,31 @@ input::-webkit-input-placeholder {
 .readMore {
   display: flex;
   align-items: center;
-  border: 1px solid #011627;
-  background-color: #f2f2f2;
+  border: 1px solid #073b4c;
+  border-radius: 5px;
+  background-color: white;
   margin-top: 0;
   padding: 5px;
   font-weight: 300;
 }
 
 i.fas.fa-plus-circle {
-  color: #2ec4b6;
+  color: #06d6a0;
   font-size: 30px;
 }
 
 i.fas.fa-minus-circle {
-  color: #e71d36;
+  color: #ef476f;
   font-size: 30px;
 }
 
 .positive {
-  color: green;
+  color: #06d6a0;
   font-weight: 500;
 }
 
 .negative {
-  color: red;
+  color: #ef476f;
   font-weight: 500;
 }
 
@@ -147,7 +150,7 @@ i.fas.fa-minus-circle {
 }
 
 .watchlistContainer {
-  border-bottom: 1px solid #ff9f1c;
+  border-bottom: 1px solid #ffd166;
 }
 
 .watchlistHeader {
@@ -159,8 +162,8 @@ i.fas.fa-minus-circle {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #f2f2f2;
-  border: 1px solid #363434;
+  background-color: #fcfcfc;
+  border: 1px solid #073b4c;
   border-radius: 5px;
   margin-left: 50px;
   margin-bottom: 50px;
@@ -241,7 +244,7 @@ span.highPrice {
 .modalContainer {
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
   width: 100%;
   height: 100%;
   display: flex;
@@ -250,15 +253,14 @@ span.highPrice {
 }
 
 .modal {
-  background-color: white;
+  background-color: #fcfcfc;
   width: 350px;
   justify-content: center;
-  border: 1px solid #011627;
   border-radius: 5px;
 }
 
 .modalText {
-  color: #011627;
+  color: #073b4c;
 }
 
 .modalButtons {
@@ -268,21 +270,22 @@ span.highPrice {
 .cancelButton {
   padding: 5px;
   margin: 0 10px 10px 10px;
-  background-color: #f2f2f2;
-  color: #011627;
+  background-color: #fcfcfc;
+  color: #073b4c;
+  border: 1px solid #073b4c;
   border-radius: 5px;
 }
 
 .confirmButton {
   padding: 5px;
   margin: 0 10px 10px 10px;
-  background-color: #e71d36;
-  color: #f2f2f2;
+  background-color: #ef476f;
+  color: #fcfcfc;
   border-radius: 5px;
 }
 
 .trendingContainer {
-  border-bottom: 1px solid #ff9f1c;
+  border-bottom: 1px solid #ffd166;
 }
 
 .trendingHeader {
@@ -299,12 +302,13 @@ span.highPrice {
 
 .trendingEntryContainer {
   width: 45%;
-  border: 1px solid #011627;
+  border: 1px solid #073b4c;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  background-color: #fcfcfc;
 }
 
 .columnName {
@@ -358,7 +362,7 @@ span.highPrice {
 
 @media screen and (max-width: 691px) {
   header {
-    background-color: white;
+    background-color: #118ab2;
     padding-bottom: 0;
   }
 
@@ -377,11 +381,11 @@ span.highPrice {
 
   .searchForm {
     padding-bottom: 10px;
-    border-top: 1px solid #ff9f1c;
+    border-top: 1px solid #ffd166;
     min-width: 100%;
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: #118ab2;
   }
 
   .searchBar {

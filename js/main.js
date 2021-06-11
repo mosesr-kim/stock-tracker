@@ -29,10 +29,9 @@ function handleSearch(event) {
   event.preventDefault();
   removeSearchEntry();
   viewSwap('search');
+  data.editing = false;
   $searchResultHeader.className = 'row searchResultHeader';
   $editHeader.className = 'hidden';
-  $trendingContainer.className = 'view trendingContainer';
-  $watchlistContainer.className = 'view watchlistContainer';
   data.search = $search.elements.search.value;
   for (var key in requests) {
     if (data.search.toUpperCase() === key) {
@@ -216,7 +215,6 @@ function handleAddStock(event) {
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.setAttribute('class', 'hidden');
     viewSwap('watchlist');
-    $trendingContainer.className = 'view trendingContainer';
   }
 }
 
@@ -334,6 +332,10 @@ function viewSwap(viewName) {
       $views[i].className = 'view hidden';
     }
   }
+  if (viewName === 'search') {
+    $watchlistContainer.className = 'view watchlistContainer';
+    $trendingContainer.className = 'view trendingContainer';
+  }
 }
 
 function handleWatchlist(event) {
@@ -369,21 +371,32 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.className = 'hidden';
   }
+  $searchContainer.appendChild(createStockEntry(data.searchResult));
+  if (data.editing === true) {
+    $editHeader.className = 'row editHeader';
+    $searchResultHeader.className = 'hidden';
+    var addButton = document.querySelector('.fa-plus-circle');
+    addButton.className = 'hidden';
+  } else {
+    var deleteButton = document.querySelector('.fa-minus-circle');
+    deleteButton.className = 'hidden';
+  }
   addTrendingStock(trendingTickers);
-  $trendingContainer.className = 'view trendingContainer';
+  viewSwap(data.view);
+  // $trendingContainer.className = 'view trendingContainer';
 });
 
 function watchlistToSearch(event) {
   if (event.target.closest('.watchlistEntryContainer')) {
     removeSearchEntry();
     viewSwap('search');
+    data.editing = true;
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
-    $trendingContainer.className = 'view trendingContainer';
-    $watchlistContainer.className = 'view watchlistContainer';
     var stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
     for (var i = 0; i < data.watchlist.length; i++) {
       if (stockSymbol === data.watchlist[i].price.symbol) {
+        data.searchResult = data.watchlist[i];
         var editWatchlist = createStockEntry(data.watchlist[i]);
         $searchContainer.appendChild(editWatchlist);
         var addButton = document.querySelector('.fa-plus-circle');

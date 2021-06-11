@@ -4,7 +4,8 @@ var data = {
   searchResult: null,
   trending: null,
   watchlist: [],
-  view: null
+  view: null,
+  editing: null
 };
 
 window.addEventListener('beforeunload', function (event) {
