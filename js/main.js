@@ -33,6 +33,7 @@ function handleSearch(event) {
   $searchResultHeader.className = 'row searchResultHeader';
   $editHeader.className = 'hidden';
   data.search = $search.elements.search.value;
+  // searchRequest(data.search);
   for (var key in requests) {
     if (data.search.toUpperCase() === key) {
       data.searchResult = requests[key];
@@ -57,6 +58,11 @@ function handleSearch(event) {
 //     console.log(this.status);
 //     console.log(this.response);
 //     data.searchResult = this.response;
+//     var stockSearchDOM = createStockEntry(data.searchResult);
+//     $searchContainer.appendChild(stockSearchDOM);
+//     var deleteButton = document.querySelector('.fa-minus-circle');
+//     deleteButton.className = 'hidden';
+//     $search.reset();
 //   });
 //   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
 //   xhr.responseType = 'json';
@@ -73,6 +79,7 @@ function handleSearch(event) {
 //     console.log(this.status);
 //     console.log(this.response);
 //     data.trending = this.response;
+//     addTrendingStock(data.trending);
 //   });
 //   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US');
 //   xhr.responseType = 'json';
@@ -371,19 +378,22 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.className = 'hidden';
   }
-  $searchContainer.appendChild(createStockEntry(data.searchResult));
+  if (data.editing) {
+    $searchContainer.appendChild(createStockEntry(data.searchResult));
+  }
   if (data.editing === true) {
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
     var addButton = document.querySelector('.fa-plus-circle');
     addButton.className = 'hidden';
-  } else {
+  }
+  if (data.editing === false) {
     var deleteButton = document.querySelector('.fa-minus-circle');
     deleteButton.className = 'hidden';
   }
   addTrendingStock(trendingTickers);
+  // trendingRequest();
   viewSwap(data.view);
-  // $trendingContainer.className = 'view trendingContainer';
 });
 
 function watchlistToSearch(event) {
