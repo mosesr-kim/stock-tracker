@@ -24,6 +24,7 @@ $main.addEventListener('click', modal);
 $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
 $trendingButton.addEventListener('click', handleTrending);
+$trendingStockEntries.addEventListener('click', handleAddTrending);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -485,4 +486,7 @@ function addTrendingStock(data) {
     var trendingDOM = createTrendingDOM(data.finance.result[0].quotes[i]);
     $trendingStockEntries.appendChild(trendingDOM);
   }
+}
+
+function handleAddTrending(event) {
 }
