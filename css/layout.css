@@ -6,3 +6,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.column-20 {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}

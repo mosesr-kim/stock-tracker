@@ -281,9 +281,49 @@ span.highPrice {
   border-radius: 5px;
 }
 
+.trendingContainer {
+  border-bottom: 1px solid #ff9f1c;
+}
+
 .trendingHeader {
   font-size: 12px;
   margin-left: 25px;
+}
+
+.trendingStockEntries {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.trendingEntryContainer {
+  width: 45%;
+  border: 1px solid #011627;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.columnName {
+  display: flex;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  padding-left: 12px;
+}
+
+.columnSymbol {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.columnIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 1250px) {
@@ -301,6 +341,18 @@ span.highPrice {
 
   .searchContainerResult {
     width: 90%;
+  }
+
+  .trendingStockEntries {
+    flex-wrap: wrap;
+  }
+
+  .trendingEntryContainer {
+    width: 100%;
+  }
+
+  .columnName {
+    font-size: 14px;
   }
 }
 

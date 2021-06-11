@@ -14,6 +14,7 @@ var $cancelButton = document.querySelector('.cancelButton');
 var $confirmButton = document.querySelector('.confirmButton');
 var $trendingContainer = document.querySelector('.trendingContainer');
 var $trendingStockEntries = document.querySelector('.trendingStockEntries');
+var $views = document.querySelectorAll('.view');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -26,9 +27,12 @@ $trendingButton.addEventListener('click', handleTrending);
 
 function handleSearch(event) {
   event.preventDefault();
-  $searchContainer.className = 'view searchContainer';
+  removeSearchEntry();
+  viewSwap('search');
   $searchResultHeader.className = 'row searchResultHeader';
   $editHeader.className = 'hidden';
+  $trendingContainer.className = 'view trendingContainer';
+  $watchlistContainer.className = 'view watchlistContainer';
   data.search = $search.elements.search.value;
   for (var key in requests) {
     if (data.search.toUpperCase() === key) {
@@ -79,8 +83,6 @@ function handleSearch(event) {
 // }
 
 function createStockEntry(data) {
-  removeSearchEntry();
-
   var searchContainerResult = document.createElement('div');
   searchContainerResult.className = 'row searchContainerResult';
 
@@ -209,11 +211,12 @@ function handleAddStock(event) {
         return;
       }
     }
-    data.view = 'watchlist';
     data.watchlist.push(data.searchResult);
     var watchlistDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(watchlistDOM);
-    viewSwap(data.view);
+    $noStocks.setAttribute('class', 'hidden');
+    viewSwap('watchlist');
+    $trendingContainer.className = 'view trendingContainer';
   }
 }
 
@@ -234,7 +237,9 @@ function handleDeleteStock(event) {
       data.watchlist.splice([i], 1);
       var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
       for (var z = 0; z < watchlistEntries.length; z++) {
-        if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) { watchlistEntries[z].remove(); }
+        if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) {
+          watchlistEntries[z].remove();
+        }
       }
     }
   }
@@ -242,6 +247,7 @@ function handleDeleteStock(event) {
     $noStocks.className = 'noStocks';
   }
   viewSwap('watchlist');
+  $trendingContainer.className = 'view trendingContainer';
   $modalContainer.className = 'hidden';
 }
 
@@ -315,17 +321,15 @@ function createWatchlistEntry(data) {
   highPrice.textContent = '$' + data.price.regularMarketDayHigh.fmt;
   highRow.appendChild(highPrice);
 
-  $noStocks.setAttribute('class', 'hidden');
-
   return watchlistEntryContainer;
 }
 
-function viewSwap(view) {
-  var $views = document.querySelectorAll('.view');
-  var containerName = view + 'Container';
+function viewSwap(viewName) {
+  data.view = viewName;
+  var containerName = viewName + 'Container';
   for (var i = 0; i < $views.length; i++) {
-    if (view === $views[i].getAttribute('data-view')) {
-      $views[i].className = 'view' + containerName;
+    if (viewName === $views[i].getAttribute('data-view')) {
+      $views[i].className = 'view ' + containerName;
     } else {
       $views[i].className = 'view hidden';
     }
@@ -333,12 +337,10 @@ function viewSwap(view) {
 }
 
 function handleWatchlist(event) {
-  // console.log(event.target)
   viewSwap('watchlist');
 }
 
 function handleTrending(event) {
-  // console.log(event.target);
   viewSwap('trending');
 }
 
@@ -359,23 +361,26 @@ function readMore(event) {
 
 window.addEventListener('DOMContentLoaded', function (event) {
   if (data.watchlist.length === 0) {
-    $noStocks.setAttribute('class', 'noStocks');
+    viewSwap('watchlist');
+    $noStocks.className = 'noStocks';
   }
   for (var i = 0; i < data.watchlist.length; i++) {
     var watchlistDOM = createWatchlistEntry(data.watchlist[i]);
     $watchlistEntries.appendChild(watchlistDOM);
+    $noStocks.className = 'hidden';
   }
   addTrendingStock(trendingTickers);
-  $watchlistContainer.className = 'view watchlistContainer';
   $trendingContainer.className = 'view trendingContainer';
 });
 
 function watchlistToSearch(event) {
   if (event.target.closest('.watchlistEntryContainer')) {
-    $searchContainer.className = 'view searchContainer';
+    removeSearchEntry();
+    viewSwap('search');
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
-    removeSearchEntry();
+    $trendingContainer.className = 'view trendingContainer';
+    $watchlistContainer.className = 'view watchlistContainer';
     var stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
     for (var i = 0; i < data.watchlist.length; i++) {
       if (stockSymbol === data.watchlist[i].price.symbol) {
@@ -401,20 +406,36 @@ function createTrendingDOM(data) {
   var trendingEntryContainer = document.createElement('div');
   trendingEntryContainer.className = 'row trendingEntryContainer';
 
+  var columnName = document.createElement('div');
+  columnName.className = 'column-20 columnName';
+  trendingEntryContainer.appendChild(columnName);
+
   var trendingStockName = document.createElement('p');
   trendingStockName.className = 'trendingStockName';
   trendingStockName.textContent = data.longName;
-  trendingEntryContainer.appendChild(trendingStockName);
+  columnName.appendChild(trendingStockName);
+
+  var columnSymbol = document.createElement('div');
+  columnSymbol.className = 'column-20 columnSymbol';
+  trendingEntryContainer.appendChild(columnSymbol);
 
   var trendingStockSymbol = document.createElement('p');
   trendingStockSymbol.className = 'trendingStockSymbol';
   trendingStockSymbol.textContent = data.symbol;
-  trendingEntryContainer.appendChild(trendingStockSymbol);
+  columnSymbol.appendChild(trendingStockSymbol);
+
+  var columnPrice = document.createElement('div');
+  columnPrice.className = 'column-20 columnPrice';
+  trendingEntryContainer.appendChild(columnPrice);
 
   var trendingStockPrice = document.createElement('p');
   trendingStockPrice.className = 'trendingStockPrice positive';
   trendingStockPrice.textContent = '$' + data.regularMarketPrice;
-  trendingEntryContainer.appendChild(trendingStockPrice);
+  columnPrice.appendChild(trendingStockPrice);
+
+  var columnPercentage = document.createElement('div');
+  columnPercentage.className = 'column-20 columnPercentage';
+  trendingEntryContainer.appendChild(columnPercentage);
 
   var trendingStockPercentage = document.createElement('p');
   if (checkPercentage(data.regularMarketChangePercent) === true) {
@@ -423,11 +444,15 @@ function createTrendingDOM(data) {
     trendingStockPercentage.className = 'trendingStockPercentage negative';
   }
   trendingStockPercentage.textContent = getPercentage(data.regularMarketChangePercent);
-  trendingEntryContainer.appendChild(trendingStockPercentage);
+  columnPercentage.appendChild(trendingStockPercentage);
+
+  var columnIcon = document.createElement('div');
+  columnIcon.className = 'column-20 columnIcon';
+  trendingEntryContainer.appendChild(columnIcon);
 
   var addButton = document.createElement('i');
   addButton.className = 'fas fa-plus-circle';
-  trendingEntryContainer.appendChild(addButton);
+  columnIcon.appendChild(addButton);
 
   return trendingEntryContainer;
 }
