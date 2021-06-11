@@ -30,7 +30,7 @@
   <main>
     <div class="modalContainer hidden">
       <div class="row modal">
-        <div class="row modaltext"><h2>Delete stock from watchlist?</h2></div>
+        <div class="row modalText"><h2>Delete stock from watchlist?</h2></div>
         <div class="row modalButtons">
           <a href="#" class="cancelButton">CANCEL</a>
           <a href="#" class="confirmButton">CONFIRM</a>
@@ -46,12 +46,20 @@
       </div>
     </div>
 
-    <div class="view watchlistContainer hidden" data-view="watchlist">
+    <div class="view watchlistContainer" data-view="watchlist">
       <div class="row watchlistHeader">
         <h2>Watchlist</h2>
       </div>
       <div class="row watchlistEntries">
         <h2 class="noStocks">No stocks in watchlist...</h2>
+      </div>
+    </div>
+
+    <div class="view trendingContainer" data-view="trending">
+      <div class="row trendingHeader">
+        <h2>Trending Stocks</h2>
+      </div>
+      <div class="row trendingStockEntries">
       </div>
     </div>
   </main>
