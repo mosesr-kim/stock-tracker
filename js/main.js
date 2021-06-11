@@ -4,13 +4,15 @@ var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
 var $watchlistButton = document.querySelector('.watchlist');
+var $trendingButton = document.querySelector('.trending');
+var $watchlistContainer = document.querySelector('.watchlistContainer');
 var $noStocks = document.querySelector('.noStocks');
 var $editHeader = document.querySelector('.editHeader');
 var $searchResultHeader = document.querySelector('.searchResultHeader');
 var $modalContainer = document.querySelector('.modalContainer');
 var $cancelButton = document.querySelector('.cancelButton');
 var $confirmButton = document.querySelector('.confirmButton');
-// var $trendingContainer = document.querySelector('.trendingContainer');
+var $trendingContainer = document.querySelector('.trendingContainer');
 var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 
 $search.addEventListener('submit', handleSearch);
@@ -20,6 +22,7 @@ $watchlistEntries.addEventListener('click', watchlistToSearch);
 $main.addEventListener('click', modal);
 $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
+$trendingButton.addEventListener('click', handleTrending);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -322,15 +325,21 @@ function viewSwap(view) {
   var containerName = view + 'Container';
   for (var i = 0; i < $views.length; i++) {
     if (view === $views[i].getAttribute('data-view')) {
-      $views[i].className = containerName;
+      $views[i].className = 'view' + containerName;
     } else {
-      $views[i].className = 'hidden';
+      $views[i].className = 'view hidden';
     }
   }
 }
 
 function handleWatchlist(event) {
+  // console.log(event.target)
   viewSwap('watchlist');
+}
+
+function handleTrending(event) {
+  // console.log(event.target);
+  viewSwap('trending');
 }
 
 function readMore(event) {
@@ -357,7 +366,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $watchlistEntries.appendChild(watchlistDOM);
   }
   addTrendingStock(trendingTickers);
-  viewSwap('trending');
+  $watchlistContainer.className = 'view watchlistContainer';
+  $trendingContainer.className = 'view trendingContainer';
 });
 
 function watchlistToSearch(event) {
