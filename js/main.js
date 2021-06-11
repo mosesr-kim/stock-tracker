@@ -86,7 +86,7 @@ function createStockEntry(data) {
   searchContainerResult.className = 'row searchContainerResult';
 
   var headerRow = document.createElement('div');
-  headerRow.className = 'row headerRow';
+  headerRow.className = 'row headerRow justify-center';
   searchContainerResult.appendChild(headerRow);
 
   var stockName = document.createElement('h1');
@@ -108,7 +108,7 @@ function createStockEntry(data) {
   stockPrice.appendChild(stockPriceSpan);
 
   var subHeaderRow = document.createElement('div');
-  subHeaderRow.className = 'row subHeaderRow';
+  subHeaderRow.className = 'row subHeaderRow justify-center';
   searchContainerResult.appendChild(subHeaderRow);
 
   var todayPercentage = document.createElement('h2');
@@ -160,7 +160,7 @@ function createStockEntry(data) {
   companySummary.appendChild(more);
 
   var buttonRow = document.createElement('div');
-  buttonRow.className = 'buttonRow';
+  buttonRow.className = 'buttonRow space-between';
   searchContainerResult.appendChild(buttonRow);
 
   var readMoreButton = document.createElement('a');
@@ -257,10 +257,10 @@ function removeSearchEntry(data) {
 
 function createWatchlistEntry(data) {
   var watchlistEntryContainer = document.createElement('div');
-  watchlistEntryContainer.className = 'watchlistEntryContainer';
+  watchlistEntryContainer.className = 'watchlistEntryContainer justify-center';
 
   var namePriceRow = document.createElement('div');
-  namePriceRow.className = 'row namePriceRow';
+  namePriceRow.className = 'row namePriceRow justify-center align-center';
   watchlistEntryContainer.appendChild(namePriceRow);
 
   var stockSymbol = document.createElement('h2');
@@ -274,7 +274,7 @@ function createWatchlistEntry(data) {
   namePriceRow.appendChild(stockPrice);
 
   var todayRow = document.createElement('div');
-  todayRow.className = 'row todayRow';
+  todayRow.className = 'row todayRow justify-center align-center';
   watchlistEntryContainer.appendChild(todayRow);
 
   var todayLabel = document.createElement('h3');
@@ -292,7 +292,7 @@ function createWatchlistEntry(data) {
   todayRow.appendChild(todayPercentage);
 
   var lowRow = document.createElement('div');
-  lowRow.className = 'row lowRow';
+  lowRow.className = 'row lowRow justify-center align-center';
   watchlistEntryContainer.appendChild(lowRow);
 
   var lowLabel = document.createElement('h3');
@@ -306,7 +306,7 @@ function createWatchlistEntry(data) {
   lowRow.appendChild(lowPrice);
 
   var highRow = document.createElement('div');
-  highRow.className = 'row highRow';
+  highRow.className = 'row highRow justify-center align-center';
   watchlistEntryContainer.appendChild(highRow);
 
   var highLabel = document.createElement('h3');
@@ -417,7 +417,7 @@ function getPercentage(data) {
 
 function createTrendingDOM(data) {
   var trendingEntryContainer = document.createElement('div');
-  trendingEntryContainer.className = 'row trendingEntryContainer';
+  trendingEntryContainer.className = 'row trendingEntryContainer space-between';
 
   var columnName = document.createElement('div');
   columnName.className = 'column-20 columnName';
@@ -460,7 +460,7 @@ function createTrendingDOM(data) {
   columnPercentage.appendChild(trendingStockPercentage);
 
   var columnIcon = document.createElement('div');
-  columnIcon.className = 'column-20 columnIcon';
+  columnIcon.className = 'column-20 columnIcon justify-center align-center';
   trendingEntryContainer.appendChild(columnIcon);
 
   var addButton = document.createElement('i');
