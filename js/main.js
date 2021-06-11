@@ -1,4 +1,4 @@
-/* global requests */
+/* global requests, trendingTickers */
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
@@ -10,7 +10,8 @@ var $searchResultHeader = document.querySelector('.searchResultHeader');
 var $modalContainer = document.querySelector('.modalContainer');
 var $cancelButton = document.querySelector('.cancelButton');
 var $confirmButton = document.querySelector('.confirmButton');
-var $trendingContainer = document.querySelector('.trendingContainer');
+// var $trendingContainer = document.querySelector('.trendingContainer');
+var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -355,6 +356,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     var watchlistDOM = createWatchlistEntry(data.watchlist[i]);
     $watchlistEntries.appendChild(watchlistDOM);
   }
+  addTrendingStock(trendingTickers);
   viewSwap('trending');
 });
 
@@ -373,5 +375,56 @@ function watchlistToSearch(event) {
         addButton.className = 'hidden';
       }
     }
+  }
+}
+
+function getPercentage(data) {
+  var stringed = data.toString();
+  var newString = '';
+  for (var i = 0; i < 5; i++) {
+    newString += stringed[i];
+  }
+  return newString + '%';
+}
+
+function createTrendingDOM(data) {
+  var trendingEntryContainer = document.createElement('div');
+  trendingEntryContainer.className = 'row trendingEntryContainer';
+
+  var trendingStockName = document.createElement('p');
+  trendingStockName.className = 'trendingStockName';
+  trendingStockName.textContent = data.longName;
+  trendingEntryContainer.appendChild(trendingStockName);
+
+  var trendingStockSymbol = document.createElement('p');
+  trendingStockSymbol.className = 'trendingStockSymbol';
+  trendingStockSymbol.textContent = data.symbol;
+  trendingEntryContainer.appendChild(trendingStockSymbol);
+
+  var trendingStockPrice = document.createElement('p');
+  trendingStockPrice.className = 'trendingStockPrice positive';
+  trendingStockPrice.textContent = '$' + data.regularMarketPrice;
+  trendingEntryContainer.appendChild(trendingStockPrice);
+
+  var trendingStockPercentage = document.createElement('p');
+  if (checkPercentage(data.regularMarketChangePercent) === true) {
+    trendingStockPercentage.className = 'trendingStockPercentage positive';
+  } else {
+    trendingStockPercentage.className = 'trendingStockPercentage negative';
+  }
+  trendingStockPercentage.textContent = getPercentage(data.regularMarketChangePercent);
+  trendingEntryContainer.appendChild(trendingStockPercentage);
+
+  var addButton = document.createElement('i');
+  addButton.className = 'fas fa-plus-circle';
+  trendingEntryContainer.appendChild(addButton);
+
+  return trendingEntryContainer;
+}
+
+function addTrendingStock(data) {
+  for (var i = 0; i < data.finance.result[0].quotes.length; i++) {
+    var trendingDOM = createTrendingDOM(data.finance.result[0].quotes[i]);
+    $trendingStockEntries.appendChild(trendingDOM);
   }
 }
