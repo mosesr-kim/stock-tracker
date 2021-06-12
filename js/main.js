@@ -25,6 +25,7 @@ $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
 $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
+$trendingStockEntries.addEventListener('click', handleRemoveEntry);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -64,6 +65,24 @@ function handleSearch(event) {
 //     var deleteButton = document.querySelector('.fa-minus-circle');
 //     deleteButton.className = 'hidden';
 //     $search.reset();
+//     return data.searchResult;
+//   });
+//   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
+//   xhr.responseType = 'json';
+//   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
+//   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
+//   xhr.send();
+// }
+
+// function trendingSearchRequest(search) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.addEventListener('load', function () {
+//     console.log(this.status);
+//     console.log(this.response);
+//     data.searchResult = this.response;
+//     var stockSearchDOM = createWatchlistEntry(data.searchResult);
+//     $watchlistEntries.appendChild(stockSearchDOM);
+//     return data.searchResult;
 //   });
 //   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
 //   xhr.responseType = 'json';
@@ -379,9 +398,11 @@ window.addEventListener('DOMContentLoaded', function (event) {
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.className = 'hidden';
   }
-  if (data.editing) {
+
+  if (data.searchResult) {
     $searchContainer.appendChild(createStockEntry(data.searchResult));
   }
+
   if (data.editing === true) {
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
@@ -389,8 +410,12 @@ window.addEventListener('DOMContentLoaded', function (event) {
     addButton.className = 'hidden';
   }
   if (data.editing === false) {
-    var deleteButton = document.querySelector('.fa-minus-circle');
-    deleteButton.className = 'hidden';
+    $editHeader.className = 'hidden';
+    $searchResultHeader.className = 'row searchResultHeader';
+    if (document.querySelector('.fa-minus-circle')) {
+      var deleteButton = document.querySelector('.fa-minus-circle');
+      deleteButton.className = 'hidden';
+    }
   }
   addTrendingStock(trendingTickers);
   // trendingRequest();
@@ -474,9 +499,13 @@ function createTrendingDOM(data) {
   columnIcon.className = 'column-20 columnIcon justify-center align-center';
   trendingEntryContainer.appendChild(columnIcon);
 
-  var addButton = document.createElement('i');
-  addButton.className = 'fas fa-plus-circle';
-  columnIcon.appendChild(addButton);
+  var checkButton = document.createElement('i');
+  checkButton.className = 'fas fa-check';
+  columnIcon.appendChild(checkButton);
+
+  var xButton = document.createElement('i');
+  xButton.className = 'fas fa-times hidden';
+  columnIcon.appendChild(xButton);
 
   return trendingEntryContainer;
 }
@@ -489,4 +518,24 @@ function addTrendingStock(data) {
 }
 
 function handleAddTrending(event) {
+  if (event.target.className.includes('fa-check')) {
+    var check = event.target.closest('i');
+    check.className = 'fas fa-check hidden';
+    var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
+    // trendingSearchRequest(stockSymbol);
+    // viewSwap('watchlist');
+    for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
+      if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
+        var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
+        $watchlistEntries.appendChild(trendingToWatchlist);
+        viewSwap('watchlist');
+      }
+    }
+  }
+}
+
+function handleRemoveEntry(event) {
+  if (event.target.className.includes('fa-times')) {
+    // console.log('hi');
+  }
 }
