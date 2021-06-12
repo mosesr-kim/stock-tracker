@@ -12,242 +12,26 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
             market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 11.63,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 3.87,
-            marketState: 'POST',
-            shortName: 'ContextLogic Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 49.87113,
-            regularMarketPreviousClose: 7.76,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'ContextLogic Inc.',
-            symbol: 'WISH'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 28.87,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 5.9300003,
-            marketState: 'POST',
-            shortName: "Wendy's Company (The)",
-            priceHint: 2,
-            regularMarketChangePercent: 25.850046,
-            regularMarketPreviousClose: 22.94,
-            fullExchangeName: 'NasdaqGS',
-            longName: "The Wendy's Company",
-            symbol: 'WEN'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 11.22,
-            regularMarketTime: 1623182402,
-            regularMarketChange: -2.1799994,
-            marketState: 'POST',
-            shortName: 'Lordstown Motors Corp.',
-            priceHint: 2,
-            regularMarketChangePercent: -16.268652,
-            regularMarketPreviousClose: 13.4,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Lordstown Motors Corp.',
-            symbol: 'RIDE'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 22.15,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 10.23,
-            marketState: 'POST',
-            shortName: 'Clover Health Investments, Corp',
-            priceHint: 2,
-            regularMarketChangePercent: 85.82214,
-            regularMarketPreviousClose: 11.92,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Clover Health Investments, Corp.',
-            symbol: 'CLOV'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 10.71,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 1.8100004,
-            marketState: 'POST',
-            shortName: 'Canoo Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 20.337084,
-            regularMarketPreviousClose: 8.9,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Canoo Inc.',
-            symbol: 'GOEV'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NYQ',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 6.27,
-            regularMarketTime: 1623182401,
-            regularMarketChange: 1.05,
-            marketState: 'POST',
-            shortName: 'Ashford Hospitality Trust Inc',
-            priceHint: 2,
-            regularMarketChangePercent: 20.1149,
-            regularMarketPreviousClose: 5.22,
+            regularMarketChangePercent: 6.82882,
+            regularMarketPreviousClose: 42.76,
             fullExchangeName: 'NYSE',
-            longName: 'Ashford Hospitality Trust, Inc.',
-            symbol: 'AHT'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
+            longName: 'NIO Inc.',
             exchangeDataDelayedBy: 0,
-            regularMarketPrice: 9.9,
-            regularMarketTime: 1623182402,
-            regularMarketChange: -0.46000004,
-            marketState: 'POST',
-            shortName: 'Clean Energy Fuels Corp.',
-            priceHint: 2,
-            regularMarketChangePercent: -4.440155,
-            regularMarketPreviousClose: 10.36,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Clean Energy Fuels Corp.',
-            symbol: 'CLNE'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 23.89,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 2.6800003,
-            marketState: 'POST',
-            shortName: 'SoFi Technologies, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 12.635551,
-            regularMarketPreviousClose: 21.21,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'SoFi Technologies, Inc.',
-            symbol: 'SOFI'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
+            shortName: 'NIO Inc.',
             exchange: 'NYQ',
-            market: 'us_market',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 45.68,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 2.92,
             sourceInterval: 15,
             exchangeTimezoneName: 'America/New_York',
             exchangeTimezoneShortName: 'EDT',
             gmtOffSetMilliseconds: -14400000,
             esgPopulated: false,
             tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 21.31,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 1.41,
-            marketState: 'POST',
-            shortName: 'Rocket Companies, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 7.08543,
-            regularMarketPreviousClose: 19.9,
-            fullExchangeName: 'NYSE',
-            longName: 'Rocket Companies, Inc.',
-            symbol: 'RKT'
+            symbol: 'NIO'
           },
           {
             language: 'en-US',
@@ -255,53 +39,26 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
             market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 12.14,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 4.12,
-            marketState: 'POST',
-            shortName: 'AST SpaceMobile, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 51.371567,
-            regularMarketPreviousClose: 8.02,
+            regularMarketChangePercent: 62.389385,
+            regularMarketPreviousClose: 9.04,
             fullExchangeName: 'NasdaqGS',
-            longName: 'AST SpaceMobile, Inc.',
-            symbol: 'ASTS'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NYQ',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
+            longName: 'Novan, Inc.',
             exchangeDataDelayedBy: 0,
-            regularMarketPrice: 11.05,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 2.38,
+            shortName: 'Novan, Inc.',
+            exchange: 'NMS',
             marketState: 'POST',
-            shortName: 'Eastman Kodak Company',
             priceHint: 2,
-            regularMarketChangePercent: 27.451,
-            regularMarketPreviousClose: 8.67,
-            fullExchangeName: 'NYSE',
-            longName: 'Eastman Kodak Company',
-            symbol: 'KODK'
+            regularMarketPrice: 14.68,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 5.6400003,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'NOVN'
           },
           {
             language: 'en-US',
@@ -309,26 +66,26 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'NYQ',
             market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
+            regularMarketChangePercent: 21.896788,
+            regularMarketPreviousClose: 7.17,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Vaxart, Inc.',
             exchangeDataDelayedBy: 0,
-            regularMarketPrice: 56.2,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 5.5,
+            shortName: 'Vaxart, Inc. - Common Stock',
+            exchange: 'NMS',
             marketState: 'POST',
-            shortName: 'Fastly, Inc.',
             priceHint: 2,
-            regularMarketChangePercent: 10.8481,
-            regularMarketPreviousClose: 50.7,
-            fullExchangeName: 'NYSE',
-            longName: 'Fastly, Inc.',
-            symbol: 'FSLY'
+            regularMarketPrice: 8.74,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 1.5699997,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'VXRT'
           },
           {
             language: 'en-US',
@@ -336,26 +93,161 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'ASE',
             market: 'us_market',
+            regularMarketChangePercent: 16.051247,
+            regularMarketPreviousClose: 66.35,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Cassava Sciences, Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Cassava Sciences, Inc.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 77,
+            regularMarketTime: 1623441603,
+            regularMarketChange: 10.650002,
             sourceInterval: 15,
             exchangeTimezoneName: 'America/New_York',
             exchangeTimezoneShortName: 'EDT',
             gmtOffSetMilliseconds: -14400000,
             esgPopulated: false,
             tradeable: false,
+            symbol: 'SAVA'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: -10.956313,
+            regularMarketPreviousClose: 216.77,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Vertex Pharmaceuticals Incorporated',
             exchangeDataDelayedBy: 0,
-            regularMarketPrice: 3.43,
-            regularMarketTime: 1623182400,
-            regularMarketChange: 0.45,
+            shortName: 'Vertex Pharmaceuticals Incorpor',
+            exchange: 'NMS',
             marketState: 'POST',
-            shortName: 'Senseonics Holdings, Inc.',
+            priceHint: 2,
+            regularMarketPrice: 193.02,
+            regularMarketTime: 1623441603,
+            regularMarketChange: -23.75,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'VRTX'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: -51.02041,
+            regularMarketPreviousClose: 12.74,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Recon Technology, Ltd.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Recon Technology, Ltd.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 6.24,
+            regularMarketTime: 1623441603,
+            regularMarketChange: -6.5,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'RCON'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 2.2969885,
+            regularMarketPreviousClose: 697,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'NVIDIA Corporation',
+            exchangeDataDelayedBy: 0,
+            shortName: 'NVIDIA Corporation',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 713.01,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 16.01001,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'NVDA'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: -4.8872275,
+            regularMarketPreviousClose: 18.62,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'AGNC Investment Corp.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'AGNC Investment Corp.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 17.71,
+            regularMarketTime: 1623441602,
+            regularMarketChange: -0.91000175,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'AGNC'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: false,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 60.248447,
+            regularMarketPreviousClose: 0.0161,
+            fullExchangeName: 'Other OTC',
+            longName: 'Rolls-Royce Holdings plc',
+            exchangeDataDelayedBy: 0,
+            shortName: 'ROLLS ROYCE HOLDINGS NON CUM RE',
+            exchange: 'PNK',
+            marketState: 'POST',
             priceHint: 4,
-            regularMarketChangePercent: 15.1007,
-            regularMarketPreviousClose: 2.98,
-            fullExchangeName: 'NYSE American',
-            longName: 'Senseonics Holdings, Inc.',
-            symbol: 'SENS'
+            regularMarketPrice: 0.0258,
+            regularMarketTime: 1623441601,
+            regularMarketChange: 0.0097,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'RLLCF'
           },
           {
             language: 'en-US',
@@ -363,134 +255,53 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
             market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 7.09,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 1.5799999,
-            marketState: 'POST',
-            shortName: 'CarLotz, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 28.675133,
-            regularMarketPreviousClose: 5.51,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'CarLotz, Inc.',
-            symbol: 'LOTZ'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NYQ',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 76,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 2.12,
-            marketState: 'POST',
-            shortName: 'UiPath, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 2.86952,
-            regularMarketPreviousClose: 73.88,
+            regularMarketChangePercent: 7.485106,
+            regularMarketPreviousClose: 38.61,
             fullExchangeName: 'NYSE',
-            longName: 'UiPath Inc.',
-            symbol: 'PATH'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
+            longName: 'XPeng Inc.',
             exchangeDataDelayedBy: 0,
-            regularMarketPrice: 12.25,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 2.12,
-            marketState: 'POST',
-            shortName: 'Velodyne Lidar, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 20.927937,
-            regularMarketPreviousClose: 10.13,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Velodyne Lidar, Inc.',
-            symbol: 'VLDR'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 11.31,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 1.5100002,
-            marketState: 'POST',
-            shortName: 'Root, Inc.',
-            priceHint: 2,
-            regularMarketChangePercent: 15.408166,
-            regularMarketPreviousClose: 9.8,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Root, Inc.',
-            symbol: 'ROOT'
-          },
-          {
-            language: 'en-US',
-            region: 'US',
-            quoteType: 'EQUITY',
-            triggerable: true,
-            quoteSourceName: 'Delayed Quote',
+            shortName: 'XPeng Inc.',
             exchange: 'NYQ',
-            market: 'us_market',
-            sourceInterval: 15,
-            exchangeTimezoneName: 'America/New_York',
-            exchangeTimezoneShortName: 'EDT',
-            gmtOffSetMilliseconds: -14400000,
-            esgPopulated: false,
-            tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 95.36,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 2.79,
             marketState: 'POST',
-            shortName: 'Biohaven Pharmaceutical Holding',
             priceHint: 2,
-            regularMarketChangePercent: 3.01394,
-            regularMarketPreviousClose: 92.57,
+            regularMarketPrice: 41.5,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 2.8899994,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'XPEV'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 12.133,
+            regularMarketPreviousClose: 41.21,
             fullExchangeName: 'NYSE',
-            longName: 'Biohaven Pharmaceutical Holding Company Ltd.',
-            symbol: 'BHVN'
+            longName: 'JinkoSolar Holding Co., Ltd.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'JinkoSolar Holding Company Limi',
+            exchange: 'NYQ',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 46.21,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 5,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'JKS'
           },
           {
             language: 'en-US',
@@ -498,26 +309,26 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
             market: 'us_market',
+            regularMarketChangePercent: -14.284251,
+            regularMarketPreviousClose: 146.42,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Upstart Holdings, Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Upstart Holdings, Inc.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 125.505,
+            regularMarketTime: 1623441602,
+            regularMarketChange: -20.915,
             sourceInterval: 15,
             exchangeTimezoneName: 'America/New_York',
             exchangeTimezoneShortName: 'EDT',
             gmtOffSetMilliseconds: -14400000,
             esgPopulated: false,
             tradeable: false,
-            exchangeDataDelayedBy: 0,
-            regularMarketPrice: 2.21,
-            regularMarketTime: 1623182402,
-            regularMarketChange: 0.00999999,
-            marketState: 'POST',
-            shortName: 'Aethlon Medical, Inc.',
-            priceHint: 4,
-            regularMarketChangePercent: 0.45454502,
-            regularMarketPreviousClose: 2.2,
-            fullExchangeName: 'NasdaqGS',
-            longName: 'Aethlon Medical, Inc.',
-            symbol: 'AEMD'
+            symbol: 'UPST'
           },
           {
             language: 'en-US',
@@ -525,30 +336,219 @@ var trendingTickers = {
             quoteType: 'EQUITY',
             triggerable: true,
             quoteSourceName: 'Delayed Quote',
-            exchange: 'NMS',
             market: 'us_market',
+            regularMarketChangePercent: 33.203884,
+            regularMarketPreviousClose: 15.45,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Urban One, Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Urban One, Inc.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 20.58,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 5.13,
             sourceInterval: 15,
             exchangeTimezoneName: 'America/New_York',
             exchangeTimezoneShortName: 'EDT',
             gmtOffSetMilliseconds: -14400000,
             esgPopulated: false,
             tradeable: false,
+            symbol: 'UONE'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 16.6667,
+            regularMarketPreviousClose: 28.38,
+            fullExchangeName: 'NYSE',
+            longName: 'Medallia, Inc.',
             exchangeDataDelayedBy: 0,
-            regularMarketPrice: 0.5958,
-            regularMarketTime: 1623182403,
-            regularMarketChange: 0.09289998,
+            shortName: 'Medallia, Inc.',
+            exchange: 'NYQ',
             marketState: 'POST',
-            shortName: 'Farmmi, Inc. Ordinary Shares',
-            priceHint: 4,
-            regularMarketChangePercent: 18.472853,
-            regularMarketPreviousClose: 0.5029,
+            priceHint: 2,
+            regularMarketPrice: 33.11,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 4.73,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'MDLA'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 19.047625,
+            regularMarketPreviousClose: 1.05,
             fullExchangeName: 'NasdaqGS',
-            longName: 'Farmmi, Inc.',
-            symbol: 'FAMI'
+            longName: 'Evofem Biosciences, Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Evofem Biosciences, Inc.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 4,
+            regularMarketPrice: 1.25,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 0.20000005,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'EVFM'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: -36.829655,
+            regularMarketPreviousClose: 12.68,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Curis, Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Curis, Inc.',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 8.01,
+            regularMarketTime: 1623441602,
+            regularMarketChange: -4.67,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'CRIS'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 15.3936,
+            regularMarketPreviousClose: 42.81,
+            fullExchangeName: 'NYSE',
+            longName: 'AMC Entertainment Holdings, Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'AMC Entertainment Holdings, Inc',
+            exchange: 'NYQ',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 49.4,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 6.59,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'AMC'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: false,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 68.53934,
+            regularMarketPreviousClose: 4.45,
+            fullExchangeName: 'Other OTC',
+            longName: 'Top Glove Corporation Bhd.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'TOP GLOVE CORP BHD',
+            exchange: 'PNK',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 7.5,
+            regularMarketTime: 1623441578,
+            regularMarketChange: 3.0500002,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'TGLVY'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: 8.287298,
+            regularMarketPreviousClose: 3.62,
+            fullExchangeName: 'NasdaqGS',
+            longName: 'Mind Medicine (MindMed) Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Mind Medicine (MindMed) Inc. - ',
+            exchange: 'NMS',
+            marketState: 'POST',
+            priceHint: 4,
+            regularMarketPrice: 3.92,
+            regularMarketTime: 1623441602,
+            regularMarketChange: 0.3000002,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'MNMD'
+          },
+          {
+            language: 'en-US',
+            region: 'US',
+            quoteType: 'EQUITY',
+            triggerable: true,
+            quoteSourceName: 'Delayed Quote',
+            market: 'us_market',
+            regularMarketChangePercent: -3.29582,
+            regularMarketPreviousClose: 248.8,
+            fullExchangeName: 'NYSE',
+            longName: 'Snowflake Inc.',
+            exchangeDataDelayedBy: 0,
+            shortName: 'Snowflake Inc.',
+            exchange: 'NYQ',
+            marketState: 'POST',
+            priceHint: 2,
+            regularMarketPrice: 240.6,
+            regularMarketTime: 1623441602,
+            regularMarketChange: -8.2,
+            sourceInterval: 15,
+            exchangeTimezoneName: 'America/New_York',
+            exchangeTimezoneShortName: 'EDT',
+            gmtOffSetMilliseconds: -14400000,
+            esgPopulated: false,
+            tradeable: false,
+            symbol: 'SNOW'
           }
         ],
-        jobTimestamp: 1623194016296,
-        startInterval: 202106082200
+        jobTimestamp: 1623438933594,
+        startInterval: 202106111800
       }
     ],
     error: null
@@ -5282,6 +5282,2756 @@ var requests = {
       overallRisk: 10,
       address1: '1600 Amphitheatre Parkway',
       industry: 'Internet Content & Information'
+    },
+    pageViews: {
+      shortTermTrend: 'UP',
+      midTermTrend: 'UP',
+      longTermTrend: 'UP',
+      maxAge: 1
+    }
+  },
+  NIO: {
+    financialsTemplate: {
+      code: 'N',
+      maxAge: 1
+    },
+    price: {
+      quoteSourceName: 'Nasdaq Real Time Price',
+      regularMarketOpen: {
+        raw: 42.93,
+        fmt: '42.93'
+      },
+      averageDailyVolume3Month: {
+        raw: 78599335,
+        fmt: '78.6M',
+        longFmt: '78,599,335'
+      },
+      exchange: 'NYQ',
+      regularMarketTime: 1623441602,
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 46.26,
+        fmt: '46.26'
+      },
+      shortName: 'NIO Inc.',
+      averageDailyVolume10Day: {
+        raw: 55738475,
+        fmt: '55.74M',
+        longFmt: '55,738,475'
+      },
+      longName: 'NIO Inc.',
+      regularMarketChange: {
+        raw: 2.92,
+        fmt: '2.92'
+      },
+      currencySymbol: '$',
+      regularMarketPreviousClose: {
+        raw: 42.76,
+        fmt: '42.76'
+      },
+      postMarketTime: 1623443110,
+      preMarketPrice: {
+        raw: 42.9,
+        fmt: '42.90'
+      },
+      preMarketTime: 1623418194,
+      exchangeDataDelayedBy: 0,
+      toCurrency: null,
+      postMarketChange: {
+        raw: -0.020000458,
+        fmt: '-0.02'
+      },
+      postMarketPrice: {
+        raw: 45.66,
+        fmt: '45.66'
+      },
+      exchangeName: 'NYSE',
+      preMarketChange: {
+        raw: 0.140003,
+        fmt: '0.14'
+      },
+      circulatingSupply: {},
+      regularMarketDayLow: {
+        raw: 42.76,
+        fmt: '42.76'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketPrice: {
+        raw: 45.68,
+        fmt: '45.68'
+      },
+      regularMarketVolume: {
+        raw: 84802729,
+        fmt: '84.80M',
+        longFmt: '84,802,729.00'
+      },
+      lastMarket: null,
+      regularMarketSource: 'FREE_REALTIME',
+      openInterest: {},
+      marketState: 'POST',
+      underlyingSymbol: null,
+      marketCap: {
+        raw: 74847600640,
+        fmt: '74.85B',
+        longFmt: '74,847,600,640.00'
+      },
+      quoteType: 'EQUITY',
+      preMarketChangePercent: {
+        raw: 0.00327416,
+        fmt: '0.33%'
+      },
+      volumeAllCurrencies: {},
+      postMarketSource: 'FREE_REALTIME',
+      strikePrice: {},
+      symbol: 'NIO',
+      postMarketChangePercent: {
+        raw: -0.0004378384,
+        fmt: '-0.04%'
+      },
+      preMarketSource: 'FREE_REALTIME',
+      maxAge: 1,
+      fromCurrency: null,
+      regularMarketChangePercent: {
+        raw: 0.0682882,
+        fmt: '6.83%'
+      }
+    },
+    secFilings: {},
+    quoteType: {
+      exchange: 'NYQ',
+      shortName: 'NIO Inc.',
+      longName: 'NIO Inc.',
+      exchangeTimezoneName: 'America/New_York',
+      exchangeTimezoneShortName: 'EDT',
+      isEsgPopulated: false,
+      gmtOffSetMilliseconds: '-14400000',
+      quoteType: 'EQUITY',
+      symbol: 'NIO',
+      messageBoardId: 'finmb_311626862',
+      market: 'us_market'
+    },
+    calendarEvents: {
+      maxAge: 1,
+      earnings: {
+        earningsDate: [
+          {
+            raw: 1628467200,
+            fmt: '2021-08-09'
+          },
+          {
+            raw: 1628812800,
+            fmt: '2021-08-13'
+          }
+        ],
+        earningsAverage: {
+          raw: -0.11,
+          fmt: '-0.11'
+        },
+        earningsLow: {
+          raw: -0.15,
+          fmt: '-0.15'
+        },
+        earningsHigh: {
+          raw: -0.08,
+          fmt: '-0.08'
+        },
+        revenueAverage: {
+          raw: 1302640000,
+          fmt: '1.3B',
+          longFmt: '1,302,640,000'
+        },
+        revenueLow: {
+          raw: 1271090000,
+          fmt: '1.27B',
+          longFmt: '1,271,090,000'
+        },
+        revenueHigh: {
+          raw: 1335990000,
+          fmt: '1.34B',
+          longFmt: '1,335,990,000'
+        }
+      },
+      exDividendDate: {},
+      dividendDate: {
+        raw: 1462147200,
+        fmt: '2016-05-02'
+      }
+    },
+    summaryDetail: {
+      previousClose: {
+        raw: 42.76,
+        fmt: '42.76'
+      },
+      regularMarketOpen: {
+        raw: 42.93,
+        fmt: '42.93'
+      },
+      twoHundredDayAverage: {
+        raw: 45.59445,
+        fmt: '45.59'
+      },
+      trailingAnnualDividendYield: {},
+      payoutRatio: {
+        raw: 0,
+        fmt: '0.00%'
+      },
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 46.26,
+        fmt: '46.26'
+      },
+      navPrice: {},
+      averageDailyVolume10Day: {
+        raw: 55738475,
+        fmt: '55.74M',
+        longFmt: '55,738,475'
+      },
+      totalAssets: {},
+      regularMarketPreviousClose: {
+        raw: 42.76,
+        fmt: '42.76'
+      },
+      fiftyDayAverage: {
+        raw: 38.2,
+        fmt: '38.20'
+      },
+      trailingAnnualDividendRate: {},
+      open: {
+        raw: 42.93,
+        fmt: '42.93'
+      },
+      toCurrency: null,
+      averageVolume10days: {
+        raw: 55738475,
+        fmt: '55.74M',
+        longFmt: '55,738,475'
+      },
+      expireDate: {},
+      yield: {},
+      algorithm: null,
+      dividendRate: {},
+      exDividendDate: {},
+      beta: {
+        raw: 2.542635,
+        fmt: '2.54'
+      },
+      circulatingSupply: {},
+      startDate: {},
+      regularMarketDayLow: {
+        raw: 42.76,
+        fmt: '42.76'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketVolume: {
+        raw: 84802729,
+        fmt: '84.8M',
+        longFmt: '84,802,729'
+      },
+      lastMarket: null,
+      maxSupply: {},
+      openInterest: {},
+      marketCap: {
+        raw: 74847600640,
+        fmt: '74.85B',
+        longFmt: '74,847,600,640'
+      },
+      volumeAllCurrencies: {},
+      strikePrice: {},
+      averageVolume: {
+        raw: 78599335,
+        fmt: '78.6M',
+        longFmt: '78,599,335'
+      },
+      priceToSalesTrailing12Months: {
+        raw: 3.2729828,
+        fmt: '3.27'
+      },
+      dayLow: {
+        raw: 42.76,
+        fmt: '42.76'
+      },
+      ask: {
+        raw: 45.8,
+        fmt: '45.80'
+      },
+      ytdReturn: {},
+      askSize: {
+        raw: 1800,
+        fmt: '1.8k',
+        longFmt: '1,800'
+      },
+      volume: {
+        raw: 84802729,
+        fmt: '84.8M',
+        longFmt: '84,802,729'
+      },
+      fiftyTwoWeekHigh: {
+        raw: 66.99,
+        fmt: '66.99'
+      },
+      forwardPE: {
+        raw: -507.55554,
+        fmt: '-507.56'
+      },
+      maxAge: 1,
+      fromCurrency: null,
+      fiveYearAvgDividendYield: {},
+      fiftyTwoWeekLow: {
+        raw: 5.92,
+        fmt: '5.92'
+      },
+      bid: {
+        raw: 45.66,
+        fmt: '45.66'
+      },
+      tradeable: false,
+      dividendYield: {},
+      bidSize: {
+        raw: 800,
+        fmt: '800',
+        longFmt: '800'
+      },
+      dayHigh: {
+        raw: 46.26,
+        fmt: '46.26'
+      }
+    },
+    symbol: 'NIO',
+    assetProfile: {
+      zip: '201804',
+      sector: 'Consumer Cyclical',
+      fullTimeEmployees: 7763,
+      longBusinessSummary: 'NIO Inc. designs, develops, manufactures, and sells smart electric vehicles in Mainland China, Hong Kong, the United States, the United Kingdom, and Germany. The company offers five, six, and seven-seater electric SUVs, as well as smart electric sedans. It is also involved in the provision of energy and service packages to its users; marketing, design, and technology development activities; manufacture of e-powertrains, battery packs, and components; and sales and after sales management activities. In addition, the company offers power solutions, including Power Home, a home charging solution; Power Swap, a battery swapping service; Public Charger, a public fast charging solution; Power Mobile, a mobile charging service through charging vans; Power Map, an application that provides access to a network of public chargers and their real-time information; and One Click for Power valet service, where it offers vehicle pick up, charging, and return services. Further, it provides repair, maintenance, and bodywork services through its NIO service centers and authorized third-party service centers; statutory and third-party liability insurance, and vehicle damage insurance through third-party insurers; courtesy car services; and roadside assistance, as well as data packages; and auto financing services. Additionally, the company offers NIO Certified, an used vehicle inspection, evaluation, acquisition, and sales service. NIO Inc. has a strategic collaboration with Mobileye N.V. for the development of automated and autonomous vehicles for consumer markets. The company was formerly known as NextEV Inc. and changed its name to NIO Inc. in July 2017. NIO Inc. was founded in 2014 and is headquartered in Shanghai, China.',
+      city: 'Shanghai',
+      phone: '86 21 6908 2018',
+      country: 'China',
+      companyOfficers: [
+        {
+          maxAge: 1,
+          name: 'Mr. William  Li',
+          age: 46,
+          title: 'Founder, Chairman & CEO',
+          yearBorn: 1974,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Lihong  Qin',
+          age: 47,
+          title: 'Pres & Director',
+          yearBorn: 1973,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Wei  Feng',
+          age: 39,
+          title: 'Chief Financial Officer',
+          yearBorn: 1981,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Ganesh V. Iyer',
+          age: 52,
+          title: 'MD of NIO U.S. & Global Chief Information Officer',
+          yearBorn: 1968,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Jade  Wei',
+          title: 'Sr. Director of Investor Relations',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Liu  Fang',
+          title: 'Gen. Counsel',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Feng  Shen',
+          age: 56,
+          title: 'Exec. VP',
+          yearBorn: 1964,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Xin  Zhou',
+          age: 50,
+          title: 'Exec. VP',
+          yearBorn: 1970,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Nick  Wang',
+          title: 'VP & Head of Fin. of NIO Group',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Stanley  Qu',
+          title: 'VP of Fin.',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        }
+      ],
+      website: 'http://www.nio.com',
+      maxAge: 86400,
+      address1: 'Building 20',
+      industry: 'Auto Manufacturers',
+      address2: 'No. 56 AnTuo Road Anting Town Jiading District'
+    },
+    pageViews: {
+      shortTermTrend: 'UP',
+      midTermTrend: 'UP',
+      longTermTrend: 'UP',
+      maxAge: 1
+    }
+  },
+  ICLN: {
+    defaultKeyStatistics: {
+      annualHoldingsTurnover: {},
+      enterpriseToRevenue: {},
+      beta3Year: {
+        raw: 1.17,
+        fmt: '1.17'
+      },
+      profitMargins: {},
+      enterpriseToEbitda: {},
+      '52WeekChange': {},
+      morningStarRiskRating: {},
+      forwardEps: {},
+      revenueQuarterlyGrowth: {},
+      fundInceptionDate: {
+        raw: 1214265600,
+        fmt: '2008-06-24'
+      },
+      annualReportExpenseRatio: {},
+      totalAssets: {
+        raw: 5932055552,
+        fmt: '5.93B',
+        longFmt: '5,932,055,552'
+      },
+      bookValue: {},
+      fundFamily: 'iShares',
+      lastFiscalYearEnd: {},
+      netIncomeToCommon: {},
+      trailingEps: {},
+      lastDividendValue: {},
+      SandP52WeekChange: {},
+      priceToBook: {},
+      nextFiscalYearEnd: {},
+      yield: {
+        raw: 0.0042,
+        fmt: '0.42%'
+      },
+      mostRecentQuarter: {},
+      enterpriseValue: {},
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      threeYearAverageReturn: {
+        raw: 0.3669,
+        fmt: '36.69%'
+      },
+      lastSplitDate: {},
+      lastSplitFactor: null,
+      legalType: 'Exchange Traded Fund',
+      lastDividendDate: {},
+      morningStarOverallRating: {},
+      earningsQuarterlyGrowth: {},
+      priceToSalesTrailing12Months: {},
+      pegRatio: {},
+      ytdReturn: {
+        raw: -0.2024,
+        fmt: '-20.24%'
+      },
+      forwardPE: {},
+      maxAge: 1,
+      lastCapGain: {},
+      category: 'Miscellaneous Sector',
+      fiveYearAverageReturn: {
+        raw: 0.2275,
+        fmt: '22.75%'
+      }
+    },
+    fundProfile: {
+      initInvestment: {},
+      family: 'iShares',
+      categoryName: 'Miscellaneous Sector',
+      initAipInvestment: {},
+      subseqIraInvestment: {},
+      brokerages: [],
+      managementInfo: {
+        managerName: null,
+        managerBio: null,
+        startdate: {}
+      },
+      subseqInvestment: {},
+      legalType: 'Exchange Traded Fund',
+      styleBoxUrl: 'https://s.yimg.com/lq/i/fi/3_0stylelargeeq6.gif',
+      feesExpensesInvestment: {
+        annualHoldingsTurnover: {
+          raw: 0.31,
+          fmt: '31.00%'
+        },
+        frontEndSalesLoad: {},
+        annualReportExpenseRatio: {
+          raw: 0.0046,
+          fmt: '0.46%'
+        },
+        netExpRatio: {},
+        projectionValues: {},
+        grossExpRatio: {},
+        deferredSalesLoad: {},
+        totalNetAssets: {
+          raw: 17086.09,
+          fmt: '17,086.09'
+        },
+        twelveBOne: {}
+      },
+      maxAge: 1,
+      feesExpensesInvestmentCat: {
+        annualReportExpenseRatio: {
+          raw: 0.0067000003,
+          fmt: '0.67%'
+        },
+        frontEndSalesLoad: {},
+        deferredSalesLoad: {},
+        twelveBOne: {},
+        annualHoldingsTurnover: {
+          raw: 31.86,
+          fmt: '3,186.00%'
+        },
+        totalNetAssets: {
+          raw: 17086.09,
+          fmt: '17,086.09'
+        },
+        projectionValuesCat: {}
+      },
+      initIraInvestment: {},
+      subseqAipInvestment: {}
+    },
+    financialsTemplate: {},
+    topHoldings: {
+      preferredPosition: {},
+      bondPosition: {
+        raw: 0,
+        fmt: '0.00%'
+      },
+      convertiblePosition: {},
+      sectorWeightings: [
+        {
+          realestate: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          consumer_cyclical: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          basic_materials: {
+            raw: 0.0108,
+            fmt: '1.08%'
+          }
+        },
+        {
+          consumer_defensive: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          technology: {
+            raw: 0.1965,
+            fmt: '19.65%'
+          }
+        },
+        {
+          communication_services: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          financial_services: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          utilities: {
+            raw: 0.5716,
+            fmt: '57.16%'
+          }
+        },
+        {
+          industrials: {
+            raw: 0.2132,
+            fmt: '21.32%'
+          }
+        },
+        {
+          energy: {
+            raw: 0.0078,
+            fmt: '0.78%'
+          }
+        },
+        {
+          healthcare: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        }
+      ],
+      holdings: [
+        {
+          symbol: 'VWS',
+          holdingName: 'Vestas Wind Systems A/S',
+          holdingPercent: {
+            raw: 0.0817,
+            fmt: '8.17%'
+          }
+        },
+        {
+          symbol: 'ORSTED',
+          holdingName: 'Orsted A/S',
+          holdingPercent: {
+            raw: 0.0653,
+            fmt: '6.53%'
+          }
+        },
+        {
+          symbol: 'ENPH',
+          holdingName: 'Enphase Energy Inc',
+          holdingPercent: {
+            raw: 0.0531,
+            fmt: '5.31%'
+          }
+        },
+        {
+          symbol: 'IBE.BC',
+          holdingName: 'Iberdrola SA',
+          holdingPercent: {
+            raw: 0.0458,
+            fmt: '4.58%'
+          }
+        },
+        {
+          symbol: 'XEL',
+          holdingName: 'Xcel Energy Inc',
+          holdingPercent: {
+            raw: 0.0458,
+            fmt: '4.58%'
+          }
+        },
+        {
+          symbol: 'PLUG',
+          holdingName: 'Plug Power Inc',
+          holdingPercent: {
+            raw: 0.0444,
+            fmt: '4.44%'
+          }
+        },
+        {
+          symbol: 'ENEL.MI',
+          holdingName: 'Enel SpA',
+          holdingPercent: {
+            raw: 0.0427,
+            fmt: '4.27%'
+          }
+        },
+        {
+          symbol: 'NEE',
+          holdingName: 'NextEra Energy Inc',
+          holdingPercent: {
+            raw: 0.0416,
+            fmt: '4.16%'
+          }
+        },
+        {
+          symbol: 'SEDG',
+          holdingName: 'SolarEdge Technologies Inc',
+          holdingPercent: {
+            raw: 0.0383,
+            fmt: '3.83%'
+          }
+        },
+        {
+          symbol: 'SSE.L',
+          holdingName: 'SSE PLC',
+          holdingPercent: {
+            raw: 0.033,
+            fmt: '3.30%'
+          }
+        }
+      ],
+      bondHoldings: {
+        maturity: {},
+        duration: {},
+        creditQuality: {},
+        maturityCat: {},
+        durationCat: {},
+        creditQualityCat: {}
+      },
+      bondRatings: [
+        {
+          bb: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          aa: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          aaa: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          a: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          other: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          b: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          bbb: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          below_b: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        },
+        {
+          us_government: {
+            raw: 0,
+            fmt: '0.00%'
+          }
+        }
+      ],
+      equityHoldings: {
+        priceToCashflow: {
+          raw: 15.03,
+          fmt: '15.03'
+        },
+        priceToSales: {
+          raw: 3.16,
+          fmt: '3.16'
+        },
+        priceToBookCat: {},
+        priceToEarningsCat: {},
+        medianMarketCapCat: {},
+        threeYearEarningsGrowthCat: {},
+        threeYearEarningsGrowth: {},
+        medianMarketCap: {},
+        priceToEarnings: {
+          raw: 27.79,
+          fmt: '27.79'
+        },
+        priceToBook: {
+          raw: 3.05,
+          fmt: '3.05'
+        },
+        priceToSalesCat: {},
+        priceToCashflowCat: {}
+      },
+      otherPosition: {},
+      maxAge: 1,
+      cashPosition: {},
+      stockPosition: {
+        raw: 0.9907,
+        fmt: '99.07%'
+      }
+    },
+    price: {
+      quoteSourceName: 'Delayed Quote',
+      regularMarketOpen: {
+        raw: 22.42,
+        fmt: '22.42'
+      },
+      averageDailyVolume3Month: {
+        raw: 6281292,
+        fmt: '6.28M',
+        longFmt: '6,281,292'
+      },
+      exchange: 'NMS',
+      regularMarketTime: 1623441602,
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 22.53,
+        fmt: '22.53'
+      },
+      shortName: 'iShares S&P Global Clean Energy',
+      averageDailyVolume10Day: {
+        raw: 4174287,
+        fmt: '4.17M',
+        longFmt: '4,174,287'
+      },
+      longName: 'iShares Global Clean Energy ETF',
+      regularMarketChange: {
+        raw: 0.19000053,
+        fmt: '0.19'
+      },
+      currencySymbol: '$',
+      regularMarketPreviousClose: {
+        raw: 22.34,
+        fmt: '22.34'
+      },
+      postMarketTime: 1623454309,
+      preMarketPrice: {
+        raw: 22.42,
+        fmt: '22.42'
+      },
+      preMarketTime: 1623418173,
+      exchangeDataDelayedBy: 0,
+      toCurrency: null,
+      postMarketChange: {
+        raw: -0.030000687,
+        fmt: '-0.03'
+      },
+      postMarketPrice: {
+        raw: 22.5,
+        fmt: '22.50'
+      },
+      exchangeName: 'NasdaqGS',
+      preMarketChange: {
+        raw: 0.0799999,
+        fmt: '0.08'
+      },
+      circulatingSupply: {},
+      regularMarketDayLow: {
+        raw: 22.345,
+        fmt: '22.34'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketPrice: {
+        raw: 22.53,
+        fmt: '22.53'
+      },
+      regularMarketVolume: {
+        raw: 3252375,
+        fmt: '3.25M',
+        longFmt: '3,252,375.00'
+      },
+      lastMarket: null,
+      regularMarketSource: 'FREE_REALTIME',
+      openInterest: {},
+      marketState: 'POST',
+      underlyingSymbol: null,
+      marketCap: {},
+      quoteType: 'ETF',
+      preMarketChangePercent: {
+        raw: 0.00358102,
+        fmt: '0.36%'
+      },
+      volumeAllCurrencies: {},
+      postMarketSource: 'DELAYED',
+      strikePrice: {},
+      symbol: 'ICLN',
+      postMarketChangePercent: {
+        raw: -0.0013315884,
+        fmt: '-0.13%'
+      },
+      preMarketSource: 'FREE_REALTIME',
+      maxAge: 1,
+      fromCurrency: null,
+      regularMarketChangePercent: {
+        raw: 0.008504948,
+        fmt: '0.85%'
+      }
+    },
+    quoteType: {
+      exchange: 'NGM',
+      shortName: 'iShares S&P Global Clean Energy',
+      longName: 'iShares Global Clean Energy ETF',
+      exchangeTimezoneName: 'America/New_York',
+      exchangeTimezoneShortName: 'EDT',
+      isEsgPopulated: false,
+      gmtOffSetMilliseconds: '-14400000',
+      quoteType: 'ETF',
+      symbol: 'ICLN',
+      messageBoardId: 'finmb_61565163',
+      market: 'us_market'
+    },
+    summaryDetail: {
+      previousClose: {
+        raw: 22.34,
+        fmt: '22.34'
+      },
+      regularMarketOpen: {
+        raw: 22.42,
+        fmt: '22.42'
+      },
+      twoHundredDayAverage: {
+        raw: 25.51241,
+        fmt: '25.51'
+      },
+      trailingAnnualDividendYield: {},
+      payoutRatio: {},
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 22.53,
+        fmt: '22.53'
+      },
+      navPrice: {
+        raw: 22.37,
+        fmt: '22.37'
+      },
+      averageDailyVolume10Day: {
+        raw: 4174287,
+        fmt: '4.17M',
+        longFmt: '4,174,287'
+      },
+      totalAssets: {
+        raw: 5932055552,
+        fmt: '5.93B',
+        longFmt: '5,932,055,552'
+      },
+      regularMarketPreviousClose: {
+        raw: 22.34,
+        fmt: '22.34'
+      },
+      fiftyDayAverage: {
+        raw: 22.528572,
+        fmt: '22.53'
+      },
+      trailingAnnualDividendRate: {},
+      open: {
+        raw: 22.42,
+        fmt: '22.42'
+      },
+      toCurrency: null,
+      averageVolume10days: {
+        raw: 4174287,
+        fmt: '4.17M',
+        longFmt: '4,174,287'
+      },
+      expireDate: {},
+      yield: {
+        raw: 0.0042,
+        fmt: '0.42%'
+      },
+      algorithm: null,
+      dividendRate: {},
+      exDividendDate: {},
+      beta: {},
+      circulatingSupply: {},
+      startDate: {},
+      regularMarketDayLow: {
+        raw: 22.345,
+        fmt: '22.34'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketVolume: {
+        raw: 3252375,
+        fmt: '3.25M',
+        longFmt: '3,252,375'
+      },
+      lastMarket: null,
+      maxSupply: {},
+      openInterest: {},
+      marketCap: {},
+      volumeAllCurrencies: {},
+      strikePrice: {},
+      averageVolume: {
+        raw: 6281292,
+        fmt: '6.28M',
+        longFmt: '6,281,292'
+      },
+      priceToSalesTrailing12Months: {},
+      dayLow: {
+        raw: 22.345,
+        fmt: '22.34'
+      },
+      ask: {
+        raw: 22.52,
+        fmt: '22.52'
+      },
+      ytdReturn: {},
+      askSize: {
+        raw: 1200,
+        fmt: '1.2k',
+        longFmt: '1,200'
+      },
+      volume: {
+        raw: 3252375,
+        fmt: '3.25M',
+        longFmt: '3,252,375'
+      },
+      fiftyTwoWeekHigh: {
+        raw: 34.25,
+        fmt: '34.25'
+      },
+      forwardPE: {},
+      maxAge: 1,
+      fromCurrency: null,
+      fiveYearAvgDividendYield: {},
+      fiftyTwoWeekLow: {
+        raw: 11.76,
+        fmt: '11.76'
+      },
+      bid: {
+        raw: 22.48,
+        fmt: '22.48'
+      },
+      tradeable: false,
+      dividendYield: {},
+      bidSize: {
+        raw: 4000,
+        fmt: '4k',
+        longFmt: '4,000'
+      },
+      dayHigh: {
+        raw: 22.53,
+        fmt: '22.53'
+      }
+    },
+    symbol: 'ICLN',
+    assetProfile: {
+      phone: '800-474-2737',
+      longBusinessSummary: 'The investment seeks to track the investment results of the S&P Global Clean Energy IndexTM composed of global equities in the clean energy sector.\n The index is designed to track the performance of approximately 100 clean energy-related companies. The fund generally invests at least 80% of its assets in the component securities of the index and in investments that have economic characteristics that are substantially identical to the component securities of the index and may invest up to 20% of its assets in certain futures, options and swap contracts, cash and cash equivalents, as well as in securities not included in the index. It is non-diversified.',
+      companyOfficers: [],
+      maxAge: 86400
+    },
+    pageViews: {}
+  },
+  NOVN: {
+    financialsTemplate: {
+      code: 'N',
+      maxAge: 1
+    },
+    price: {
+      quoteSourceName: 'Nasdaq Real Time Price',
+      regularMarketOpen: {
+        raw: 14.36,
+        fmt: '14.36'
+      },
+      averageDailyVolume3Month: {
+        raw: 644601,
+        fmt: '644.6k',
+        longFmt: '644,601'
+      },
+      exchange: 'NMS',
+      regularMarketTime: 1623441602,
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 18.68,
+        fmt: '18.68'
+      },
+      shortName: 'Novan, Inc.',
+      averageDailyVolume10Day: {
+        raw: 770262,
+        fmt: '770.26k',
+        longFmt: '770,262'
+      },
+      longName: 'Novan, Inc.',
+      regularMarketChange: {
+        raw: 5.6400003,
+        fmt: '5.64'
+      },
+      currencySymbol: '$',
+      regularMarketPreviousClose: {
+        raw: 9.04,
+        fmt: '9.04'
+      },
+      postMarketTime: 1623455997,
+      preMarketPrice: {
+        raw: 14.39,
+        fmt: '14.39'
+      },
+      preMarketTime: 1623418198,
+      exchangeDataDelayedBy: 0,
+      toCurrency: null,
+      postMarketChange: {
+        raw: -0.3800001,
+        fmt: '-0.38'
+      },
+      postMarketPrice: {
+        raw: 14.3,
+        fmt: '14.30'
+      },
+      exchangeName: 'NasdaqGS',
+      preMarketChange: {
+        raw: 5.35,
+        fmt: '5.35'
+      },
+      circulatingSupply: {},
+      regularMarketDayLow: {
+        raw: 13.61,
+        fmt: '13.61'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketPrice: {
+        raw: 14.68,
+        fmt: '14.68'
+      },
+      regularMarketVolume: {
+        raw: 126199906,
+        fmt: '126.20M',
+        longFmt: '126,199,906.00'
+      },
+      lastMarket: null,
+      regularMarketSource: 'FREE_REALTIME',
+      openInterest: {},
+      marketState: 'POSTPOST',
+      underlyingSymbol: null,
+      marketCap: {
+        raw: 222705888,
+        fmt: '222.71M',
+        longFmt: '222,705,888.00'
+      },
+      quoteType: 'EQUITY',
+      preMarketChangePercent: {
+        raw: 0.591814,
+        fmt: '59.18%'
+      },
+      volumeAllCurrencies: {},
+      postMarketSource: 'FREE_REALTIME',
+      strikePrice: {},
+      symbol: 'NOVN',
+      postMarketChangePercent: {
+        raw: -0.025885565,
+        fmt: '-2.59%'
+      },
+      preMarketSource: 'FREE_REALTIME',
+      maxAge: 1,
+      fromCurrency: null,
+      regularMarketChangePercent: {
+        raw: 0.62389386,
+        fmt: '62.39%'
+      }
+    },
+    secFilings: {
+      filings: [
+        {
+          date: '2021-06-11',
+          epochDate: 1623411732,
+          type: '8-K',
+          title: 'Regulation FD Disclosure, Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000109&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-06-10',
+          epochDate: 1623332461,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000104&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-06-07',
+          epochDate: 1623073405,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000098&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-25',
+          epochDate: 1621948010,
+          type: '8-K',
+          title: 'Material Modification to Rights of Security Holders, Change in Directors or Principal Officers, Amendments to Articles of Inc. or Bylaws; Change in Fiscal Year, Regulation FD Disclosure, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000071&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-11',
+          epochDate: 1620767409,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000063&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-11',
+          epochDate: 1620767032,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000062&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-06',
+          epochDate: 1620336710,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000050&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-03-09',
+          epochDate: 1615291338,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000027&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-03-02',
+          epochDate: 1614692513,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers, Regulation FD Disclosure, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000018&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-02-25',
+          epochDate: 1614256859,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000013&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-02-24',
+          epochDate: 1614200910,
+          type: '10-K',
+          title: 'Annual Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000012&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-01-29',
+          epochDate: 1611954563,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000004&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-01-19',
+          epochDate: 1611065196,
+          type: '8-K',
+          title: 'Entry into a Material Definitive Agreement',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-21-000002&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-11-04',
+          epochDate: 1604493367,
+          type: '8-K',
+          title: 'Notice of Delisting or Failure to Satisfy a Continued Listing Rule or Standard; Transfer of Listing',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000156&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-10-30',
+          epochDate: 1604062115,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000154&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-10-30',
+          epochDate: 1604061453,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000153&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-10-14',
+          epochDate: 1602677212,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000145&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-09-24',
+          epochDate: 1600949484,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000136&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-09-14',
+          epochDate: 1600092560,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000133&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-08-14',
+          epochDate: 1597407525,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000127&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-07-31',
+          epochDate: 1596203273,
+          type: '8-K',
+          title: 'Submission of Matters to a Vote of Security Holders',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000122&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-07-28',
+          epochDate: 1595941838,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000106&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-07-16',
+          epochDate: 1594935969,
+          type: '8-K',
+          title: 'Termination of a Material Definitive Agreement, Costs Associated with Exit or Disposal Activities, Material Impairments',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000095&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-07-09',
+          epochDate: 1594331159,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000089&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-06-25',
+          epochDate: 1593090484,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000087&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-06-17',
+          epochDate: 1592391786,
+          type: '8-K',
+          title: 'Entry into a Material Definitive Agreement',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000083&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-05-20',
+          epochDate: 1589976915,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000070&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-05-20',
+          epochDate: 1589976249,
+          type: '10-K/A',
+          title: 'Annual Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000069&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-05-15',
+          epochDate: 1589544135,
+          type: '8-K',
+          title: 'Disclosing Non-Reliance on Previous Financials, Audits or Interim Review',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000059&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-04-23',
+          epochDate: 1587674997,
+          type: '8-K',
+          title: 'Disclosing Entry into a Material Definitive Agreement',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000055&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-04-03',
+          epochDate: 1585916507,
+          type: '8-K',
+          title: 'Disclosing Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000039&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-03-26',
+          epochDate: 1585253849,
+          type: '8-K',
+          title: 'Disclosing Entry into a Material Definitive Agreement',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000037&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-03-23',
+          epochDate: 1584966098,
+          type: '8-K',
+          title: 'Disclosing Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000031&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-03-03',
+          epochDate: 1583270402,
+          type: '8-K',
+          title: 'Disclosing Entry into a Material Definitive Agreement',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000025&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-02-24',
+          epochDate: 1582548430,
+          type: '10-K',
+          title: 'Annual Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000014&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-02-06',
+          epochDate: 1580996233,
+          type: '8-K',
+          title: 'Disclosing Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000008&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-02-04',
+          epochDate: 1580851129,
+          type: '8-K',
+          title: 'Disclosing Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000005&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-01-03',
+          epochDate: 1578057296,
+          type: '8-K',
+          title: 'Disclosing Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-20-000002&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-12-18',
+          epochDate: 1576674365,
+          type: '8-K',
+          title: 'Disclosing Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-19-000106&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-11-12',
+          epochDate: 1573593965,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-19-000103&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-09-05',
+          epochDate: 1567679824,
+          type: '8-K',
+          title: 'Disclosing Entry into a Material Definitive Agreement',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-19-000078&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-08-13',
+          epochDate: 1565694255,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-19-000069&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-08-06',
+          epochDate: 1565123711,
+          type: '8-K',
+          title: 'Disclosing Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001467154-19-000067&nav=1&src=Yahoo',
+          maxAge: 1
+        }
+      ],
+      maxAge: 86400
+    },
+    quoteType: {
+      exchange: 'NMS',
+      shortName: 'Novan, Inc.',
+      longName: 'Novan, Inc.',
+      exchangeTimezoneName: 'America/New_York',
+      exchangeTimezoneShortName: 'EDT',
+      isEsgPopulated: false,
+      gmtOffSetMilliseconds: '-14400000',
+      quoteType: 'EQUITY',
+      symbol: 'NOVN',
+      messageBoardId: 'finmb_115977469',
+      market: 'us_market'
+    },
+    calendarEvents: {
+      maxAge: 1,
+      earnings: {
+        earningsDate: [
+          {
+            raw: 1628726400,
+            fmt: '2021-08-12'
+          },
+          {
+            raw: 1629072000,
+            fmt: '2021-08-16'
+          }
+        ],
+        earningsAverage: {
+          raw: -0.05,
+          fmt: '-0.05'
+        },
+        earningsLow: {
+          raw: -0.06,
+          fmt: '-0.06'
+        },
+        earningsHigh: {
+          raw: -0.05,
+          fmt: '-0.05'
+        },
+        revenueAverage: {
+          raw: 850000,
+          fmt: '850k',
+          longFmt: '850,000'
+        },
+        revenueLow: {
+          raw: 820000,
+          fmt: '820k',
+          longFmt: '820,000'
+        },
+        revenueHigh: {
+          raw: 890000,
+          fmt: '890k',
+          longFmt: '890,000'
+        }
+      },
+      exDividendDate: {},
+      dividendDate: {}
+    },
+    summaryDetail: {
+      previousClose: {
+        raw: 9.04,
+        fmt: '9.04'
+      },
+      regularMarketOpen: {
+        raw: 14.36,
+        fmt: '14.36'
+      },
+      twoHundredDayAverage: {
+        raw: 12.1178465,
+        fmt: '12.12'
+      },
+      trailingAnnualDividendYield: {},
+      payoutRatio: {
+        raw: 0,
+        fmt: '0.00%'
+      },
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 18.68,
+        fmt: '18.68'
+      },
+      navPrice: {},
+      averageDailyVolume10Day: {
+        raw: 770262,
+        fmt: '770.26k',
+        longFmt: '770,262'
+      },
+      totalAssets: {},
+      regularMarketPreviousClose: {
+        raw: 9.04,
+        fmt: '9.04'
+      },
+      fiftyDayAverage: {
+        raw: 11.109858,
+        fmt: '11.11'
+      },
+      trailingAnnualDividendRate: {},
+      open: {
+        raw: 14.36,
+        fmt: '14.36'
+      },
+      toCurrency: null,
+      averageVolume10days: {
+        raw: 770262,
+        fmt: '770.26k',
+        longFmt: '770,262'
+      },
+      expireDate: {},
+      yield: {},
+      algorithm: null,
+      dividendRate: {},
+      exDividendDate: {},
+      beta: {
+        raw: -0.056864,
+        fmt: '-0.06'
+      },
+      circulatingSupply: {},
+      startDate: {},
+      regularMarketDayLow: {
+        raw: 13.61,
+        fmt: '13.61'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketVolume: {
+        raw: 126199906,
+        fmt: '126.2M',
+        longFmt: '126,199,906'
+      },
+      lastMarket: null,
+      maxSupply: {},
+      openInterest: {},
+      marketCap: {
+        raw: 222705888,
+        fmt: '222.71M',
+        longFmt: '222,705,888'
+      },
+      volumeAllCurrencies: {},
+      strikePrice: {},
+      averageVolume: {
+        raw: 644601,
+        fmt: '644.6k',
+        longFmt: '644,601'
+      },
+      priceToSalesTrailing12Months: {
+        raw: 49.2059,
+        fmt: '49.21'
+      },
+      dayLow: {
+        raw: 13.61,
+        fmt: '13.61'
+      },
+      ask: {
+        raw: 14.44,
+        fmt: '14.44'
+      },
+      ytdReturn: {},
+      askSize: {
+        raw: 1100,
+        fmt: '1.1k',
+        longFmt: '1,100'
+      },
+      volume: {
+        raw: 126199906,
+        fmt: '126.2M',
+        longFmt: '126,199,906'
+      },
+      fiftyTwoWeekHigh: {
+        raw: 25.9,
+        fmt: '25.90'
+      },
+      forwardPE: {
+        raw: -91.75001,
+        fmt: '-91.75'
+      },
+      maxAge: 1,
+      fromCurrency: null,
+      fiveYearAvgDividendYield: {},
+      fiftyTwoWeekLow: {
+        raw: 3,
+        fmt: '3.00'
+      },
+      bid: {
+        raw: 14.25,
+        fmt: '14.25'
+      },
+      tradeable: false,
+      dividendYield: {},
+      bidSize: {
+        raw: 1300,
+        fmt: '1.3k',
+        longFmt: '1,300'
+      },
+      dayHigh: {
+        raw: 18.68,
+        fmt: '18.68'
+      }
+    },
+    symbol: 'NOVN',
+    assetProfile: {
+      zip: '27560',
+      sector: 'Healthcare',
+      fullTimeEmployees: 23,
+      longBusinessSummary: "Novan, Inc., a clinical development-stage biotechnology company, provides nitric oxide-based therapies to treat dermatological and oncovirus-mediated diseases. Its clinical stage dermatology drug candidates include SB204, a topical monotherapy for the treatment of acne vulgaris; SB206, a topical anti-viral gel for the treatment of viral skin infections; SB208, a topical broad-spectrum anti-fungal gel for the treatment of fungal infections of the skin and nails, including athlete's foot and fungal nail infections; and SB414, a topical cream-based gel product candidate for the treatment of inflammatory skin diseases. The company also develops SB207, an anti-viral product candidate for the treatment of external genital warts; WH602, a nitric oxide-containing intravaginal gel to treat high-risk human papilloma virus (HPV); WH504, a non-gel formulation product candidate to treat high-risk HPV; and SB019 for the treatment of SARS-CoV-2. Novan, Inc. has a license agreement with Sato Pharmaceutical Co., Ltd.; and a strategic alliance with Orion Corporation. The company was incorporated in 2006 and is headquartered in Morrisville, North Carolina.",
+      city: 'Morrisville',
+      phone: '919 485 8080',
+      state: 'NC',
+      compensationAsOfEpochDate: 1609372800,
+      country: 'United States',
+      companyOfficers: [
+        {
+          totalPay: {
+            raw: 897864,
+            fmt: '897.86k',
+            longFmt: '897,864'
+          },
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          yearBorn: 1965,
+          name: 'Ms. Paula Brown Stafford',
+          title: 'Pres, CEO & Chairwoman',
+          maxAge: 1,
+          fiscalYear: 2020,
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          age: 55
+        },
+        {
+          totalPay: {
+            raw: 408031,
+            fmt: '408.03k',
+            longFmt: '408,031'
+          },
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          yearBorn: 1977,
+          name: 'Mr. John M. Gay',
+          title: 'CFO & Corp. Sec.',
+          maxAge: 1,
+          fiscalYear: 2020,
+          unexercisedValue: {
+            raw: 15062,
+            fmt: '15.06k',
+            longFmt: '15,062'
+          },
+          age: 43
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Andrew J. Novak',
+          title: 'VP of Accounting & Bus. Operations and Chief Accounting Officer',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Dr. Carri  Geer',
+          title: 'Sr. VP & CTO',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Cole  Ikkala',
+          title: 'Director of Investor Relations, Communications & Bus. Devel.',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Stanley  Hollenbach BS,J.D.',
+          title: 'Sr. VP of R&D',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Ms. Elizabeth  Messersmith',
+          title: 'Sr. VP & Chief Devel. Officer',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        }
+      ],
+      website: 'http://www.novan.com',
+      maxAge: 86400,
+      address1: '4105 Hopson Road',
+      industry: 'Biotechnology'
+    },
+    pageViews: {
+      shortTermTrend: 'NEUTRAL',
+      midTermTrend: 'UP',
+      longTermTrend: 'UP',
+      maxAge: 1
+    }
+  },
+  NVDA: {
+    financialsTemplate: {
+      code: 'N',
+      maxAge: 1
+    },
+    price: {
+      quoteSourceName: 'Nasdaq Real Time Price',
+      regularMarketOpen: {
+        raw: 699.18,
+        fmt: '699.18'
+      },
+      averageDailyVolume3Month: {
+        raw: 8473721,
+        fmt: '8.47M',
+        longFmt: '8,473,721'
+      },
+      exchange: 'NMS',
+      regularMarketTime: 1623441602,
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 717.569,
+        fmt: '717.57'
+      },
+      shortName: 'NVIDIA Corporation',
+      averageDailyVolume10Day: {
+        raw: 11975787,
+        fmt: '11.98M',
+        longFmt: '11,975,787'
+      },
+      longName: 'NVIDIA Corporation',
+      regularMarketChange: {
+        raw: 16.01001,
+        fmt: '16.01'
+      },
+      currencySymbol: '$',
+      regularMarketPreviousClose: {
+        raw: 697,
+        fmt: '697.00'
+      },
+      postMarketTime: 1623455998,
+      preMarketPrice: {
+        raw: 699.74,
+        fmt: '699.74'
+      },
+      preMarketTime: 1623418199,
+      exchangeDataDelayedBy: 0,
+      toCurrency: null,
+      postMarketChange: {
+        raw: 0.19000244,
+        fmt: '0.19'
+      },
+      postMarketPrice: {
+        raw: 713.2,
+        fmt: '713.20'
+      },
+      exchangeName: 'NasdaqGS',
+      preMarketChange: {
+        raw: 2.7399902,
+        fmt: '2.74'
+      },
+      circulatingSupply: {},
+      regularMarketDayLow: {
+        raw: 697.75,
+        fmt: '697.75'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      regularMarketPrice: {
+        raw: 713.01,
+        fmt: '713.01'
+      },
+      regularMarketVolume: {
+        raw: 10292890,
+        fmt: '10.29M',
+        longFmt: '10,292,890.00'
+      },
+      lastMarket: null,
+      regularMarketSource: 'FREE_REALTIME',
+      openInterest: {},
+      marketState: 'POSTPOST',
+      underlyingSymbol: null,
+      marketCap: {
+        raw: 444205236224,
+        fmt: '444.21B',
+        longFmt: '444,205,236,224.00'
+      },
+      quoteType: 'EQUITY',
+      preMarketChangePercent: {
+        raw: 0.0039311196,
+        fmt: '0.39%'
+      },
+      volumeAllCurrencies: {},
+      postMarketSource: 'FREE_REALTIME',
+      strikePrice: {},
+      symbol: 'NVDA',
+      postMarketChangePercent: {
+        raw: 0.00026647936,
+        fmt: '0.03%'
+      },
+      preMarketSource: 'DELAYED',
+      maxAge: 1,
+      fromCurrency: null,
+      regularMarketChangePercent: {
+        raw: 0.022969885,
+        fmt: '2.30%'
+      }
+    },
+    secFilings: {
+      filings: [
+        {
+          date: '2021-06-07',
+          epochDate: 1623063706,
+          type: '8-K',
+          title: 'Amendments to Articles of Inc. or Bylaws; Change in Fiscal Year, Submission of Matters to a Vote of Security Holders, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000075&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-26',
+          epochDate: 1622065029,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000064&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-26',
+          epochDate: 1622064116,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000063&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-05-21',
+          epochDate: 1621605788,
+          type: '8-K',
+          title: 'Other Events',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000056&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-04-12',
+          epochDate: 1618254579,
+          type: '8-K',
+          title: 'Regulation FD Disclosure, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000047&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-03-19',
+          epochDate: 1616151880,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000034&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-02-26',
+          epochDate: 1614377704,
+          type: '10-K',
+          title: 'Annual Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000010&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2021-02-24',
+          epochDate: 1614202012,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-21-000007&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-11-18',
+          epochDate: 1605735436,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000189&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-11-18',
+          epochDate: 1605734552,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000187&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-11-09',
+          epochDate: 1604957613,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000181&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-09-14',
+          epochDate: 1600081742,
+          type: '8-K',
+          title: 'Entry into a Material Definitive Agreement, Regulation FD Disclosure, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001193125-20-244601&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-08-19',
+          epochDate: 1597873065,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000147&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-08-19',
+          epochDate: 1597872153,
+          type: '8-K',
+          title: 'Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000145&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-07-13',
+          epochDate: 1594675414,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000127&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-07-01',
+          epochDate: 1593603273,
+          type: '8-K/A',
+          title: 'Completion of Acquisition or Disposition of Assets, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000120&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-06-15',
+          epochDate: 1592256211,
+          type: '8-K',
+          title: 'Change in Directors or Principal Officers, Submission of Matters to a Vote of Security Holders, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000103&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-05-21',
+          epochDate: 1590093257,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000065&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-05-21',
+          epochDate: 1590092590,
+          type: '8-K',
+          title: 'Disclosing Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000063&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-03-31',
+          epochDate: 1585689372,
+          type: '8-K',
+          title: 'Disclosing Entry into a Material Definitive Agreement, Creation of a Direct Financial Obligation',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001193125-20-092939&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-03-10',
+          epochDate: 1583871223,
+          type: '8-K',
+          title: 'Disclosing Change in Directors or Principal Officers, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000033&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-02-20',
+          epochDate: 1582234788,
+          type: '10-K',
+          title: 'Annual Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000010&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2020-02-13',
+          epochDate: 1581628965,
+          type: '8-K',
+          title: 'Disclosing Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-20-000007&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-11-14',
+          epochDate: 1573767566,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-19-000170&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-11-14',
+          epochDate: 1573766702,
+          type: '8-K',
+          title: 'Disclosing Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-19-000168&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-08-15',
+          epochDate: 1565904124,
+          type: '10-Q',
+          title: 'Quarterly Report',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-19-000144&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-08-15',
+          epochDate: 1565900929,
+          type: '8-K',
+          title: 'Disclosing Results of Operations and Financial Condition',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-19-000140&nav=1&src=Yahoo',
+          maxAge: 1
+        },
+        {
+          date: '2019-06-17',
+          epochDate: 1560803332,
+          type: '8-K',
+          title: 'Disclosing Change in Directors or Principal Officers, Financial Statements and Exhibits',
+          edgarUrl: 'https://yahoo.brand.edgar-online.com/DisplayFiling.aspx?TabIndex=2&dcn=0001045810-19-000112&nav=1&src=Yahoo',
+          maxAge: 1
+        }
+      ],
+      maxAge: 86400
+    },
+    quoteType: {
+      exchange: 'NMS',
+      shortName: 'NVIDIA Corporation',
+      longName: 'NVIDIA Corporation',
+      exchangeTimezoneName: 'America/New_York',
+      exchangeTimezoneShortName: 'EDT',
+      isEsgPopulated: false,
+      gmtOffSetMilliseconds: '-14400000',
+      quoteType: 'EQUITY',
+      symbol: 'NVDA',
+      messageBoardId: 'finmb_32307',
+      market: 'us_market'
+    },
+    calendarEvents: {
+      maxAge: 1,
+      earnings: {
+        earningsDate: [
+          {
+            raw: 1629158400,
+            fmt: '2021-08-17'
+          },
+          {
+            raw: 1629676800,
+            fmt: '2021-08-23'
+          }
+        ],
+        earningsAverage: {
+          raw: 4.11,
+          fmt: '4.11'
+        },
+        earningsLow: {
+          raw: 4.01,
+          fmt: '4.01'
+        },
+        earningsHigh: {
+          raw: 4.19,
+          fmt: '4.19'
+        },
+        revenueAverage: {
+          raw: 6311790000,
+          fmt: '6.31B',
+          longFmt: '6,311,790,000'
+        },
+        revenueLow: {
+          raw: 6298000000,
+          fmt: '6.3B',
+          longFmt: '6,298,000,000'
+        },
+        revenueHigh: {
+          raw: 6400950000,
+          fmt: '6.4B',
+          longFmt: '6,400,950,000'
+        }
+      },
+      exDividendDate: {
+        raw: 1623196800,
+        fmt: '2021-06-09'
+      },
+      dividendDate: {
+        raw: 1625097600,
+        fmt: '2021-07-01'
+      }
+    },
+    summaryDetail: {
+      previousClose: {
+        raw: 697,
+        fmt: '697.00'
+      },
+      regularMarketOpen: {
+        raw: 699.18,
+        fmt: '699.18'
+      },
+      twoHundredDayAverage: {
+        raw: 561.5351,
+        fmt: '561.54'
+      },
+      trailingAnnualDividendYield: {
+        raw: 0.0009182209,
+        fmt: '0.09%'
+      },
+      payoutRatio: {
+        raw: 0.0757,
+        fmt: '7.57%'
+      },
+      volume24Hr: {},
+      regularMarketDayHigh: {
+        raw: 717.569,
+        fmt: '717.57'
+      },
+      navPrice: {},
+      averageDailyVolume10Day: {
+        raw: 11975787,
+        fmt: '11.98M',
+        longFmt: '11,975,787'
+      },
+      totalAssets: {},
+      regularMarketPreviousClose: {
+        raw: 697,
+        fmt: '697.00'
+      },
+      fiftyDayAverage: {
+        raw: 614.62885,
+        fmt: '614.63'
+      },
+      trailingAnnualDividendRate: {
+        raw: 0.64,
+        fmt: '0.64'
+      },
+      open: {
+        raw: 699.18,
+        fmt: '699.18'
+      },
+      toCurrency: null,
+      averageVolume10days: {
+        raw: 11975787,
+        fmt: '11.98M',
+        longFmt: '11,975,787'
+      },
+      expireDate: {},
+      yield: {},
+      algorithm: null,
+      dividendRate: {
+        raw: 0.64,
+        fmt: '0.64'
+      },
+      exDividendDate: {
+        raw: 1623196800,
+        fmt: '2021-06-09'
+      },
+      beta: {
+        raw: 1.366847,
+        fmt: '1.37'
+      },
+      circulatingSupply: {},
+      startDate: {},
+      regularMarketDayLow: {
+        raw: 697.75,
+        fmt: '697.75'
+      },
+      priceHint: {
+        raw: 2,
+        fmt: '2',
+        longFmt: '2'
+      },
+      currency: 'USD',
+      trailingPE: {
+        raw: 84.28014,
+        fmt: '84.28'
+      },
+      regularMarketVolume: {
+        raw: 10292890,
+        fmt: '10.29M',
+        longFmt: '10,292,890'
+      },
+      lastMarket: null,
+      maxSupply: {},
+      openInterest: {},
+      marketCap: {
+        raw: 444205236224,
+        fmt: '444.21B',
+        longFmt: '444,205,236,224'
+      },
+      volumeAllCurrencies: {},
+      strikePrice: {},
+      averageVolume: {
+        raw: 8473721,
+        fmt: '8.47M',
+        longFmt: '8,473,721'
+      },
+      priceToSalesTrailing12Months: {
+        raw: 23.068405,
+        fmt: '23.07'
+      },
+      dayLow: {
+        raw: 697.75,
+        fmt: '697.75'
+      },
+      ask: {
+        raw: 713.25,
+        fmt: '713.25'
+      },
+      ytdReturn: {},
+      askSize: {
+        raw: 1400,
+        fmt: '1.4k',
+        longFmt: '1,400'
+      },
+      volume: {
+        raw: 10292890,
+        fmt: '10.29M',
+        longFmt: '10,292,890'
+      },
+      fiftyTwoWeekHigh: {
+        raw: 717.569,
+        fmt: '717.57'
+      },
+      forwardPE: {
+        raw: 41.381893,
+        fmt: '41.38'
+      },
+      maxAge: 1,
+      fromCurrency: null,
+      fiveYearAvgDividendYield: {
+        raw: 0.32,
+        fmt: '0.32'
+      },
+      fiftyTwoWeekLow: {
+        raw: 348.13,
+        fmt: '348.13'
+      },
+      bid: {
+        raw: 713.15,
+        fmt: '713.15'
+      },
+      tradeable: false,
+      dividendYield: {
+        raw: 0.00090000004,
+        fmt: '0.09%'
+      },
+      bidSize: {
+        raw: 800,
+        fmt: '800',
+        longFmt: '800'
+      },
+      dayHigh: {
+        raw: 717.569,
+        fmt: '717.57'
+      }
+    },
+    symbol: 'NVDA',
+    assetProfile: {
+      zip: '95051',
+      sector: 'Technology',
+      fullTimeEmployees: 18975,
+      compensationRisk: 2,
+      auditRisk: 6,
+      longBusinessSummary: "NVIDIA Corporation operates as a visual computing company worldwide. It operates in two segments, Graphics and Compute & Networking. The Graphics segment offers GeForce GPUs for gaming and PCs, the GeForce NOW game streaming service and related infrastructure, and solutions for gaming platforms; Quadro/NVIDIA RTX GPUs for enterprise design; GRID software for cloud-based visual and virtual computing; and automotive platforms for infotainment systems. The Compute & Networking segment offers Data Center platforms and systems for AI, HPC, and accelerated computing; Mellanox networking and interconnect solutions; automotive AI Cockpit, autonomous driving development agreements, and autonomous vehicle solutions; and Jetson for robotics and other embedded platforms. The company's products are used in gaming, professional visualization, datacenter, and automotive markets. NVIDIA Corporation sells its products to original equipment manufacturers, original device manufacturers, system builders, add-in board manufacturers, retailers/distributors, Internet and cloud service providers, automotive manufacturers and tier-1 automotive suppliers, mapping companies, start-ups, and other ecosystem participants. NVIDIA Corporation was founded in 1993 and is headquartered in Santa Clara, California.",
+      city: 'Santa Clara',
+      phone: '408 486 2000',
+      state: 'CA',
+      shareHolderRightsRisk: 8,
+      compensationAsOfEpochDate: 1640908800,
+      governanceEpochDate: 1622505600,
+      boardRisk: 8,
+      country: 'United States',
+      companyOfficers: [
+        {
+          totalPay: {
+            raw: 4036621,
+            fmt: '4.04M',
+            longFmt: '4,036,621'
+          },
+          exercisedValue: {
+            raw: 214949728,
+            fmt: '214.95M',
+            longFmt: '214,949,728'
+          },
+          yearBorn: 1963,
+          name: 'Mr. Jen-Hsun  Huang',
+          title: 'Co-Founder, CEO, Pres & Director',
+          maxAge: 1,
+          fiscalYear: 2021,
+          unexercisedValue: {
+            raw: 694690752,
+            fmt: '694.69M',
+            longFmt: '694,690,752'
+          },
+          age: 57
+        },
+        {
+          totalPay: {
+            raw: 1525351,
+            fmt: '1.53M',
+            longFmt: '1,525,351'
+          },
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          yearBorn: 1967,
+          name: 'Ms. Colette M. Kress',
+          title: 'Exec. VP & CFO',
+          maxAge: 1,
+          fiscalYear: 2021,
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          age: 53
+        },
+        {
+          totalPay: {
+            raw: 1386333,
+            fmt: '1.39M',
+            longFmt: '1,386,333'
+          },
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          yearBorn: 1955,
+          name: 'Ms. Deborah  Shoquist',
+          title: 'Exec. VP of Operations',
+          maxAge: 1,
+          fiscalYear: 2021,
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          age: 65
+        },
+        {
+          totalPay: {
+            raw: 1374673,
+            fmt: '1.37M',
+            longFmt: '1,374,673'
+          },
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          yearBorn: 1967,
+          name: 'Mr. Timothy S. Teter',
+          title: 'Exec. VP, Gen. Counsel & Sec.',
+          maxAge: 1,
+          fiscalYear: 2021,
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          age: 53
+        },
+        {
+          totalPay: {
+            raw: 2299875,
+            fmt: '2.3M',
+            longFmt: '2,299,875'
+          },
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          yearBorn: 1955,
+          name: 'Mr. Ajay K. Puri',
+          title: 'Exec. VP of Worldwide Field Operations',
+          maxAge: 1,
+          fiscalYear: 2021,
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          age: 65
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Chris A. Malachowsky',
+          title: 'Co-Founder',
+          fiscalYear: 2002,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Donald F. Robertson Jr.',
+          age: 51,
+          title: 'VP & Chief Accounting Officer',
+          yearBorn: 1969,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Prof. William J. Dally',
+          age: 59,
+          title: 'Chief Scientist & Sr. VP of Research',
+          yearBorn: 1961,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Ms. Simona  Jankowski C.F.A., CFA, J.D.',
+          title: 'VP of Investor Relations',
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        },
+        {
+          maxAge: 1,
+          name: 'Mr. Robert  Sherbin',
+          age: 61,
+          title: 'VP of Corp. Communications',
+          yearBorn: 1959,
+          exercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          },
+          unexercisedValue: {
+            raw: 0,
+            fmt: null,
+            longFmt: '0'
+          }
+        }
+      ],
+      website: 'http://www.nvidia.com',
+      maxAge: 86400,
+      overallRisk: 6,
+      address1: '2788 San Tomas Expressway',
+      industry: 'Semiconductors'
     },
     pageViews: {
       shortTermTrend: 'UP',
