@@ -25,7 +25,6 @@ $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
 $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
-$trendingStockEntries.addEventListener('click', handleRemoveEntry);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -531,11 +530,5 @@ function handleAddTrending(event) {
         viewSwap('watchlist');
       }
     }
-  }
-}
-
-function handleRemoveEntry(event) {
-  if (event.target.className.includes('fa-times')) {
-    // console.log('hi');
   }
 }
