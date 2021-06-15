@@ -401,6 +401,10 @@ h2.noStocks {
     margin-right: 25px;
     margin-bottom: 10px;
   }
+
+  .columnName {
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 415px) {
