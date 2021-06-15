@@ -140,6 +140,7 @@ function createStockEntry(data) {
   searchContainerResult.appendChild(subHeaderRow);
 
   var todayPercentage = document.createElement('h2');
+  todayPercentage.className = 'todayPercentage';
   todayPercentage.textContent = 'Today: ';
   subHeaderRow.appendChild(todayPercentage);
 

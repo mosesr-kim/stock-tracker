@@ -72,9 +72,10 @@ input::-webkit-input-placeholder {
 }
 
 .headerRow {
-  max-width: 80%;
+  max-width: 90%;
   margin: auto;
   font-size: 14px;
+  flex-wrap: nowrap;
 }
 
 .stockSymbol {
@@ -83,9 +84,10 @@ input::-webkit-input-placeholder {
 }
 
 .subHeaderRow {
-  width: 80%;
+  width: 90%;
   margin: auto;
   font-size: 14px;
+  flex-wrap: nowrap;
 }
 
 .todayLow {
@@ -94,13 +96,13 @@ input::-webkit-input-placeholder {
 }
 
 .companySummary {
-  font-size: 20px;
-  width: 80%;
+  font-size: 16px;
+  width: 90%;
   margin: auto;
 }
 
 .buttonRow {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
 }
 
@@ -145,13 +147,20 @@ i.fas.fa-minus-circle {
   margin-left: 25px;
 }
 
+.watchlistEntries {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
 .watchlistEntryContainer {
   flex-direction: column;
   background-color: #fcfcfc;
   border: 1px solid #073b4c;
   border-radius: 5px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-bottom: 25px;
 }
 
 .namePriceRow {
@@ -318,10 +327,6 @@ h2.noStocks {
     font-size: 16px;
   }
 
-  .searchContainerResult {
-    width: 90%;
-  }
-
   .trendingStockEntries {
     flex-wrap: wrap;
   }
@@ -382,18 +387,61 @@ h2.noStocks {
     margin-top: 63px;
   }
 
+  .searchContainerResult {
+    width: 95%;
+  }
+
+  h2.todayPercentage {
+    font-size: 14px;
+  }
+
+  h2.todayLow {
+    font-size: 14px;
+  }
+
+  h2.todayhigh {
+    font-size: 14px;
+  }
+
+  .companySummary {
+    font-size: 14px;
+  }
+
   .watchlistEntries {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    width: 100%;
   }
 
   .watchlistEntryContainer {
     display: flex;
     justify-content: center;
-    width: 220px;
-    height: 220px;
+    width: 150px;
+    height: 150px;
     margin-left: 0;
+  }
+
+  h2.watchlistStockSymbol,
+  span.stockPrice,
+  h3.todayLabel,
+  span.stockPercentage,
+  h3.lowLabel,
+  span.lowPrice,
+  h3.highLabel,
+  span.highPrice {
+    font-size: 14px;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .namePriceRow,
+  .todayRow,
+  .lowRow,
+  .highRow {
+    margin-left: 25px;
+    margin-right: 0;
   }
 
   .logo {
@@ -420,5 +468,9 @@ h2.noStocks {
 
   .logo {
     margin-left: 0;
+  }
+
+  .columnName {
+    font-size: 10px;
   }
 }
