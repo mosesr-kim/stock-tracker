@@ -131,7 +131,7 @@ function createStockEntry(data) {
   headerRow.appendChild(stockPrice);
 
   var stockPriceSpan = document.createElement('span');
-  stockPriceSpan.className = 'stockPrice positive';
+  stockPriceSpan.className = 'searchStockPrice positive';
   stockPriceSpan.textContent = '$' + data.price.regularMarketPrice.fmt;
   stockPrice.appendChild(stockPriceSpan);
 

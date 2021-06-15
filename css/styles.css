@@ -74,7 +74,7 @@ input::-webkit-input-placeholder {
 .headerRow {
   max-width: 90%;
   margin: auto;
-  font-size: 14px;
+  font-size: 10px;
   flex-wrap: nowrap;
 }
 
@@ -166,10 +166,12 @@ i.fas.fa-minus-circle {
 .namePriceRow {
   margin-left: 25px;
   margin-right: 25px;
+  justify-content: space-between;
 }
 
 .watchlistStockSymbol {
   margin-bottom: 0;
+  text-align: left;
 }
 
 span.stockPrice {
@@ -180,6 +182,7 @@ span.stockPrice {
 .todayRow {
   margin-left: 25px;
   margin-right: 25px;
+  justify-content: space-between;
 }
 
 .todayLabel {
@@ -194,6 +197,7 @@ span.stockPercentage {
 .lowRow {
   margin-left: 25px;
   margin-right: 25px;
+  justify-content: space-between;
 }
 
 .lowLabel {
@@ -208,6 +212,7 @@ span.lowPrice {
 .highRow {
   margin-left: 25px;
   margin-right: 25px;
+  justify-content: space-between;
 }
 
 span.highPrice {
@@ -314,16 +319,63 @@ h2.noStocks {
   margin-top: 0;
 }
 
-.logo:hover,
-.watchlistEntryContainer:hover,
-.fa-check:hover,
+.logo:hover {
+  cursor: pointer;
+}
+
+.watchlistEntryContainer:hover {
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+
+.trendingEntryContainer:hover {
+  background-color: #f4f4f4;
+}
+
+.fa-check:hover {
+  cursor: pointer;
+}
+
 .fa-search:hover {
   cursor: pointer;
 }
 
+.readMore:hover {
+  background-color: #f4f4f4;
+}
+
+.trending:hover {
+  color: #ececec;
+}
+
+.watchlist:hover {
+  color: #ececec;
+}
+
+.fa-plus-circle:hover,
+.fa-minus-circle:hover {
+  cursor: pointer;
+}
+
+.watchlistEntryContainer:active {
+  transform: translateY(0.25rem);
+}
+
+.fa-plus-circle:active,
+.fa-minus-circle:active,
+.readMore:active,
+.logo:active,
+.cancelButton:active,
+.confirmButton:active,
+.trending:active,
+.watchlist:active,
+.fa-check:active {
+  transform: translateY(0.1rem);
+}
+
 @media screen and (max-width: 1250px) {
   .headerRow {
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .subHeaderRow {
@@ -347,7 +399,7 @@ h2.noStocks {
   }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 800px) {
   header {
     background-color: #118ab2;
     padding-bottom: 0;
@@ -386,10 +438,7 @@ h2.noStocks {
     margin-left: 0;
   }
 
-  .trending {
-    margin-top: 63px;
-  }
-
+  .trending,
   .watchlist {
     margin-top: 63px;
   }
@@ -398,18 +447,9 @@ h2.noStocks {
     width: 95%;
   }
 
-  h2.todayPercentage {
-    font-size: 14px;
-  }
-
-  h2.todayLow {
-    font-size: 14px;
-  }
-
-  h2.todayhigh {
-    font-size: 14px;
-  }
-
+  h2.todayPercentage,
+  h2.todayLow,
+  h2.todayHigh,
   .companySummary {
     font-size: 14px;
   }
@@ -437,10 +477,11 @@ h2.noStocks {
   span.lowPrice,
   h3.highLabel,
   span.highPrice {
-    font-size: 14px;
+    font-size: 12px;
     padding-top: 0;
     margin-top: 0;
     margin-bottom: 5px;
+    margin-left: 0;
   }
 
   .namePriceRow,
@@ -448,7 +489,7 @@ h2.noStocks {
   .lowRow,
   .highRow {
     margin-left: 25px;
-    margin-right: 0;
+    margin-right: 25px;
   }
 
   .logo {
@@ -477,7 +518,14 @@ h2.noStocks {
     margin-left: 0;
   }
 
-  .columnName {
+  .columnName,
+  .trendingStockSymbol,
+  .trendingStockPrice,
+  .trendingStockPercentage {
     font-size: 10px;
+  }
+
+  .headerRow {
+    font-size: 6px;
   }
 }
