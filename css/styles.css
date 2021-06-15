@@ -150,8 +150,8 @@ i.fas.fa-minus-circle {
   background-color: #fcfcfc;
   border: 1px solid #073b4c;
   border-radius: 5px;
-  margin-left: 50px;
-  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .namePriceRow {
@@ -267,7 +267,7 @@ span.highPrice {
   border: 1px solid #073b4c;
   border-radius: 5px;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   background-color: #fcfcfc;
 }
 
@@ -299,6 +299,10 @@ span.highPrice {
   height: 50px;
   margin-left: 20px;
   margin-top: 20px;
+}
+
+h2.noStocks {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 1250px) {
@@ -380,13 +384,15 @@ span.highPrice {
 
   .watchlistEntries {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
   }
 
   .watchlistEntryContainer {
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 220px;
+    height: 220px;
     margin-left: 0;
   }
 

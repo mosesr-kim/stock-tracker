@@ -15,6 +15,7 @@ var $confirmButton = document.querySelector('.confirmButton');
 var $trendingContainer = document.querySelector('.trendingContainer');
 var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 var $views = document.querySelectorAll('.view');
+var $logo = document.querySelector('.logo');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -25,6 +26,7 @@ $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
 $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
+$logo.addEventListener('click', goHome);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -286,7 +288,7 @@ function createWatchlistEntry(data) {
   watchlistEntryContainer.className = 'watchlistEntryContainer justify-center';
 
   var namePriceRow = document.createElement('div');
-  namePriceRow.className = 'row namePriceRow justify-center align-center';
+  namePriceRow.className = 'row namePriceRow align-center';
   watchlistEntryContainer.appendChild(namePriceRow);
 
   var stockSymbol = document.createElement('h2');
@@ -300,7 +302,7 @@ function createWatchlistEntry(data) {
   namePriceRow.appendChild(stockPrice);
 
   var todayRow = document.createElement('div');
-  todayRow.className = 'row todayRow justify-center align-center';
+  todayRow.className = 'row todayRow align-center';
   watchlistEntryContainer.appendChild(todayRow);
 
   var todayLabel = document.createElement('h3');
@@ -318,7 +320,7 @@ function createWatchlistEntry(data) {
   todayRow.appendChild(todayPercentage);
 
   var lowRow = document.createElement('div');
-  lowRow.className = 'row lowRow justify-center align-center';
+  lowRow.className = 'row lowRow align-center';
   watchlistEntryContainer.appendChild(lowRow);
 
   var lowLabel = document.createElement('h3');
@@ -332,7 +334,7 @@ function createWatchlistEntry(data) {
   lowRow.appendChild(lowPrice);
 
   var highRow = document.createElement('div');
-  highRow.className = 'row highRow justify-center align-center';
+  highRow.className = 'row highRow align-center';
   watchlistEntryContainer.appendChild(highRow);
 
   var highLabel = document.createElement('h3');
@@ -350,6 +352,12 @@ function createWatchlistEntry(data) {
 
 function viewSwap(viewName) {
   data.view = viewName;
+  if (viewName === 'home') {
+    $watchlistContainer.className = 'view watchlistContainer';
+    $trendingContainer.className = 'view trendingContainer';
+    $searchContainer.className = 'view hidden';
+    return;
+  }
   var containerName = viewName + 'Container';
   for (var i = 0; i < $views.length; i++) {
     if (viewName === $views[i].getAttribute('data-view')) {
@@ -389,7 +397,6 @@ function readMore(event) {
 
 window.addEventListener('DOMContentLoaded', function (event) {
   if (data.watchlist.length === 0) {
-    viewSwap('watchlist');
     $noStocks.className = 'noStocks';
   }
   for (var i = 0; i < data.watchlist.length; i++) {
@@ -531,4 +538,8 @@ function handleAddTrending(event) {
       }
     }
   }
+}
+
+function goHome(event) {
+  viewSwap('home');
 }
