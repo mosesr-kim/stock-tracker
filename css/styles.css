@@ -294,6 +294,13 @@ span.highPrice {
   color: #ef476f;
 }
 
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 1250px) {
   .headerRow {
     font-size: 10px;
@@ -324,7 +331,7 @@ span.highPrice {
   }
 }
 
-@media screen and (max-width: 691px) {
+@media screen and (max-width: 760px) {
   header {
     background-color: #118ab2;
     padding-bottom: 0;
@@ -380,6 +387,28 @@ span.highPrice {
     display: flex;
     justify-content: center;
     width: 40%;
+    margin-left: 0;
+  }
+
+  .logo {
+    margin-top: 50px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  a.trending {
+    font-size: 16px;
+    margin-top: 75px;
+  }
+
+  a.watchlist {
+    font-size: 16px;
+    margin-top: 75px;
+  }
+
+  .logo {
     margin-left: 0;
   }
 }
