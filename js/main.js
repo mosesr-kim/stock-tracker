@@ -49,8 +49,6 @@ function handleSearch(event) {
   }
   // (Code below is commented out to avoid rate limiting restrictions)
   // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
-  // data.search = $search.elements.search.value;
-  // searchRequest(data.search);
 }
 
 // (Code below is commented out to avoid rate limiting restrictions)
@@ -426,7 +424,11 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
   addTrendingStock(trendingTickers);
   // trendingRequest();
-  viewSwap(data.view);
+  if (data.view === null) {
+    viewSwap('home');
+  } else {
+    viewSwap(data.view);
+  }
 });
 
 function watchlistToSearch(event) {
@@ -452,7 +454,7 @@ function watchlistToSearch(event) {
 function getPercentage(data) {
   var stringed = data.toString();
   var newString = '';
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < stringed.length; i++) {
     newString += stringed[i];
   }
   return newString + '%';
