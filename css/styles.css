@@ -23,7 +23,7 @@ a.trending {
 
 a.watchlist {
   font-size: 24px;
-  margin-left: 20px;
+  margin-left: 25px;
   color: white;
 }
 
@@ -319,7 +319,11 @@ h2.noStocks {
   margin-top: 0;
 }
 
-.logo:hover {
+.logo:hover,
+.fa-check:hover,
+.fa-search:hover,
+.fa-plus-circle:hover,
+.fa-minus-circle:hover {
   cursor: pointer;
 }
 
@@ -328,33 +332,14 @@ h2.noStocks {
   background-color: #f4f4f4;
 }
 
-.trendingEntryContainer:hover {
-  background-color: #f4f4f4;
-}
-
-.fa-check:hover {
-  cursor: pointer;
-}
-
-.fa-search:hover {
-  cursor: pointer;
-}
-
+.trendingEntryContainer:hover,
 .readMore:hover {
   background-color: #f4f4f4;
 }
 
-.trending:hover {
-  color: #ececec;
-}
-
+.trending:hover,
 .watchlist:hover {
   color: #ececec;
-}
-
-.fa-plus-circle:hover,
-.fa-minus-circle:hover {
-  cursor: pointer;
 }
 
 .watchlistEntryContainer:active {
@@ -379,7 +364,7 @@ h2.noStocks {
   }
 
   .subHeaderRow {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .companySummary {
@@ -397,6 +382,21 @@ h2.noStocks {
   .columnName {
     font-size: 14px;
   }
+
+  .readMore {
+    font-size: 10px;
+  }
+
+  i.fas.fa-plus-circle,
+  i.fas.fa-minus-circle {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .searchContainerResult {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -407,10 +407,14 @@ h2.noStocks {
 
   a.trending {
     margin-left: 0;
+    font-size: 16px;
+    margin-top: 75px;
   }
 
   a.watchlist {
     margin-left: 25px;
+    font-size: 16px;
+    margin-top: 75px;
   }
 
   .desktopHeader {
@@ -441,17 +445,6 @@ h2.noStocks {
   .trending,
   .watchlist {
     margin-top: 63px;
-  }
-
-  .searchContainerResult {
-    width: 95%;
-  }
-
-  h2.todayPercentage,
-  h2.todayLow,
-  h2.todayHigh,
-  .companySummary {
-    font-size: 14px;
   }
 
   .watchlistEntries {
@@ -496,28 +489,20 @@ h2.noStocks {
     margin-top: 50px;
     margin-right: 25px;
     margin-bottom: 10px;
+    margin-left: 0;
   }
 
   .columnName {
     font-size: 12px;
   }
+
+  i.fas.fa-plus-circle,
+  i.fas.fa-minus-circle {
+    font-size: 18px;
+  }
 }
 
-@media screen and (max-width: 415px) {
-  a.trending {
-    font-size: 16px;
-    margin-top: 75px;
-  }
-
-  a.watchlist {
-    font-size: 16px;
-    margin-top: 75px;
-  }
-
-  .logo {
-    margin-left: 0;
-  }
-
+@media screen and (max-width: 550px) {
   .columnName,
   .trendingStockSymbol,
   .trendingStockPrice,
@@ -527,5 +512,16 @@ h2.noStocks {
 
   .headerRow {
     font-size: 6px;
+  }
+
+  h2.todayPercentage,
+  h2.todayLow,
+  h2.todayHigh,
+  .companySummary {
+    font-size: 12px;
+  }
+
+  .searchContainerResult {
+    width: 90%;
   }
 }
