@@ -17,6 +17,8 @@ var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 var $views = document.querySelectorAll('.view');
 var $logo = document.querySelector('.logo');
 var $loading = document.querySelector('.loading');
+var $noResult = document.querySelector('.noResult');
+var $error = document.querySelector('.error');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -36,6 +38,7 @@ function handleSearch(event) {
   $searchResultHeader.className = 'hidden';
   $loading.className = 'row loading';
   $editHeader.className = 'hidden';
+  $noResult.className = 'hidden';
   data.editing = false;
   // $searchResultHeader.className = 'row searchResultHeader';
   // $editHeader.className = 'hidden';
@@ -62,6 +65,17 @@ function searchRequest(search) {
   xhr.addEventListener('load', function () {
     console.log(this.status);
     console.log(this.response);
+    if (this.status !== 200) {
+      $error.className = 'row error';
+      $error.textContent += this.status;
+      return;
+    }
+    if (!this.response.price) {
+      $noResult.className = 'row noResult';
+      $searchResultHeader.className = 'row searchResultHeader';
+      $loading.className = 'hidden';
+      return;
+    }
     data.searchResult = this.response;
     var stockSearchDOM = createStockEntry(data.searchResult);
     $searchContainer.appendChild(stockSearchDOM);
@@ -69,6 +83,8 @@ function searchRequest(search) {
     deleteButton.className = 'hidden';
     $searchResultHeader.className = 'row searchResultHeader';
     $loading.className = 'hidden';
+    $noResult.className = 'hidden';
+    $error.className = 'hidden';
     $search.reset();
     return data.searchResult;
   });

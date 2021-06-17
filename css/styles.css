@@ -58,8 +58,7 @@ input::-webkit-input-placeholder {
 }
 
 .searchResultHeader,
-.editHeader,
-.loading {
+.editHeader {
   font-size: 12px;
   margin-left: 25px;
 }
@@ -353,6 +352,16 @@ h2.noStocks {
 .watchlist:active,
 .fa-check:active {
   transform: translateY(0.1rem);
+}
+
+.noResult,
+.error {
+  justify-content: center;
+  font-style: italic;
+}
+
+.loading {
+  justify-content: center;
 }
 
 @media screen and (max-width: 1250px) {
