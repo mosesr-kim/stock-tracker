@@ -63,8 +63,8 @@ function handleSearch(event) {
 function searchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    console.log(this.status);
-    console.log(this.response);
+    // console.log(this.status);
+    // console.log(this.response);
     if (this.status !== 200) {
       $error.className = 'row error';
       $error.textContent += this.status;
@@ -95,39 +95,39 @@ function searchRequest(search) {
   xhr.send();
 }
 
-// function trendingSearchRequest(search) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.addEventListener('load', function () {
-//     console.log(this.status);
-//     console.log(this.response);
-//     data.searchResult = this.response;
-//     var stockSearchDOM = createWatchlistEntry(data.searchResult);
-//     $watchlistEntries.appendChild(stockSearchDOM);
-//     return data.searchResult;
-//   });
-//   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
-//   xhr.responseType = 'json';
-//   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
-//   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
-//   xhr.send();
-// }
+function trendingSearchRequest(search) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function () {
+    // console.log(this.status);
+    // console.log(this.response);
+    data.searchResult = this.response;
+    var stockSearchDOM = createWatchlistEntry(data.searchResult);
+    $watchlistEntries.appendChild(stockSearchDOM);
+    return data.searchResult;
+  });
+  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
+  xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
+  xhr.send();
+}
 
 // (Code below is commented out to avoid rate limiting restrictions)
 // The function to request market/get-trending-tickers
-// function trendingRequest() {
-//   var xhr = new XMLHttpRequest();
-//   xhr.addEventListener('load', function () {
-//     console.log(this.status);
-//     console.log(this.response);
-//     data.trending = this.response;
-//     addTrendingStock(data.trending);
-//   });
-//   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US');
-//   xhr.responseType = 'json';
-//   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
-//   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
-//   xhr.send();
-// }
+function trendingRequest() {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function () {
+    // console.log(this.status);
+    // console.log(this.response);
+    data.trending = this.response;
+    addTrendingStock(data.trending);
+  });
+  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
+  xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
+  xhr.send();
+}
 
 function createStockEntry(data) {
   var searchContainerResult = document.createElement('div');
@@ -444,8 +444,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
       deleteButton.className = 'hidden';
     }
   }
-  addTrendingStock(trendingTickers);
-  // trendingRequest();
+  // addTrendingStock(trendingTickers);
+  trendingRequest();
   if (data.view === null) {
     viewSwap('home');
   } else {
@@ -553,15 +553,15 @@ function handleAddTrending(event) {
     var check = event.target.closest('i');
     check.className = 'fas fa-check hidden';
     var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
-    // trendingSearchRequest(stockSymbol);
-    // viewSwap('watchlist');
-    for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
-      if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
-        var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
-        $watchlistEntries.appendChild(trendingToWatchlist);
-        viewSwap('watchlist');
-      }
-    }
+    trendingSearchRequest(stockSymbol);
+    viewSwap('watchlist');
+    // for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
+    //   if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
+    //     var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
+    //     $watchlistEntries.appendChild(trendingToWatchlist);
+    //     viewSwap('watchlist');
+    //   }
+    // }
   }
 }
 
