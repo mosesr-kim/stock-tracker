@@ -63,8 +63,8 @@ function handleSearch(event) {
 function searchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    // console.log(this.status);
-    // console.log(this.response);
+    console.log(this.status);
+    console.log(this.response);
     if (this.status !== 200) {
       $error.className = 'row error';
       $error.textContent += this.status;
@@ -98,11 +98,12 @@ function searchRequest(search) {
 function trendingSearchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    // console.log(this.status);
-    // console.log(this.response);
+    console.log(this.status);
+    console.log(this.response);
     data.searchResult = this.response;
     var stockSearchDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(stockSearchDOM);
+    $noStocks.className = 'hidden';
     return data.searchResult;
   });
   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
@@ -117,8 +118,8 @@ function trendingSearchRequest(search) {
 function trendingRequest() {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    // console.log(this.status);
-    // console.log(this.response);
+    console.log(this.status);
+    console.log(this.response);
     data.trending = this.response;
     addTrendingStock(data.trending);
   });
@@ -139,7 +140,7 @@ function createStockEntry(data) {
 
   var stockName = document.createElement('h1');
   stockName.className = 'stockName';
-  stockName.textContent = data.price.longName;
+  stockName.textContent = data.price.shortName;
   headerRow.appendChild(stockName);
 
   var stockSymbol = document.createElement('h1');
@@ -193,20 +194,37 @@ function createStockEntry(data) {
   todayHighSpan.textContent = '$' + data.price.regularMarketDayHigh.fmt;
   todayHigh.appendChild(todayHighSpan);
 
-  var companySummary = document.createElement('p');
-  companySummary.className = 'companySummary';
-  companySummary.textContent = firstHalf(data.assetProfile.longBusinessSummary);
-  searchContainerResult.appendChild(companySummary);
+  if (data.assetProfile.longBusinessSummary) {
+    var companySummary = document.createElement('p');
+    companySummary.className = 'companySummary';
+    companySummary.textContent = firstHalf(data.assetProfile.longBusinessSummary);
+    searchContainerResult.appendChild(companySummary);
 
-  var dots = document.createElement('span');
-  dots.className = 'dots';
-  dots.textContent = '...';
-  companySummary.appendChild(dots);
+    var dots = document.createElement('span');
+    dots.className = 'dots';
+    dots.textContent = '...';
+    companySummary.appendChild(dots);
 
-  var more = document.createElement('span');
-  more.className = 'more hidden';
-  more.textContent = secondHalf(data.assetProfile.longBusinessSummary);
-  companySummary.appendChild(more);
+    var more = document.createElement('span');
+    more.className = 'more hidden';
+    more.textContent = secondHalf(data.assetProfile.longBusinessSummary);
+    companySummary.appendChild(more);
+  } else {
+    companySummary = document.createElement('p');
+    companySummary.className = 'companySummary';
+    companySummary.textContent = firstHalf(data.assetProfile.description);
+    searchContainerResult.appendChild(companySummary);
+
+    dots = document.createElement('span');
+    dots.className = 'dots';
+    dots.textContent = '...';
+    companySummary.appendChild(dots);
+
+    more = document.createElement('span');
+    more.className = 'more hidden';
+    more.textContent = secondHalf(data.assetProfile.description);
+    companySummary.appendChild(more);
+  }
 
   var buttonRow = document.createElement('div');
   buttonRow.className = 'buttonRow space-between';
@@ -262,7 +280,7 @@ function handleAddStock(event) {
     data.watchlist.push(data.searchResult);
     var watchlistDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(watchlistDOM);
-    $noStocks.setAttribute('class', 'hidden');
+    $noStocks.className = 'hidden';
     viewSwap('watchlist');
   }
 }
@@ -492,7 +510,7 @@ function createTrendingDOM(data) {
 
   var trendingStockName = document.createElement('p');
   trendingStockName.className = 'trendingStockName';
-  trendingStockName.textContent = data.longName;
+  trendingStockName.textContent = data.shortName;
   columnName.appendChild(trendingStockName);
 
   var columnSymbol = document.createElement('div');
@@ -549,12 +567,15 @@ function addTrendingStock(data) {
 }
 
 function handleAddTrending(event) {
+  debugger;
   if (event.target.className.includes('fa-check')) {
     var check = event.target.closest('i');
     check.className = 'fas fa-check hidden';
     var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     trendingSearchRequest(stockSymbol);
-    viewSwap('watchlist');
+    var $times = document.querySelector('.fa-times');
+    $times.className = 'fas fa-times';
+    // viewSwap('watchlist');
     // for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
     //   if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
     //     var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
