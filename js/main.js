@@ -46,8 +46,6 @@ function handleSearch(event) {
 function searchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    console.log(this.status);
-    console.log(this.response);
     if (this.status !== 200) {
       $error.className = 'row error';
       $error.textContent += this.status;
@@ -81,8 +79,6 @@ function searchRequest(search) {
 function trendingSearchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    console.log(this.status);
-    console.log(this.response);
     data.searchResult = this.response;
     data.watchlist[data.searchResult.price.symbol] = data.searchResult;
     var stockSearchDOM = createWatchlistEntry(data.searchResult);
@@ -100,8 +96,6 @@ function trendingSearchRequest(search) {
 function trendingRequest() {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    console.log(this.status);
-    console.log(this.response);
     data.trending = this.response;
     addTrendingStock(data.trending);
   });
