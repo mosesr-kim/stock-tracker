@@ -3,7 +3,7 @@ var data = {
   search: null,
   searchResult: null,
   trending: null,
-  watchlist: [],
+  watchlist: {},
   view: null,
   editing: null
 };
