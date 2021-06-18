@@ -101,6 +101,7 @@ function trendingSearchRequest(search) {
     console.log(this.status);
     console.log(this.response);
     data.searchResult = this.response;
+    data.watchlist.push(data.searchResult);
     var stockSearchDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(stockSearchDOM);
     $noStocks.className = 'hidden';
