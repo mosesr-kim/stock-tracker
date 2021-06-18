@@ -30,6 +30,10 @@ $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
 $logo.addEventListener('click', goHome);
 
+function destroyChildren(el) {
+  while (el.firstChild) el.firstChild.remove();
+}
+
 function handleSearch(event) {
   event.preventDefault();
   removeSearchEntry();
@@ -375,6 +379,7 @@ function createWatchlistEntry(data) {
 }
 
 function viewSwap(viewName) {
+  destroyChildren($trendingStockEntries);
   addTrendingStock(data.trending);
   data.view = viewName;
   if (viewName === 'home') {
