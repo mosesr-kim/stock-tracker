@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
+  <title>Stock Tracker</title>
+  <link rel="icon" href="images/stock.png">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -17,6 +17,7 @@
 <body>
   <header>
     <div class="row desktopHeader">
+      <img src="images/stock.png" alt="stock logo" class="logo">
       <a href="#" class="trending">Trending Stocks</a>
       <a href="#" class="watchlist">Watchlist</a>
       <form action="" class="searchForm">
@@ -44,14 +45,23 @@
       <div class="row editHeader hidden">
         <h2>Selected Stock</h2>
       </div>
+      <div class="row loading hidden">
+        <h2>One moment...</h2>
+      </div>
+      <div class="row noResult hidden">
+        <h2>Please enter a valid stock symbol</h2>
+      </div>
+      <div class="row error hidden">
+        <h2>Error</h2>
+      </div>
     </div>
 
     <div class="view watchlistContainer" data-view="watchlist">
       <div class="row watchlistHeader">
         <h2>Watchlist</h2>
       </div>
-      <div class="row watchlistEntries justify-center">
-        <h2 class="noStocks">No stocks in watchlist...</h2>
+      <div class="row watchlistEntries">
+        <h2 class="noStocks">Add to the watchlist by searching for a stock by its symbol e.g. GME</h2>
       </div>
     </div>
 

@@ -15,6 +15,10 @@ var $confirmButton = document.querySelector('.confirmButton');
 var $trendingContainer = document.querySelector('.trendingContainer');
 var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 var $views = document.querySelectorAll('.view');
+var $logo = document.querySelector('.logo');
+var $loading = document.querySelector('.loading');
+var $noResult = document.querySelector('.noResult');
+var $error = document.querySelector('.error');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -25,87 +29,105 @@ $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
 $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
+$logo.addEventListener('click', goHome);
 
 function handleSearch(event) {
   event.preventDefault();
   removeSearchEntry();
   viewSwap('search');
-  data.editing = false;
-  $searchResultHeader.className = 'row searchResultHeader';
+  $searchResultHeader.className = 'hidden';
+  $loading.className = 'row loading';
   $editHeader.className = 'hidden';
+  $noResult.className = 'hidden';
+  data.editing = false;
+  // $searchResultHeader.className = 'row searchResultHeader';
+  // $editHeader.className = 'hidden';
   data.search = $search.elements.search.value;
-  // searchRequest(data.search);
-  for (var key in requests) {
-    if (data.search.toUpperCase() === key) {
-      data.searchResult = requests[key];
-      var stockSearchDOM = createStockEntry(requests[key]);
-      $searchContainer.appendChild(stockSearchDOM);
-      var deleteButton = document.querySelector('.fa-minus-circle');
-      deleteButton.className = 'hidden';
-    }
-    $search.reset();
-  }
+  searchRequest(data.search);
+  // for (var key in requests) {
+  //   if (data.search.toUpperCase() === key) {
+  //     data.searchResult = requests[key];
+  //     var stockSearchDOM = createStockEntry(requests[key]);
+  //     $searchContainer.appendChild(stockSearchDOM);
+  //     var deleteButton = document.querySelector('.fa-minus-circle');
+  //     deleteButton.className = 'hidden';
+  //   }
+  //   $search.reset();
+  // }
   // (Code below is commented out to avoid rate limiting restrictions)
   // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
-  // data.search = $search.elements.search.value;
-  // searchRequest(data.search);
 }
 
 // (Code below is commented out to avoid rate limiting restrictions)
 // The function to request Stock/V2/Get-Profile of a certain stock ticker symbol.
-// function searchRequest(search) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.addEventListener('load', function () {
-//     console.log(this.status);
-//     console.log(this.response);
-//     data.searchResult = this.response;
-//     var stockSearchDOM = createStockEntry(data.searchResult);
-//     $searchContainer.appendChild(stockSearchDOM);
-//     var deleteButton = document.querySelector('.fa-minus-circle');
-//     deleteButton.className = 'hidden';
-//     $search.reset();
-//     return data.searchResult;
-//   });
-//   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
-//   xhr.responseType = 'json';
-//   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
-//   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
-//   xhr.send();
-// }
+function searchRequest(search) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function () {
+    // console.log(this.status);
+    // console.log(this.response);
+    if (this.status !== 200) {
+      $error.className = 'row error';
+      $error.textContent += this.status;
+      return;
+    }
+    if (!this.response.price) {
+      $noResult.className = 'row noResult';
+      $searchResultHeader.className = 'row searchResultHeader';
+      $loading.className = 'hidden';
+      return;
+    }
+    data.searchResult = this.response;
+    var stockSearchDOM = createStockEntry(data.searchResult);
+    $searchContainer.appendChild(stockSearchDOM);
+    var deleteButton = document.querySelector('.fa-minus-circle');
+    deleteButton.className = 'hidden';
+    $searchResultHeader.className = 'row searchResultHeader';
+    $loading.className = 'hidden';
+    $noResult.className = 'hidden';
+    $error.className = 'hidden';
+    $search.reset();
+    return data.searchResult;
+  });
+  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
+  xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
+  xhr.send();
+}
 
-// function trendingSearchRequest(search) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.addEventListener('load', function () {
-//     console.log(this.status);
-//     console.log(this.response);
-//     data.searchResult = this.response;
-//     var stockSearchDOM = createWatchlistEntry(data.searchResult);
-//     $watchlistEntries.appendChild(stockSearchDOM);
-//     return data.searchResult;
-//   });
-//   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
-//   xhr.responseType = 'json';
-//   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
-//   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
-//   xhr.send();
-// }
+function trendingSearchRequest(search) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function () {
+    // console.log(this.status);
+    // console.log(this.response);
+    data.searchResult = this.response;
+    var stockSearchDOM = createWatchlistEntry(data.searchResult);
+    $watchlistEntries.appendChild(stockSearchDOM);
+    return data.searchResult;
+  });
+  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
+  xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
+  xhr.send();
+}
 
 // (Code below is commented out to avoid rate limiting restrictions)
 // The function to request market/get-trending-tickers
-// function trendingRequest() {
-//   var xhr = new XMLHttpRequest();
-//   xhr.addEventListener('load', function () {
-//     console.log(this.status);
-//     console.log(this.response);
-//     data.trending = this.response;
-//     addTrendingStock(data.trending);
-//   });
-//   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US');
-//   xhr.responseType = 'json';
-//   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
-//   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
-//   xhr.send();
-// }
+function trendingRequest() {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function () {
+    // console.log(this.status);
+    // console.log(this.response);
+    data.trending = this.response;
+    addTrendingStock(data.trending);
+  });
+  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
+  xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
+  xhr.send();
+}
 
 function createStockEntry(data) {
   var searchContainerResult = document.createElement('div');
@@ -129,7 +151,7 @@ function createStockEntry(data) {
   headerRow.appendChild(stockPrice);
 
   var stockPriceSpan = document.createElement('span');
-  stockPriceSpan.className = 'stockPrice positive';
+  stockPriceSpan.className = 'searchStockPrice positive';
   stockPriceSpan.textContent = '$' + data.price.regularMarketPrice.fmt;
   stockPrice.appendChild(stockPriceSpan);
 
@@ -138,6 +160,7 @@ function createStockEntry(data) {
   searchContainerResult.appendChild(subHeaderRow);
 
   var todayPercentage = document.createElement('h2');
+  todayPercentage.className = 'todayPercentage';
   todayPercentage.textContent = 'Today: ';
   subHeaderRow.appendChild(todayPercentage);
 
@@ -286,7 +309,7 @@ function createWatchlistEntry(data) {
   watchlistEntryContainer.className = 'watchlistEntryContainer justify-center';
 
   var namePriceRow = document.createElement('div');
-  namePriceRow.className = 'row namePriceRow justify-center align-center';
+  namePriceRow.className = 'row namePriceRow align-center';
   watchlistEntryContainer.appendChild(namePriceRow);
 
   var stockSymbol = document.createElement('h2');
@@ -300,7 +323,7 @@ function createWatchlistEntry(data) {
   namePriceRow.appendChild(stockPrice);
 
   var todayRow = document.createElement('div');
-  todayRow.className = 'row todayRow justify-center align-center';
+  todayRow.className = 'row todayRow align-center';
   watchlistEntryContainer.appendChild(todayRow);
 
   var todayLabel = document.createElement('h3');
@@ -318,7 +341,7 @@ function createWatchlistEntry(data) {
   todayRow.appendChild(todayPercentage);
 
   var lowRow = document.createElement('div');
-  lowRow.className = 'row lowRow justify-center align-center';
+  lowRow.className = 'row lowRow align-center';
   watchlistEntryContainer.appendChild(lowRow);
 
   var lowLabel = document.createElement('h3');
@@ -332,7 +355,7 @@ function createWatchlistEntry(data) {
   lowRow.appendChild(lowPrice);
 
   var highRow = document.createElement('div');
-  highRow.className = 'row highRow justify-center align-center';
+  highRow.className = 'row highRow align-center';
   watchlistEntryContainer.appendChild(highRow);
 
   var highLabel = document.createElement('h3');
@@ -350,6 +373,12 @@ function createWatchlistEntry(data) {
 
 function viewSwap(viewName) {
   data.view = viewName;
+  if (viewName === 'home') {
+    $watchlistContainer.className = 'view watchlistContainer';
+    $trendingContainer.className = 'view trendingContainer';
+    $searchContainer.className = 'view hidden';
+    return;
+  }
   var containerName = viewName + 'Container';
   for (var i = 0; i < $views.length; i++) {
     if (viewName === $views[i].getAttribute('data-view')) {
@@ -389,7 +418,6 @@ function readMore(event) {
 
 window.addEventListener('DOMContentLoaded', function (event) {
   if (data.watchlist.length === 0) {
-    viewSwap('watchlist');
     $noStocks.className = 'noStocks';
   }
   for (var i = 0; i < data.watchlist.length; i++) {
@@ -416,9 +444,13 @@ window.addEventListener('DOMContentLoaded', function (event) {
       deleteButton.className = 'hidden';
     }
   }
-  addTrendingStock(trendingTickers);
-  // trendingRequest();
-  viewSwap(data.view);
+  // addTrendingStock(trendingTickers);
+  trendingRequest();
+  if (data.view === null) {
+    viewSwap('home');
+  } else {
+    viewSwap(data.view);
+  }
 });
 
 function watchlistToSearch(event) {
@@ -444,7 +476,7 @@ function watchlistToSearch(event) {
 function getPercentage(data) {
   var stringed = data.toString();
   var newString = '';
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < stringed.length; i++) {
     newString += stringed[i];
   }
   return newString + '%';
@@ -521,14 +553,18 @@ function handleAddTrending(event) {
     var check = event.target.closest('i');
     check.className = 'fas fa-check hidden';
     var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
-    // trendingSearchRequest(stockSymbol);
-    // viewSwap('watchlist');
-    for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
-      if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
-        var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
-        $watchlistEntries.appendChild(trendingToWatchlist);
-        viewSwap('watchlist');
-      }
-    }
+    trendingSearchRequest(stockSymbol);
+    viewSwap('watchlist');
+    // for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
+    //   if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
+    //     var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
+    //     $watchlistEntries.appendChild(trendingToWatchlist);
+    //     viewSwap('watchlist');
+    //   }
+    // }
   }
+}
+
+function goHome(event) {
+  viewSwap('home');
 }
