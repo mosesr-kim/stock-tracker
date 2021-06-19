@@ -1,4 +1,3 @@
-/* global requests, trendingTickers */
 var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
@@ -40,31 +39,13 @@ function handleSearch(event) {
   $editHeader.className = 'hidden';
   $noResult.className = 'hidden';
   data.editing = false;
-  // $searchResultHeader.className = 'row searchResultHeader';
-  // $editHeader.className = 'hidden';
   data.search = $search.elements.search.value;
   searchRequest(data.search);
-  // for (var key in requests) {
-  //   if (data.search.toUpperCase() === key) {
-  //     data.searchResult = requests[key];
-  //     var stockSearchDOM = createStockEntry(requests[key]);
-  //     $searchContainer.appendChild(stockSearchDOM);
-  //     var deleteButton = document.querySelector('.fa-minus-circle');
-  //     deleteButton.className = 'hidden';
-  //   }
-  //   $search.reset();
-  // }
-  // (Code below is commented out to avoid rate limiting restrictions)
-  // Gets the stock ticker symbol from the form and runs the searchRequest function which requests data from the api.
 }
 
-// (Code below is commented out to avoid rate limiting restrictions)
-// The function to request Stock/V2/Get-Profile of a certain stock ticker symbol.
 function searchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    // console.log(this.status);
-    // console.log(this.response);
     if (this.status !== 200) {
       $error.className = 'row error';
       $error.textContent += this.status;
@@ -98,11 +79,11 @@ function searchRequest(search) {
 function trendingSearchRequest(search) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    // console.log(this.status);
-    // console.log(this.response);
     data.searchResult = this.response;
+    data.watchlist[data.searchResult.price.symbol] = data.searchResult;
     var stockSearchDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(stockSearchDOM);
+    $noStocks.className = 'hidden';
     return data.searchResult;
   });
   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
@@ -112,13 +93,9 @@ function trendingSearchRequest(search) {
   xhr.send();
 }
 
-// (Code below is commented out to avoid rate limiting restrictions)
-// The function to request market/get-trending-tickers
 function trendingRequest() {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
-    // console.log(this.status);
-    // console.log(this.response);
     data.trending = this.response;
     addTrendingStock(data.trending);
   });
@@ -139,7 +116,7 @@ function createStockEntry(data) {
 
   var stockName = document.createElement('h1');
   stockName.className = 'stockName';
-  stockName.textContent = data.price.longName;
+  stockName.textContent = data.price.shortName;
   headerRow.appendChild(stockName);
 
   var stockSymbol = document.createElement('h1');
@@ -193,20 +170,14 @@ function createStockEntry(data) {
   todayHighSpan.textContent = '$' + data.price.regularMarketDayHigh.fmt;
   todayHigh.appendChild(todayHighSpan);
 
-  var companySummary = document.createElement('p');
-  companySummary.className = 'companySummary';
-  companySummary.textContent = firstHalf(data.assetProfile.longBusinessSummary);
-  searchContainerResult.appendChild(companySummary);
-
-  var dots = document.createElement('span');
-  dots.className = 'dots';
-  dots.textContent = '...';
-  companySummary.appendChild(dots);
-
-  var more = document.createElement('span');
-  more.className = 'more hidden';
-  more.textContent = secondHalf(data.assetProfile.longBusinessSummary);
-  companySummary.appendChild(more);
+  if (data.assetProfile) {
+    if (data.assetProfile.longBusinessSummary) {
+      searchContainerResult.appendChild(createSummary(data.assetProfile.longBusinessSummary));
+    }
+    if (data.assetProfile.description) {
+      searchContainerResult.appendChild(createSummary(data.assetProfile.description));
+    }
+  }
 
   var buttonRow = document.createElement('div');
   buttonRow.className = 'buttonRow space-between';
@@ -253,16 +224,16 @@ function checkPercentage(percentage) {
 
 function handleAddStock(event) {
   if (event.target.className.includes('fa-plus-circle')) {
-    for (var i = 0; i < data.watchlist.length; i++) {
-      if (data.watchlist[i].price.symbol === data.searchResult.price.symbol) {
+    for (var key in data.watchlist) {
+      if (key === data.searchResult.price.symbol) {
         viewSwap('watchlist');
         return;
       }
     }
-    data.watchlist.push(data.searchResult);
+    data.watchlist[data.searchResult.price.symbol] = data.searchResult;
     var watchlistDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(watchlistDOM);
-    $noStocks.setAttribute('class', 'hidden');
+    $noStocks.className = 'hidden';
     viewSwap('watchlist');
   }
 }
@@ -279,9 +250,9 @@ function cancel(event) {
 
 function handleDeleteStock(event) {
   var stockSymbol = $searchContainer.querySelector('.stockSymbol').textContent;
-  for (var i = 0; i < data.watchlist.length; i++) {
-    if (stockSymbol === data.watchlist[i].price.symbol) {
-      data.watchlist.splice([i], 1);
+  for (var key in data.watchlist) {
+    if (stockSymbol === key) {
+      delete data.watchlist[key];
       var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
       for (var z = 0; z < watchlistEntries.length; z++) {
         if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) {
@@ -290,7 +261,7 @@ function handleDeleteStock(event) {
       }
     }
   }
-  if (data.watchlist.length === 0) {
+  if (Object.keys(data.watchlist).length === 0) {
     $noStocks.className = 'noStocks';
   }
   viewSwap('watchlist');
@@ -372,6 +343,10 @@ function createWatchlistEntry(data) {
 }
 
 function viewSwap(viewName) {
+  $trendingStockEntries.innerHTML = '';
+  if (data.trending !== null) {
+    addTrendingStock(data.trending);
+  }
   data.view = viewName;
   if (viewName === 'home') {
     $watchlistContainer.className = 'view watchlistContainer';
@@ -417,11 +392,11 @@ function readMore(event) {
 }
 
 window.addEventListener('DOMContentLoaded', function (event) {
-  if (data.watchlist.length === 0) {
+  if (data.watchlist === null) {
     $noStocks.className = 'noStocks';
   }
-  for (var i = 0; i < data.watchlist.length; i++) {
-    var watchlistDOM = createWatchlistEntry(data.watchlist[i]);
+  for (var key in data.watchlist) {
+    var watchlistDOM = createWatchlistEntry(data.watchlist[key]);
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.className = 'hidden';
   }
@@ -444,8 +419,11 @@ window.addEventListener('DOMContentLoaded', function (event) {
       deleteButton.className = 'hidden';
     }
   }
-  // addTrendingStock(trendingTickers);
-  trendingRequest();
+  if (data.trending === null) {
+    trendingRequest();
+  } else {
+    addTrendingStock(data.trending);
+  }
   if (data.view === null) {
     viewSwap('home');
   } else {
@@ -461,10 +439,10 @@ function watchlistToSearch(event) {
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
     var stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
-    for (var i = 0; i < data.watchlist.length; i++) {
-      if (stockSymbol === data.watchlist[i].price.symbol) {
-        data.searchResult = data.watchlist[i];
-        var editWatchlist = createStockEntry(data.watchlist[i]);
+    for (var key in data.watchlist) {
+      if (stockSymbol === key) {
+        data.searchResult = data.watchlist[key];
+        var editWatchlist = createStockEntry(data.watchlist[key]);
         $searchContainer.appendChild(editWatchlist);
         var addButton = document.querySelector('.fa-plus-circle');
         addButton.className = 'hidden';
@@ -492,7 +470,7 @@ function createTrendingDOM(data) {
 
   var trendingStockName = document.createElement('p');
   trendingStockName.className = 'trendingStockName';
-  trendingStockName.textContent = data.longName;
+  trendingStockName.textContent = data.shortName;
   columnName.appendChild(trendingStockName);
 
   var columnSymbol = document.createElement('div');
@@ -534,9 +512,11 @@ function createTrendingDOM(data) {
   checkButton.className = 'fas fa-check';
   columnIcon.appendChild(checkButton);
 
-  var xButton = document.createElement('i');
-  xButton.className = 'fas fa-times hidden';
-  columnIcon.appendChild(xButton);
+  for (var key in this.data.watchlist) {
+    if (key === data.symbol) {
+      checkButton.className = 'fas fa-times';
+    }
+  }
 
   return trendingEntryContainer;
 }
@@ -551,20 +531,49 @@ function addTrendingStock(data) {
 function handleAddTrending(event) {
   if (event.target.className.includes('fa-check')) {
     var check = event.target.closest('i');
-    check.className = 'fas fa-check hidden';
+    check.className = 'fas fa-times';
     var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     trendingSearchRequest(stockSymbol);
-    viewSwap('watchlist');
-    // for (var i = 0; i < trendingTickers.finance.result[0].quotes.length; i++) {
-    //   if (trendingTickers.finance.result[0].quotes[i].symbol === stockSymbol) {
-    //     var trendingToWatchlist = createWatchlistEntry(trendingTickers.finance.result[0].quotes[i]);
-    //     $watchlistEntries.appendChild(trendingToWatchlist);
-    //     viewSwap('watchlist');
-    //   }
-    // }
+    return;
+  }
+  if (event.target.className.includes('fa-times')) {
+    check = event.target.closest('i');
+    check.className = 'fas fa-check';
+    stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
+    for (var key in data.watchlist) {
+      if (stockSymbol === key) {
+        delete data.watchlist[key];
+        var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
+        for (var z = 0; z < watchlistEntries.length; z++) {
+          if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) {
+            watchlistEntries[z].remove();
+          }
+        }
+      }
+    }
+    if (data.watchlist === 0) {
+      $noStocks.className = 'noStocks';
+    }
   }
 }
 
 function goHome(event) {
   viewSwap('home');
+}
+function createSummary(data) {
+  var companySummary = document.createElement('p');
+  companySummary.className = 'companySummary';
+  companySummary.textContent = firstHalf(data);
+
+  var dots = document.createElement('span');
+  dots.className = 'dots';
+  dots.textContent = '...';
+  companySummary.appendChild(dots);
+
+  var more = document.createElement('span');
+  more.className = 'more hidden';
+  more.textContent = secondHalf(data);
+  companySummary.appendChild(more);
+
+  return companySummary;
 }
