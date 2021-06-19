@@ -172,36 +172,10 @@ function createStockEntry(data) {
 
   if (data.assetProfile) {
     if (data.assetProfile.longBusinessSummary) {
-      var companySummary = document.createElement('p');
-      companySummary.className = 'companySummary';
-      companySummary.textContent = firstHalf(data.assetProfile.longBusinessSummary);
-      searchContainerResult.appendChild(companySummary);
-
-      var dots = document.createElement('span');
-      dots.className = 'dots';
-      dots.textContent = '...';
-      companySummary.appendChild(dots);
-
-      var more = document.createElement('span');
-      more.className = 'more hidden';
-      more.textContent = secondHalf(data.assetProfile.longBusinessSummary);
-      companySummary.appendChild(more);
+      searchContainerResult.appendChild(createSummary(data.assetProfile.longBusinessSummary));
     }
     if (data.assetProfile.description) {
-      companySummary = document.createElement('p');
-      companySummary.className = 'companySummary';
-      companySummary.textContent = firstHalf(data.assetProfile.description);
-      searchContainerResult.appendChild(companySummary);
-
-      dots = document.createElement('span');
-      dots.className = 'dots';
-      dots.textContent = '...';
-      companySummary.appendChild(dots);
-
-      more = document.createElement('span');
-      more.className = 'more hidden';
-      more.textContent = secondHalf(data.assetProfile.description);
-      companySummary.appendChild(more);
+      searchContainerResult.appendChild(createSummary(data.assetProfile.description));
     }
   }
 
@@ -370,7 +344,9 @@ function createWatchlistEntry(data) {
 
 function viewSwap(viewName) {
   $trendingStockEntries.innerHTML = '';
-  addTrendingStock(data.trending);
+  if (data.trending !== null) {
+    addTrendingStock(data.trending);
+  }
   data.view = viewName;
   if (viewName === 'home') {
     $watchlistContainer.className = 'view watchlistContainer';
@@ -583,4 +559,21 @@ function handleAddTrending(event) {
 
 function goHome(event) {
   viewSwap('home');
+}
+function createSummary(data) {
+  var companySummary = document.createElement('p');
+  companySummary.className = 'companySummary';
+  companySummary.textContent = firstHalf(data);
+
+  var dots = document.createElement('span');
+  dots.className = 'dots';
+  dots.textContent = '...';
+  companySummary.appendChild(dots);
+
+  var more = document.createElement('span');
+  more.className = 'more hidden';
+  more.textContent = secondHalf(data);
+  companySummary.appendChild(more);
+
+  return companySummary;
 }
