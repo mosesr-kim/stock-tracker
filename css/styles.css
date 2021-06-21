@@ -15,12 +15,7 @@ a {
   font-weight: 500;
 }
 
-a.trending {
-  font-size: 24px;
-  margin-left: 25px;
-  color: white;
-}
-
+a.trending,
 a.watchlist {
   font-size: 24px;
   margin-left: 25px;
@@ -58,7 +53,9 @@ input::-webkit-input-placeholder {
 }
 
 .searchResultHeader,
-.editHeader {
+.editHeader,
+.watchlistHeader,
+.trendingHeader {
   font-size: 12px;
   margin-left: 25px;
 }
@@ -72,11 +69,21 @@ input::-webkit-input-placeholder {
   margin-bottom: 25px;
 }
 
-.headerRow {
+.headerRow,
+.subHeaderRow,
+.companySummary {
   max-width: 90%;
   margin: auto;
   font-size: 10px;
   flex-wrap: nowrap;
+}
+
+.subHeaderRow {
+  font-size: 14px;
+}
+
+.companySummary {
+  font-size: 16px;
 }
 
 .stockSymbol {
@@ -84,22 +91,9 @@ input::-webkit-input-placeholder {
   margin-right: 10px;
 }
 
-.subHeaderRow {
-  width: 90%;
-  margin: auto;
-  font-size: 14px;
-  flex-wrap: nowrap;
-}
-
 .todayLow {
   margin-left: 25px;
   margin-right: 25px;
-}
-
-.companySummary {
-  font-size: 16px;
-  width: 90%;
-  margin: auto;
 }
 
 .buttonRow {
@@ -143,11 +137,6 @@ i.fas.fa-minus-circle {
   border-bottom: 1px solid #ffd166;
 }
 
-.watchlistHeader {
-  font-size: 12px;
-  margin-left: 25px;
-}
-
 .watchlistEntries {
   display: flex;
   justify-content: center;
@@ -164,56 +153,26 @@ i.fas.fa-minus-circle {
   margin-bottom: 25px;
 }
 
-.namePriceRow {
-  margin-left: 25px;
-  margin-right: 25px;
-  justify-content: space-between;
-}
-
-.watchlistStockSymbol {
-  margin-bottom: 0;
-  text-align: left;
-}
-
-span.stockPrice {
-  margin-left: 10px;
-  padding-top: 20px;
-}
-
-.todayRow {
-  margin-left: 25px;
-  margin-right: 25px;
-  justify-content: space-between;
-}
-
-.todayLabel {
-  margin-bottom: 0;
-}
-
-span.stockPercentage {
-  margin-left: 10px;
-  padding-top: 20px;
-}
-
-.lowRow {
-  margin-left: 25px;
-  margin-right: 25px;
-  justify-content: space-between;
-}
-
-.lowLabel {
-  margin-bottom: 0;
-}
-
-span.lowPrice {
-  margin-left: 10px;
-  padding-top: 20px;
-}
-
+.namePriceRow,
+.todayRow,
+.lowRow,
 .highRow {
   margin-left: 25px;
   margin-right: 25px;
   justify-content: space-between;
+}
+
+.watchlistStockSymbol,
+.todayLabel,
+.lowLabel {
+  margin-bottom: 0;
+}
+
+span.stockPrice,
+span.stockPercentage,
+span.lowPrice {
+  margin-left: 10px;
+  padding-top: 20px;
 }
 
 span.highPrice {
@@ -241,7 +200,8 @@ span.highPrice {
   border-radius: 5px;
 }
 
-.cancelButton {
+.cancelButton,
+.confirmButton {
   padding: 5px;
   margin: 0 10px 10px 10px;
   background-color: #fcfcfc;
@@ -251,20 +211,13 @@ span.highPrice {
 }
 
 .confirmButton {
-  padding: 5px;
-  margin: 0 10px 10px 10px;
   background-color: #ef476f;
   color: #fcfcfc;
-  border-radius: 5px;
+  border: none;
 }
 
 .trendingContainer {
   border-bottom: 1px solid #ffd166;
-}
-
-.trendingHeader {
-  font-size: 12px;
-  margin-left: 25px;
 }
 
 .trendingStockEntries {
@@ -294,16 +247,6 @@ span.highPrice {
   font-weight: 700;
 }
 
-.fas.fa-check {
-  font-size: 16px;
-  color: #06d6a0;
-}
-
-.fas.fa-times {
-  font-size: 16px;
-  color: #ef476f;
-}
-
 .logo {
   width: 50px;
   height: 50px;
@@ -315,8 +258,17 @@ h2.noStocks {
   margin-top: 0;
 }
 
+.fa-plus {
+  color: #06d6a0;
+}
+
+.fa-minus {
+  color: #ef476f;
+}
+
 .logo:hover,
-.fa-check:hover,
+.fa-plus:hover,
+.fa-minus:hover,
 .fa-search:hover,
 .fa-plus-circle:hover,
 .fa-minus-circle:hover {
@@ -350,26 +302,16 @@ h2.noStocks {
 .confirmButton:active,
 .trending:active,
 .watchlist:active,
-.fa-check:active {
+.fa-plus:active,
+.fa-minus:active {
   transform: translateY(0.1rem);
 }
 
 .noResult,
-.error {
-  justify-content: center;
-  font-style: italic;
-}
-
+.error,
 .loading {
   justify-content: center;
-}
-
-.fa-plus {
-  color: #06d6a0;
-}
-
-.fa-minus {
-  color: #ef476f;
+  font-style: italic;
 }
 
 @media screen and (max-width: 1250px) {
@@ -419,7 +361,8 @@ h2.noStocks {
     padding-bottom: 0;
   }
 
-  a.trending {
+  a.trending,
+  a.watchlist {
     margin-left: 0;
     font-size: 16px;
     margin-top: 75px;
@@ -427,8 +370,6 @@ h2.noStocks {
 
   a.watchlist {
     margin-left: 25px;
-    font-size: 16px;
-    margin-top: 75px;
   }
 
   .desktopHeader {
