@@ -509,12 +509,12 @@ function createTrendingDOM(data) {
   trendingEntryContainer.appendChild(columnIcon);
 
   var checkButton = document.createElement('i');
-  checkButton.className = 'fas fa-check';
+  checkButton.className = 'fas fa-plus';
   columnIcon.appendChild(checkButton);
 
   for (var key in this.data.watchlist) {
     if (key === data.symbol) {
-      checkButton.className = 'fas fa-times';
+      checkButton.className = 'fas fa-minus';
     }
   }
 
@@ -529,16 +529,16 @@ function addTrendingStock(data) {
 }
 
 function handleAddTrending(event) {
-  if (event.target.className.includes('fa-check')) {
+  if (event.target.className.includes('fa-plus')) {
     var check = event.target.closest('i');
-    check.className = 'fas fa-times';
+    check.className = 'fas fa-minus';
     var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     trendingSearchRequest(stockSymbol);
     return;
   }
-  if (event.target.className.includes('fa-times')) {
+  if (event.target.className.includes('fa-minus')) {
     check = event.target.closest('i');
-    check.className = 'fas fa-check';
+    check.className = 'fas fa-plus';
     stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     for (var key in data.watchlist) {
       if (stockSymbol === key) {

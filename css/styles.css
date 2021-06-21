@@ -364,6 +364,14 @@ h2.noStocks {
   justify-content: center;
 }
 
+.fa-plus {
+  color: #06d6a0;
+}
+
+.fa-minus {
+  color: #ef476f;
+}
+
 @media screen and (max-width: 1250px) {
   .headerRow {
     font-size: 8px;
