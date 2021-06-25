@@ -2,8 +2,7 @@ var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
-var $watchlistButton = document.querySelector('.watchlist');
-var $trendingButton = document.querySelector('.trending');
+var $desktopHeader = document.querySelector('.desktopHeader');
 var $watchlistContainer = document.querySelector('.watchlistContainer');
 var $noStocks = document.querySelector('.noStocks');
 var $editHeader = document.querySelector('.editHeader');
@@ -14,21 +13,18 @@ var $confirmButton = document.querySelector('.confirmButton');
 var $trendingContainer = document.querySelector('.trendingContainer');
 var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 var $views = document.querySelectorAll('.view');
-var $logo = document.querySelector('.logo');
 var $loading = document.querySelector('.loading');
 var $noResult = document.querySelector('.noResult');
 var $error = document.querySelector('.error');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
-$watchlistButton.addEventListener('click', handleWatchlist);
+$desktopHeader.addEventListener('click', handleViewSwap);
 $watchlistEntries.addEventListener('click', watchlistToSearch);
 $main.addEventListener('click', modal);
 $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
-$trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
-$logo.addEventListener('click', goHome);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -108,7 +104,7 @@ function trendingRequest() {
 
 function createStockEntry(data) {
   var searchContainerResult = document.createElement('div');
-  searchContainerResult.className = 'row searchContainerResult';
+  searchContainerResult.className = 'searchContainerResult';
 
   var headerRow = document.createElement('div');
   headerRow.className = 'row headerRow justify-center';
@@ -343,37 +339,35 @@ function createWatchlistEntry(data) {
 }
 
 function viewSwap(viewName) {
+  data.view = viewName;
   $trendingStockEntries.innerHTML = '';
+  const containerName = `${viewName}Container`;
   if (data.trending !== null) {
     addTrendingStock(data.trending);
   }
-  data.view = viewName;
+  for (let i = 0; i < $views.length; i++) {
+    if ($views[i].className.includes(viewName)) {
+      $views[i].className = `view ${containerName}`;
+    } else {
+      const viewContainer = $views[i].getAttribute('data-view');
+      $views[i].className = `view ${viewContainer} hidden`;
+    }
+  }
   if (viewName === 'home') {
     $watchlistContainer.className = 'view watchlistContainer';
     $trendingContainer.className = 'view trendingContainer';
-    $searchContainer.className = 'view hidden';
-    return;
-  }
-  var containerName = viewName + 'Container';
-  for (var i = 0; i < $views.length; i++) {
-    if (viewName === $views[i].getAttribute('data-view')) {
-      $views[i].className = 'view ' + containerName;
-    } else {
-      $views[i].className = 'view hidden';
-    }
+    $searchContainer.className = 'view searchContainer hidden';
   }
   if (viewName === 'search') {
-    $watchlistContainer.className = 'view watchlistContainer';
-    $trendingContainer.className = 'view trendingContainer';
+    $watchlistContainer.className = 'view watchlistContainer hidden';
+    $trendingContainer.className = 'view trendingContainer hidden';
   }
 }
 
-function handleWatchlist(event) {
-  viewSwap('watchlist');
-}
-
-function handleTrending(event) {
-  viewSwap('trending');
+function handleViewSwap(event) {
+  if (event.target.getAttribute('data-view')) {
+    viewSwap(event.target.getAttribute('data-view'));
+  }
 }
 
 function readMore(event) {
@@ -509,12 +503,12 @@ function createTrendingDOM(data) {
   trendingEntryContainer.appendChild(columnIcon);
 
   var checkButton = document.createElement('i');
-  checkButton.className = 'fas fa-check';
+  checkButton.className = 'fas fa-plus';
   columnIcon.appendChild(checkButton);
 
   for (var key in this.data.watchlist) {
     if (key === data.symbol) {
-      checkButton.className = 'fas fa-times';
+      checkButton.className = 'fas fa-minus';
     }
   }
 
@@ -529,16 +523,16 @@ function addTrendingStock(data) {
 }
 
 function handleAddTrending(event) {
-  if (event.target.className.includes('fa-check')) {
+  if (event.target.className.includes('fa-plus')) {
     var check = event.target.closest('i');
-    check.className = 'fas fa-times';
+    check.className = 'fas fa-minus';
     var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     trendingSearchRequest(stockSymbol);
     return;
   }
-  if (event.target.className.includes('fa-times')) {
+  if (event.target.className.includes('fa-minus')) {
     check = event.target.closest('i');
-    check.className = 'fas fa-check';
+    check.className = 'fas fa-plus';
     stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     for (var key in data.watchlist) {
       if (stockSymbol === key) {
@@ -557,9 +551,6 @@ function handleAddTrending(event) {
   }
 }
 
-function goHome(event) {
-  viewSwap('home');
-}
 function createSummary(data) {
   var companySummary = document.createElement('p');
   companySummary.className = 'companySummary';

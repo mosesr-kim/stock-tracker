@@ -17,13 +17,13 @@
 <body>
   <header>
     <div class="row desktopHeader">
-      <img src="images/stock.png" alt="stock logo" class="logo">
-      <a href="#" class="trending">Trending Stocks</a>
-      <a href="#" class="watchlist">Watchlist</a>
+      <img src="images/stock.png" alt="stock logo" class="logo" data-view="home">
+      <a href="#" class="trending" data-view="trending">Trending Stocks</a>
+      <a href="#" class="watchlist" data-view="watchlist">Watchlist</a>
       <form action="" class="searchForm">
         <div class="searchBar">
           <label for="search"><i class="fas fa-search magnifying"></i></label>
-          <input type="text" placeholder="Search Companies..." id="search" name="search">
+          <input type="text" placeholder="Search stock tickers..." id="search" name="search">
         </div>
       </form>
     </div>
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <div class="view searchContainer hidden" data-view="search">
+    <div class="view searchContainer" data-view="search hidden">
       <div class="row searchResultHeader">
         <h2>Search Result</h2>
       </div>
