@@ -1,5 +1,5 @@
 /* exported data */
-var data = {
+let data = {
   search: null,
   searchResult: null,
   trending: null,

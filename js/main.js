@@ -506,7 +506,7 @@ function createTrendingDOM(data) {
   checkButton.className = 'fas fa-plus';
   columnIcon.appendChild(checkButton);
 
-  for (const key in this.data.watchlist) {
+  for (const key in data.watchlist) {
     if (key === data.symbol) {
       checkButton.className = 'fas fa-minus';
     }
