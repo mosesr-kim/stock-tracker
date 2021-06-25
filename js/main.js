@@ -65,7 +65,7 @@ function searchRequest(search) {
     $search.reset();
     return data.searchResult;
   });
-  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
+  xhr.open('GET', `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=${search}&region=US`);
   xhr.responseType = 'json';
   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
@@ -82,7 +82,7 @@ function trendingSearchRequest(search) {
     $noStocks.className = 'hidden';
     return data.searchResult;
   });
-  xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=' + search + '&region=US');
+  xhr.open('GET', `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?symbol=${search}&region=US`);
   xhr.responseType = 'json';
   xhr.setRequestHeader('x-rapidapi-key', '869820100bmsh7cc30b317c45153p1f792fjsn21c1cc0536d7');
   xhr.setRequestHeader('x-rapidapi-host', 'apidojo-yahoo-finance-v1.p.rapidapi.com');
@@ -125,7 +125,7 @@ function createStockEntry(data) {
 
   const stockPriceSpan = document.createElement('span');
   stockPriceSpan.className = 'searchStockPrice positive';
-  stockPriceSpan.textContent = '$' + data.price.regularMarketPrice.fmt;
+  stockPriceSpan.textContent = `$${data.price.regularMarketPrice.fmt}`;
   stockPrice.appendChild(stockPriceSpan);
 
   const subHeaderRow = document.createElement('div');
@@ -153,7 +153,7 @@ function createStockEntry(data) {
 
   const todayLowSpan = document.createElement('span');
   todayLowSpan.className = 'negative';
-  todayLowSpan.textContent = '$' + data.price.regularMarketDayLow.fmt;
+  todayLowSpan.textContent = `$${data.price.regularMarketDayLow.fmt}`;
   todayLow.appendChild(todayLowSpan);
 
   const todayHigh = document.createElement('h2');
@@ -163,7 +163,7 @@ function createStockEntry(data) {
 
   const todayHighSpan = document.createElement('span');
   todayHighSpan.className = 'positive';
-  todayHighSpan.textContent = '$' + data.price.regularMarketDayHigh.fmt;
+  todayHighSpan.textContent = `$${data.price.regularMarketDayHigh.fmt}`;
   todayHigh.appendChild(todayHighSpan);
 
   if (data.assetProfile) {
@@ -286,7 +286,7 @@ function createWatchlistEntry(data) {
 
   const stockPrice = document.createElement('span');
   stockPrice.className = 'stockPrice positive';
-  stockPrice.textContent = '$' + data.price.regularMarketPrice.fmt;
+  stockPrice.textContent = `$${data.price.regularMarketPrice.fmt}`;
   namePriceRow.appendChild(stockPrice);
 
   const todayRow = document.createElement('div');
@@ -318,7 +318,7 @@ function createWatchlistEntry(data) {
 
   const lowPrice = document.createElement('span');
   lowPrice.className = 'lowPrice negative';
-  lowPrice.textContent = '$' + data.price.regularMarketDayLow.fmt;
+  lowPrice.textContent = `$${data.price.regularMarketDayLow.fmt}`;
   lowRow.appendChild(lowPrice);
 
   const highRow = document.createElement('div');
@@ -332,7 +332,7 @@ function createWatchlistEntry(data) {
 
   const highPrice = document.createElement('span');
   highPrice.className = 'highPrice positive';
-  highPrice.textContent = '$' + data.price.regularMarketDayHigh.fmt;
+  highPrice.textContent = `$${data.price.regularMarketDayHigh.fmt}`;
   highRow.appendChild(highPrice);
 
   return watchlistEntryContainer;
@@ -451,7 +451,7 @@ function getPercentage(data) {
   for (let i = 0; i < stringed.length; i++) {
     newString += stringed[i];
   }
-  return newString + '%';
+  return `${newString}%`;
 }
 
 function createTrendingDOM(data) {
@@ -482,7 +482,7 @@ function createTrendingDOM(data) {
 
   const trendingStockPrice = document.createElement('p');
   trendingStockPrice.className = 'trendingStockPrice positive';
-  trendingStockPrice.textContent = '$' + data.regularMarketPrice;
+  trendingStockPrice.textContent = `$${data.regularMarketPrice}`;
   columnPrice.appendChild(trendingStockPrice);
 
   const columnPercentage = document.createElement('div');
