@@ -110,7 +110,7 @@ function trendingRequest() {
 
 function createStockEntry(data) {
   var searchContainerResult = document.createElement('div');
-  searchContainerResult.className = 'row searchContainerResult';
+  searchContainerResult.className = 'searchContainerResult';
 
   var headerRow = document.createElement('div');
   headerRow.className = 'row headerRow justify-center';
