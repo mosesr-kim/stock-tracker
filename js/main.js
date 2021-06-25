@@ -2,8 +2,9 @@ var $search = document.querySelector('.searchForm');
 var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
-var $watchlistButton = document.querySelector('.watchlist');
-var $trendingButton = document.querySelector('.trending');
+var $desktopHeader = document.querySelector('.desktopHeader');
+// var $watchlistButton = document.querySelector('.watchlist');
+// var $trendingButton = document.querySelector('.trending');
 var $watchlistContainer = document.querySelector('.watchlistContainer');
 var $noStocks = document.querySelector('.noStocks');
 var $editHeader = document.querySelector('.editHeader');
@@ -21,12 +22,13 @@ var $error = document.querySelector('.error');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
-$watchlistButton.addEventListener('click', handleWatchlist);
+$desktopHeader.addEventListener('click', handleViewSwap);
+// $watchlistButton.addEventListener('click', handleWatchlist);
 $watchlistEntries.addEventListener('click', watchlistToSearch);
 $main.addEventListener('click', modal);
 $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
-$trendingButton.addEventListener('click', handleTrending);
+// $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
 $logo.addEventListener('click', goHome);
 
@@ -343,37 +345,35 @@ function createWatchlistEntry(data) {
 }
 
 function viewSwap(viewName) {
+  data.view = viewName;
   $trendingStockEntries.innerHTML = '';
+  const containerName = `${viewName}Container`;
   if (data.trending !== null) {
     addTrendingStock(data.trending);
   }
-  data.view = viewName;
+  for (let i = 0; i < $views.length; i++) {
+    if ($views[i].className.includes(viewName)) {
+      $views[i].className = `view ${containerName}`;
+    } else {
+      const viewContainer = $views[i].getAttribute('data-view');
+      $views[i].className = `view ${viewContainer} hidden`;
+    }
+  }
   if (viewName === 'home') {
     $watchlistContainer.className = 'view watchlistContainer';
     $trendingContainer.className = 'view trendingContainer';
-    $searchContainer.className = 'view hidden';
-    return;
-  }
-  var containerName = viewName + 'Container';
-  for (var i = 0; i < $views.length; i++) {
-    if (viewName === $views[i].getAttribute('data-view')) {
-      $views[i].className = 'view ' + containerName;
-    } else {
-      $views[i].className = 'view hidden';
-    }
+    $searchContainer.className = 'view searchContainer hidden';
   }
   if (viewName === 'search') {
-    $watchlistContainer.className = 'view watchlistContainer';
-    $trendingContainer.className = 'view trendingContainer';
+    $watchlistContainer.className = 'view watchlistContainer hidden';
+    $trendingContainer.className = 'view trendingContainer hidden';
   }
 }
 
-function handleWatchlist(event) {
-  viewSwap('watchlist');
-}
-
-function handleTrending(event) {
-  viewSwap('trending');
+function handleViewSwap(event) {
+  if (event.target.getAttribute('data-view')) {
+    viewSwap(event.target.getAttribute('data-view'));
+  }
 }
 
 function readMore(event) {
