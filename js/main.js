@@ -3,8 +3,6 @@ var $main = document.querySelector('main');
 var $searchContainer = document.querySelector('.searchContainer');
 var $watchlistEntries = document.querySelector('.watchlistEntries');
 var $desktopHeader = document.querySelector('.desktopHeader');
-// var $watchlistButton = document.querySelector('.watchlist');
-// var $trendingButton = document.querySelector('.trending');
 var $watchlistContainer = document.querySelector('.watchlistContainer');
 var $noStocks = document.querySelector('.noStocks');
 var $editHeader = document.querySelector('.editHeader');
@@ -15,7 +13,6 @@ var $confirmButton = document.querySelector('.confirmButton');
 var $trendingContainer = document.querySelector('.trendingContainer');
 var $trendingStockEntries = document.querySelector('.trendingStockEntries');
 var $views = document.querySelectorAll('.view');
-var $logo = document.querySelector('.logo');
 var $loading = document.querySelector('.loading');
 var $noResult = document.querySelector('.noResult');
 var $error = document.querySelector('.error');
@@ -23,14 +20,11 @@ var $error = document.querySelector('.error');
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
 $desktopHeader.addEventListener('click', handleViewSwap);
-// $watchlistButton.addEventListener('click', handleWatchlist);
 $watchlistEntries.addEventListener('click', watchlistToSearch);
 $main.addEventListener('click', modal);
 $cancelButton.addEventListener('click', cancel);
 $confirmButton.addEventListener('click', handleDeleteStock);
-// $trendingButton.addEventListener('click', handleTrending);
 $trendingStockEntries.addEventListener('click', handleAddTrending);
-$logo.addEventListener('click', goHome);
 
 function handleSearch(event) {
   event.preventDefault();
@@ -557,9 +551,6 @@ function handleAddTrending(event) {
   }
 }
 
-function goHome(event) {
-  viewSwap('home');
-}
 function createSummary(data) {
   var companySummary = document.createElement('p');
   companySummary.className = 'companySummary';
