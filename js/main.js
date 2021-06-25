@@ -1,21 +1,21 @@
-var $search = document.querySelector('.searchForm');
-var $main = document.querySelector('main');
-var $searchContainer = document.querySelector('.searchContainer');
-var $watchlistEntries = document.querySelector('.watchlistEntries');
-var $desktopHeader = document.querySelector('.desktopHeader');
-var $watchlistContainer = document.querySelector('.watchlistContainer');
-var $noStocks = document.querySelector('.noStocks');
-var $editHeader = document.querySelector('.editHeader');
-var $searchResultHeader = document.querySelector('.searchResultHeader');
-var $modalContainer = document.querySelector('.modalContainer');
-var $cancelButton = document.querySelector('.cancelButton');
-var $confirmButton = document.querySelector('.confirmButton');
-var $trendingContainer = document.querySelector('.trendingContainer');
-var $trendingStockEntries = document.querySelector('.trendingStockEntries');
-var $views = document.querySelectorAll('.view');
-var $loading = document.querySelector('.loading');
-var $noResult = document.querySelector('.noResult');
-var $error = document.querySelector('.error');
+const $search = document.querySelector('.searchForm');
+const $main = document.querySelector('main');
+const $searchContainer = document.querySelector('.searchContainer');
+const $watchlistEntries = document.querySelector('.watchlistEntries');
+const $desktopHeader = document.querySelector('.desktopHeader');
+const $watchlistContainer = document.querySelector('.watchlistContainer');
+const $noStocks = document.querySelector('.noStocks');
+const $editHeader = document.querySelector('.editHeader');
+const $searchResultHeader = document.querySelector('.searchResultHeader');
+const $modalContainer = document.querySelector('.modalContainer');
+const $cancelButton = document.querySelector('.cancelButton');
+const $confirmButton = document.querySelector('.confirmButton');
+const $trendingContainer = document.querySelector('.trendingContainer');
+const $trendingStockEntries = document.querySelector('.trendingStockEntries');
+const $views = document.querySelectorAll('.view');
+const $loading = document.querySelector('.loading');
+const $noResult = document.querySelector('.noResult');
+const $error = document.querySelector('.error');
 
 $search.addEventListener('submit', handleSearch);
 $main.addEventListener('click', handleAddStock);
@@ -40,7 +40,7 @@ function handleSearch(event) {
 }
 
 function searchRequest(search) {
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
     if (this.status !== 200) {
       $error.className = 'row error';
@@ -54,9 +54,9 @@ function searchRequest(search) {
       return;
     }
     data.searchResult = this.response;
-    var stockSearchDOM = createStockEntry(data.searchResult);
+    const stockSearchDOM = createStockEntry(data.searchResult);
     $searchContainer.appendChild(stockSearchDOM);
-    var deleteButton = document.querySelector('.fa-minus-circle');
+    const deleteButton = document.querySelector('.fa-minus-circle');
     deleteButton.className = 'hidden';
     $searchResultHeader.className = 'row searchResultHeader';
     $loading.className = 'hidden';
@@ -73,11 +73,11 @@ function searchRequest(search) {
 }
 
 function trendingSearchRequest(search) {
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
     data.searchResult = this.response;
     data.watchlist[data.searchResult.price.symbol] = data.searchResult;
-    var stockSearchDOM = createWatchlistEntry(data.searchResult);
+    const stockSearchDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(stockSearchDOM);
     $noStocks.className = 'hidden';
     return data.searchResult;
@@ -90,7 +90,7 @@ function trendingSearchRequest(search) {
 }
 
 function trendingRequest() {
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
     data.trending = this.response;
     addTrendingStock(data.trending);
@@ -103,41 +103,41 @@ function trendingRequest() {
 }
 
 function createStockEntry(data) {
-  var searchContainerResult = document.createElement('div');
+  const searchContainerResult = document.createElement('div');
   searchContainerResult.className = 'searchContainerResult';
 
-  var headerRow = document.createElement('div');
+  const headerRow = document.createElement('div');
   headerRow.className = 'row headerRow justify-center';
   searchContainerResult.appendChild(headerRow);
 
-  var stockName = document.createElement('h1');
+  const stockName = document.createElement('h1');
   stockName.className = 'stockName';
   stockName.textContent = data.price.shortName;
   headerRow.appendChild(stockName);
 
-  var stockSymbol = document.createElement('h1');
+  const stockSymbol = document.createElement('h1');
   stockSymbol.className = 'stockSymbol';
   stockSymbol.textContent = data.price.symbol;
   headerRow.appendChild(stockSymbol);
 
-  var stockPrice = document.createElement('h1');
+  const stockPrice = document.createElement('h1');
   headerRow.appendChild(stockPrice);
 
-  var stockPriceSpan = document.createElement('span');
+  const stockPriceSpan = document.createElement('span');
   stockPriceSpan.className = 'searchStockPrice positive';
   stockPriceSpan.textContent = '$' + data.price.regularMarketPrice.fmt;
   stockPrice.appendChild(stockPriceSpan);
 
-  var subHeaderRow = document.createElement('div');
+  const subHeaderRow = document.createElement('div');
   subHeaderRow.className = 'row subHeaderRow justify-center';
   searchContainerResult.appendChild(subHeaderRow);
 
-  var todayPercentage = document.createElement('h2');
+  const todayPercentage = document.createElement('h2');
   todayPercentage.className = 'todayPercentage';
   todayPercentage.textContent = 'Today: ';
   subHeaderRow.appendChild(todayPercentage);
 
-  var todayPercentageSpan = document.createElement('span');
+  const todayPercentageSpan = document.createElement('span');
   if (checkPercentage(data.price.regularMarketChangePercent.raw) === true) {
     todayPercentageSpan.className = 'stockToday positive';
   } else {
@@ -146,22 +146,22 @@ function createStockEntry(data) {
   todayPercentageSpan.textContent = data.price.regularMarketChangePercent.fmt;
   todayPercentage.appendChild(todayPercentageSpan);
 
-  var todayLow = document.createElement('h2');
+  const todayLow = document.createElement('h2');
   todayLow.className = 'todayLow';
   todayLow.textContent = 'Low: ';
   subHeaderRow.appendChild(todayLow);
 
-  var todayLowSpan = document.createElement('span');
+  const todayLowSpan = document.createElement('span');
   todayLowSpan.className = 'negative';
   todayLowSpan.textContent = '$' + data.price.regularMarketDayLow.fmt;
   todayLow.appendChild(todayLowSpan);
 
-  var todayHigh = document.createElement('h2');
+  const todayHigh = document.createElement('h2');
   todayHigh.className = 'todayHigh';
   todayHigh.textContent = 'High: ';
   subHeaderRow.appendChild(todayHigh);
 
-  var todayHighSpan = document.createElement('span');
+  const todayHighSpan = document.createElement('span');
   todayHighSpan.className = 'positive';
   todayHighSpan.textContent = '$' + data.price.regularMarketDayHigh.fmt;
   todayHigh.appendChild(todayHighSpan);
@@ -175,11 +175,11 @@ function createStockEntry(data) {
     }
   }
 
-  var buttonRow = document.createElement('div');
+  const buttonRow = document.createElement('div');
   buttonRow.className = 'buttonRow space-between';
   searchContainerResult.appendChild(buttonRow);
 
-  var readMoreButton = document.createElement('a');
+  const readMoreButton = document.createElement('a');
   readMoreButton.className = 'readMore';
   readMoreButton.setAttribute('href', '#');
   readMoreButton.textContent = 'Read More';
@@ -187,11 +187,11 @@ function createStockEntry(data) {
 
   readMoreButton.addEventListener('click', readMore);
 
-  var addStock = document.createElement('i');
+  const addStock = document.createElement('i');
   addStock.className = 'fas fa-plus-circle';
   buttonRow.appendChild(addStock);
 
-  var deleteStock = document.createElement('i');
+  const deleteStock = document.createElement('i');
   deleteStock.className = 'fas fa-minus-circle';
   buttonRow.appendChild(deleteStock);
 
@@ -199,16 +199,16 @@ function createStockEntry(data) {
 }
 
 function firstHalf(summary) {
-  var newString = '';
-  for (var i = 0; i < (summary.length / 2); i++) {
+  let newString = '';
+  for (let i = 0; i < (summary.length / 2); i++) {
     newString += summary[i];
   }
   return newString;
 }
 
 function secondHalf(summary) {
-  var newString = '';
-  for (var i = Math.floor(summary.length / 2); i < summary.length; i++) {
+  let newString = '';
+  for (let i = Math.floor(summary.length / 2); i < summary.length; i++) {
     newString += summary[i];
   }
   return newString;
@@ -220,14 +220,14 @@ function checkPercentage(percentage) {
 
 function handleAddStock(event) {
   if (event.target.className.includes('fa-plus-circle')) {
-    for (var key in data.watchlist) {
+    for (const key in data.watchlist) {
       if (key === data.searchResult.price.symbol) {
         viewSwap('watchlist');
         return;
       }
     }
     data.watchlist[data.searchResult.price.symbol] = data.searchResult;
-    var watchlistDOM = createWatchlistEntry(data.searchResult);
+    const watchlistDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.className = 'hidden';
     viewSwap('watchlist');
@@ -245,12 +245,12 @@ function cancel(event) {
 }
 
 function handleDeleteStock(event) {
-  var stockSymbol = $searchContainer.querySelector('.stockSymbol').textContent;
-  for (var key in data.watchlist) {
+  const stockSymbol = $searchContainer.querySelector('.stockSymbol').textContent;
+  for (const key in data.watchlist) {
     if (stockSymbol === key) {
       delete data.watchlist[key];
-      var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
-      for (var z = 0; z < watchlistEntries.length; z++) {
+      const watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
+      for (let z = 0; z < watchlistEntries.length; z++) {
         if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) {
           watchlistEntries[z].remove();
         }
@@ -272,33 +272,33 @@ function removeSearchEntry(data) {
 }
 
 function createWatchlistEntry(data) {
-  var watchlistEntryContainer = document.createElement('div');
+  const watchlistEntryContainer = document.createElement('div');
   watchlistEntryContainer.className = 'watchlistEntryContainer justify-center';
 
-  var namePriceRow = document.createElement('div');
+  const namePriceRow = document.createElement('div');
   namePriceRow.className = 'row namePriceRow align-center';
   watchlistEntryContainer.appendChild(namePriceRow);
 
-  var stockSymbol = document.createElement('h2');
+  const stockSymbol = document.createElement('h2');
   stockSymbol.className = 'watchlistStockSymbol';
   stockSymbol.textContent = data.price.symbol;
   namePriceRow.appendChild(stockSymbol);
 
-  var stockPrice = document.createElement('span');
+  const stockPrice = document.createElement('span');
   stockPrice.className = 'stockPrice positive';
   stockPrice.textContent = '$' + data.price.regularMarketPrice.fmt;
   namePriceRow.appendChild(stockPrice);
 
-  var todayRow = document.createElement('div');
+  const todayRow = document.createElement('div');
   todayRow.className = 'row todayRow align-center';
   watchlistEntryContainer.appendChild(todayRow);
 
-  var todayLabel = document.createElement('h3');
+  const todayLabel = document.createElement('h3');
   todayLabel.className = 'todayLabel';
   todayLabel.textContent = 'Today: ';
   todayRow.appendChild(todayLabel);
 
-  var todayPercentage = document.createElement('span');
+  const todayPercentage = document.createElement('span');
   if (checkPercentage(data.price.regularMarketChangePercent.raw) === true) {
     todayPercentage.className = 'stockPercentage positive';
   } else {
@@ -307,30 +307,30 @@ function createWatchlistEntry(data) {
   todayPercentage.textContent = data.price.regularMarketChangePercent.fmt;
   todayRow.appendChild(todayPercentage);
 
-  var lowRow = document.createElement('div');
+  const lowRow = document.createElement('div');
   lowRow.className = 'row lowRow align-center';
   watchlistEntryContainer.appendChild(lowRow);
 
-  var lowLabel = document.createElement('h3');
+  const lowLabel = document.createElement('h3');
   lowLabel.className = 'lowLabel';
   lowLabel.textContent = 'Low: ';
   lowRow.appendChild(lowLabel);
 
-  var lowPrice = document.createElement('span');
+  const lowPrice = document.createElement('span');
   lowPrice.className = 'lowPrice negative';
   lowPrice.textContent = '$' + data.price.regularMarketDayLow.fmt;
   lowRow.appendChild(lowPrice);
 
-  var highRow = document.createElement('div');
+  const highRow = document.createElement('div');
   highRow.className = 'row highRow align-center';
   watchlistEntryContainer.appendChild(highRow);
 
-  var highLabel = document.createElement('h3');
+  const highLabel = document.createElement('h3');
   highLabel.className = 'highLabel';
   highLabel.textContent = 'High: ';
   highRow.appendChild(highLabel);
 
-  var highPrice = document.createElement('span');
+  const highPrice = document.createElement('span');
   highPrice.className = 'highPrice positive';
   highPrice.textContent = '$' + data.price.regularMarketDayHigh.fmt;
   highRow.appendChild(highPrice);
@@ -371,9 +371,9 @@ function handleViewSwap(event) {
 }
 
 function readMore(event) {
-  var $dots = document.querySelector('.dots');
-  var $more = document.querySelector('.more');
-  var $readMore = document.querySelector('.readMore');
+  const $dots = document.querySelector('.dots');
+  const $more = document.querySelector('.more');
+  const $readMore = document.querySelector('.readMore');
   if ($dots.className === 'dots hidden') {
     $dots.className = 'dots';
     $readMore.textContent = 'Read More';
@@ -389,8 +389,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
   if (data.watchlist === null) {
     $noStocks.className = 'noStocks';
   }
-  for (var key in data.watchlist) {
-    var watchlistDOM = createWatchlistEntry(data.watchlist[key]);
+  for (const key in data.watchlist) {
+    const watchlistDOM = createWatchlistEntry(data.watchlist[key]);
     $watchlistEntries.appendChild(watchlistDOM);
     $noStocks.className = 'hidden';
   }
@@ -402,14 +402,14 @@ window.addEventListener('DOMContentLoaded', function (event) {
   if (data.editing === true) {
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
-    var addButton = document.querySelector('.fa-plus-circle');
+    const addButton = document.querySelector('.fa-plus-circle');
     addButton.className = 'hidden';
   }
   if (data.editing === false) {
     $editHeader.className = 'hidden';
     $searchResultHeader.className = 'row searchResultHeader';
     if (document.querySelector('.fa-minus-circle')) {
-      var deleteButton = document.querySelector('.fa-minus-circle');
+      const deleteButton = document.querySelector('.fa-minus-circle');
       deleteButton.className = 'hidden';
     }
   }
@@ -432,13 +432,13 @@ function watchlistToSearch(event) {
     data.editing = true;
     $editHeader.className = 'row editHeader';
     $searchResultHeader.className = 'hidden';
-    var stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
-    for (var key in data.watchlist) {
+    const stockSymbol = event.target.closest('.watchlistEntryContainer').querySelector('.watchlistStockSymbol').textContent;
+    for (const key in data.watchlist) {
       if (stockSymbol === key) {
         data.searchResult = data.watchlist[key];
-        var editWatchlist = createStockEntry(data.watchlist[key]);
+        const editWatchlist = createStockEntry(data.watchlist[key]);
         $searchContainer.appendChild(editWatchlist);
-        var addButton = document.querySelector('.fa-plus-circle');
+        const addButton = document.querySelector('.fa-plus-circle');
         addButton.className = 'hidden';
       }
     }
@@ -446,50 +446,50 @@ function watchlistToSearch(event) {
 }
 
 function getPercentage(data) {
-  var stringed = data.toString();
-  var newString = '';
-  for (var i = 0; i < stringed.length; i++) {
+  const stringed = data.toString();
+  let newString = '';
+  for (let i = 0; i < stringed.length; i++) {
     newString += stringed[i];
   }
   return newString + '%';
 }
 
 function createTrendingDOM(data) {
-  var trendingEntryContainer = document.createElement('div');
+  const trendingEntryContainer = document.createElement('div');
   trendingEntryContainer.className = 'row trendingEntryContainer space-between';
 
-  var columnName = document.createElement('div');
+  const columnName = document.createElement('div');
   columnName.className = 'column-20 columnName';
   trendingEntryContainer.appendChild(columnName);
 
-  var trendingStockName = document.createElement('p');
+  const trendingStockName = document.createElement('p');
   trendingStockName.className = 'trendingStockName';
   trendingStockName.textContent = data.shortName;
   columnName.appendChild(trendingStockName);
 
-  var columnSymbol = document.createElement('div');
+  const columnSymbol = document.createElement('div');
   columnSymbol.className = 'column-20 columnSymbol';
   trendingEntryContainer.appendChild(columnSymbol);
 
-  var trendingStockSymbol = document.createElement('p');
+  const trendingStockSymbol = document.createElement('p');
   trendingStockSymbol.className = 'trendingStockSymbol';
   trendingStockSymbol.textContent = data.symbol;
   columnSymbol.appendChild(trendingStockSymbol);
 
-  var columnPrice = document.createElement('div');
+  const columnPrice = document.createElement('div');
   columnPrice.className = 'column-20 columnPrice';
   trendingEntryContainer.appendChild(columnPrice);
 
-  var trendingStockPrice = document.createElement('p');
+  const trendingStockPrice = document.createElement('p');
   trendingStockPrice.className = 'trendingStockPrice positive';
   trendingStockPrice.textContent = '$' + data.regularMarketPrice;
   columnPrice.appendChild(trendingStockPrice);
 
-  var columnPercentage = document.createElement('div');
+  const columnPercentage = document.createElement('div');
   columnPercentage.className = 'column-20 columnPercentage';
   trendingEntryContainer.appendChild(columnPercentage);
 
-  var trendingStockPercentage = document.createElement('p');
+  const trendingStockPercentage = document.createElement('p');
   if (checkPercentage(data.regularMarketChangePercent) === true) {
     trendingStockPercentage.className = 'trendingStockPercentage positive';
   } else {
@@ -498,15 +498,15 @@ function createTrendingDOM(data) {
   trendingStockPercentage.textContent = getPercentage(data.regularMarketChangePercent);
   columnPercentage.appendChild(trendingStockPercentage);
 
-  var columnIcon = document.createElement('div');
+  const columnIcon = document.createElement('div');
   columnIcon.className = 'column-20 columnIcon justify-center align-center';
   trendingEntryContainer.appendChild(columnIcon);
 
-  var checkButton = document.createElement('i');
+  const checkButton = document.createElement('i');
   checkButton.className = 'fas fa-plus';
   columnIcon.appendChild(checkButton);
 
-  for (var key in this.data.watchlist) {
+  for (const key in this.data.watchlist) {
     if (key === data.symbol) {
       checkButton.className = 'fas fa-minus';
     }
@@ -516,29 +516,29 @@ function createTrendingDOM(data) {
 }
 
 function addTrendingStock(data) {
-  for (var i = 0; i < data.finance.result[0].quotes.length; i++) {
-    var trendingDOM = createTrendingDOM(data.finance.result[0].quotes[i]);
+  for (let i = 0; i < data.finance.result[0].quotes.length; i++) {
+    const trendingDOM = createTrendingDOM(data.finance.result[0].quotes[i]);
     $trendingStockEntries.appendChild(trendingDOM);
   }
 }
 
 function handleAddTrending(event) {
   if (event.target.className.includes('fa-plus')) {
-    var check = event.target.closest('i');
+    const check = event.target.closest('i');
     check.className = 'fas fa-minus';
-    var stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
+    const stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
     trendingSearchRequest(stockSymbol);
     return;
   }
   if (event.target.className.includes('fa-minus')) {
-    check = event.target.closest('i');
+    const check = event.target.closest('i');
     check.className = 'fas fa-plus';
-    stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
-    for (var key in data.watchlist) {
+    const stockSymbol = event.target.closest('.trendingEntryContainer').querySelector('.columnSymbol').textContent;
+    for (const key in data.watchlist) {
       if (stockSymbol === key) {
         delete data.watchlist[key];
-        var watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
-        for (var z = 0; z < watchlistEntries.length; z++) {
+        const watchlistEntries = document.querySelectorAll('.watchlistEntryContainer');
+        for (let z = 0; z < watchlistEntries.length; z++) {
           if (stockSymbol === watchlistEntries[z].querySelector('.watchlistStockSymbol').textContent) {
             watchlistEntries[z].remove();
           }
@@ -552,16 +552,16 @@ function handleAddTrending(event) {
 }
 
 function createSummary(data) {
-  var companySummary = document.createElement('p');
+  const companySummary = document.createElement('p');
   companySummary.className = 'companySummary';
   companySummary.textContent = firstHalf(data);
 
-  var dots = document.createElement('span');
+  const dots = document.createElement('span');
   dots.className = 'dots';
   dots.textContent = '...';
   companySummary.appendChild(dots);
 
-  var more = document.createElement('span');
+  const more = document.createElement('span');
   more.className = 'more hidden';
   more.textContent = secondHalf(data);
   companySummary.appendChild(more);
