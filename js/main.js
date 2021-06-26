@@ -41,19 +41,19 @@ function handleSearch(event) {
 
 function searchRequest(search) {
   const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', function () {
-    if (this.status !== 200) {
+  xhr.addEventListener('load', () => {
+    if (xhr.status !== 200) {
       $error.className = 'row error';
-      $error.textContent += this.status;
+      $error.textContent += xhr.status;
       return;
     }
-    if (!this.response.price) {
+    if (!xhr.response.price) {
       $noResult.className = 'row noResult';
       $searchResultHeader.className = 'row searchResultHeader';
       $loading.className = 'hidden';
       return;
     }
-    data.searchResult = this.response;
+    data.searchResult = xhr.response;
     const stockSearchDOM = createStockEntry(data.searchResult);
     $searchContainer.appendChild(stockSearchDOM);
     const deleteButton = document.querySelector('.fa-minus-circle');
@@ -74,8 +74,8 @@ function searchRequest(search) {
 
 function trendingSearchRequest(search) {
   const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', function () {
-    data.searchResult = this.response;
+  xhr.addEventListener('load', () => {
+    data.searchResult = xhr.response;
     data.watchlist[data.searchResult.price.symbol] = data.searchResult;
     const stockSearchDOM = createWatchlistEntry(data.searchResult);
     $watchlistEntries.appendChild(stockSearchDOM);
@@ -91,8 +91,8 @@ function trendingSearchRequest(search) {
 
 function trendingRequest() {
   const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load', function () {
-    data.trending = this.response;
+  xhr.addEventListener('load', () => {
+    data.trending = xhr.response;
     addTrendingStock(data.trending);
   });
   xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US');
@@ -385,7 +385,7 @@ function readMore(event) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', function (event) {
+window.addEventListener('DOMContentLoaded', event => {
   if (data.watchlist === null) {
     $noStocks.className = 'noStocks';
   }
