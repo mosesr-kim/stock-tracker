@@ -6,41 +6,44 @@ body {
 header {
   background-color: #118ab2;
   border-bottom: 1px solid #ffd166;
-  padding-bottom: 25px;
+  padding-bottom: 1.5rem;
 }
 
 a {
   text-decoration: none;
-  margin-top: 35px;
+  margin-top: 2.25rem;
   font-weight: 500;
 }
 
 a.trending,
 a.watchlist {
-  font-size: 24px;
-  margin-left: 25px;
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
   color: white;
+  letter-spacing: 0.1rem;
 }
 
 .searchBar {
-  margin-top: 36px;
-  margin-left: 25px;
-  border-radius: 25px;
-  width: 300px;
-  height: 25px;
+  margin-top: 2.25rem;
+  margin-left: 1.5rem;
+  border-radius: 1.5rem;
+  width: 15rem;
+  height: 1.5rem;
   background-color: white;
 }
 
 #search {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
   border: none;
-  width: 255px;
+  width: 13rem;
   outline: none;
   white-space: pre;
 }
 
 input::-webkit-input-placeholder {
-  font-size: 16px;
-  letter-spacing: 1px;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
 }
 
 .magnifying {
@@ -56,8 +59,8 @@ input::-webkit-input-placeholder {
 .editHeader,
 .watchlistHeader,
 .trendingHeader {
-  font-size: 12px;
-  margin-left: 25px;
+  font-size: 1rem;
+  margin-left: 1.5rem;
 }
 
 .searchContainerResult {
@@ -66,7 +69,7 @@ input::-webkit-input-placeholder {
   border-radius: 5px;
   width: 50%;
   margin: auto;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
 }
 
 .headerRow,
@@ -74,16 +77,16 @@ input::-webkit-input-placeholder {
 .companySummary {
   max-width: 90%;
   margin: auto;
-  font-size: 10px;
+  font-size: 0.75rem;
   flex-wrap: nowrap;
 }
 
 .subHeaderRow {
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .companySummary {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .stockSymbol {
@@ -92,13 +95,13 @@ input::-webkit-input-placeholder {
 }
 
 .todayLow {
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .buttonRow {
   width: 90%;
-  margin: 20px auto;
+  margin: 1.25rem auto;
 }
 
 .readMore {
@@ -115,12 +118,12 @@ input::-webkit-input-placeholder {
 
 i.fas.fa-plus-circle {
   color: #06d6a0;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 i.fas.fa-minus-circle {
   color: #ef476f;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .positive {
@@ -149,16 +152,16 @@ i.fas.fa-minus-circle {
   background-color: #fcfcfc;
   border: 1px solid #073b4c;
   border-radius: 5px;
-  margin-left: 25px;
-  margin-bottom: 25px;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .namePriceRow,
 .todayRow,
 .lowRow,
 .highRow {
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   justify-content: space-between;
 }
 
@@ -179,11 +182,6 @@ span.highPrice {
   margin-left: 10px;
 }
 
-.noStocks {
-  font-size: 24px;
-  padding: 0 20px;
-}
-
 .modalContainer {
   position: fixed;
   top: 0;
@@ -197,7 +195,7 @@ span.highPrice {
 
 .modal {
   background-color: #fcfcfc;
-  width: 350px;
+  width: 22rem;
   border-radius: 5px;
 }
 
@@ -231,32 +229,33 @@ span.highPrice {
   border: 1px solid #073b4c;
   border-radius: 5px;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   background-color: #fcfcfc;
 }
 
 .columnName {
   display: flex;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding-left: 12px;
+  padding-left: 0.75rem;
 }
 
 .columnSymbol {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
-  margin-left: 20px;
-  margin-top: 20px;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 h2.noStocks {
-  margin-top: 0;
+  font-size: 1.25rem;
+  padding: 0 1.5rem;
 }
 
 .fa-plus {
@@ -317,15 +316,15 @@ h2.noStocks {
 
 @media screen and (max-width: 1250px) {
   .headerRow {
-    font-size: 8px;
+    font-size: 0.7rem;
   }
 
   .subHeaderRow {
-    font-size: 12px;
+    font-size: 0.8rem;
   }
 
   .companySummary {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .trendingStockEntries {
@@ -337,22 +336,21 @@ h2.noStocks {
   }
 
   .columnName {
-    font-size: 14px;
+    font-size: 0.8rem;
   }
 
   .readMore {
-    font-size: 10px;
+    font-size: 0.8rem;
   }
 
-  i.fas.fa-plus-circle,
-  i.fas.fa-minus-circle {
-    font-size: 24px;
+  .searchContainerResult {
+    width: 75%;
   }
 }
 
 @media screen and (max-width: 820px) {
   .searchContainerResult {
-    width: 75%;
+    width: 80%;
   }
 }
 
@@ -365,11 +363,11 @@ h2.noStocks {
   a.trending,
   a.watchlist {
     margin-left: 0;
-    margin-top: 75px;
+    margin-top: 4.5rem;
   }
 
   a.watchlist {
-    margin-left: 25px;
+    margin-left: 1.5rem;
   }
 
   .desktopHeader {
@@ -399,7 +397,7 @@ h2.noStocks {
 
   .trending,
   .watchlist {
-    margin-top: 63px;
+    margin-top: 4rem;
   }
 
   .watchlistEntries {
@@ -425,7 +423,7 @@ h2.noStocks {
   span.lowPrice,
   h3.highLabel,
   span.highPrice {
-    font-size: 12px;
+    font-size: 0.8rem;
     padding-top: 0;
     margin-top: 0;
     margin-bottom: 5px;
@@ -436,24 +434,28 @@ h2.noStocks {
   .todayRow,
   .lowRow,
   .highRow {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
 
   .logo {
-    margin-top: 50px;
-    margin-right: 25px;
+    margin-top: 3.25rem;
+    margin-right: 1.5rem;
     margin-bottom: 10px;
     margin-left: 0;
   }
 
   .columnName {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   i.fas.fa-plus-circle,
   i.fas.fa-minus-circle {
-    font-size: 18px;
+    font-size: 1.5rem;
+  }
+
+  .searchContainerResult {
+    width: 85%;
   }
 }
 
@@ -462,18 +464,18 @@ h2.noStocks {
   .trendingStockSymbol,
   .trendingStockPrice,
   .trendingStockPercentage {
-    font-size: 10px;
+    font-size: 0.75rem;
   }
 
   .headerRow {
-    font-size: 6px;
+    font-size: 0.5rem;
   }
 
   h2.todayPercentage,
   h2.todayLow,
   h2.todayHigh,
   .companySummary {
-    font-size: 12px;
+    font-size: 1rem;
   }
 
   .searchContainerResult {
