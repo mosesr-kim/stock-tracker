@@ -181,6 +181,7 @@ span.highPrice {
 
 .noStocks {
   font-size: 24px;
+  padding: 0 20px;
 }
 
 .modalContainer {
@@ -364,7 +365,6 @@ h2.noStocks {
   a.trending,
   a.watchlist {
     margin-left: 0;
-    font-size: 16px;
     margin-top: 75px;
   }
 
