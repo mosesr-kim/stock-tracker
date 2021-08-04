@@ -182,10 +182,6 @@ span.highPrice {
   margin-left: 10px;
 }
 
-.noStocks {
-  font-size: 1.25rem;
-}
-
 .modalContainer {
   position: fixed;
   top: 0;
@@ -258,7 +254,7 @@ span.highPrice {
 }
 
 h2.noStocks {
-  margin-top: 0;
+  font-size: 1.25rem;
   padding: 0 1.5rem;
 }
 
