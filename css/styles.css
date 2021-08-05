@@ -30,15 +30,19 @@ a.watchlist {
   width: 15rem;
   height: 1.5rem;
   background-color: white;
+  position: relative;
 }
 
 #search {
   font-size: 1rem;
   letter-spacing: 0.1rem;
   border: none;
-  width: 13rem;
+  width: 14rem;
   outline: none;
   white-space: pre;
+  position: absolute;
+  top: 2px;
+  left: 10px;
 }
 
 input::-webkit-input-placeholder {
