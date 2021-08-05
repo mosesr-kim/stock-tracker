@@ -353,11 +353,6 @@ function viewSwap(viewName) {
       $views[i].className = `view ${viewContainer} hidden`;
     }
   }
-  if (viewName === 'home') {
-    $watchlistContainer.className = 'view watchlistContainer';
-    $trendingContainer.className = 'view trendingContainer';
-    $searchContainer.className = 'view searchContainer hidden';
-  }
   if (viewName === 'search') {
     $watchlistContainer.className = 'view watchlistContainer hidden';
     $trendingContainer.className = 'view trendingContainer hidden';
@@ -419,7 +414,7 @@ window.addEventListener('DOMContentLoaded', event => {
     addTrendingStock(data.trending);
   }
   if (data.view === null) {
-    viewSwap('home');
+    viewSwap('watchlist');
   } else {
     viewSwap(data.view);
   }
