@@ -275,8 +275,11 @@ span.highPrice {
 }
 
 h2.noStocks {
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding: 0 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 0;
 }
 
 .fa-plus {
