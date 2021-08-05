@@ -30,15 +30,19 @@ a.watchlist {
   width: 15rem;
   height: 1.5rem;
   background-color: white;
+  position: relative;
 }
 
 #search {
   font-size: 1rem;
   letter-spacing: 0.1rem;
   border: none;
-  width: 13rem;
+  width: 14rem;
   outline: none;
   white-space: pre;
+  position: absolute;
+  top: 2px;
+  left: 10px;
 }
 
 input::-webkit-input-placeholder {
@@ -239,7 +243,7 @@ span.highPrice {
   justify-content: left;
   font-size: 0.75rem;
   font-weight: 700;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
 }
 
 .columnSymbol {
@@ -267,7 +271,7 @@ span.highPrice {
 .columnIcon {
   display: flex;
   justify-content: flex-end;
-  padding-right: 1.5rem;
+  padding-right: 1.25rem;
 }
 
 .logo {
@@ -388,6 +392,7 @@ h2.noStocks {
   a.watchlist {
     margin-left: 0;
     margin-top: 4.5rem;
+    font-size: 1rem;
   }
 
   a.watchlist {
@@ -467,6 +472,8 @@ h2.noStocks {
     margin-right: 1.5rem;
     margin-bottom: 10px;
     margin-left: 0;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
   .columnName {
