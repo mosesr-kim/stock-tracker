@@ -23,26 +23,19 @@ a.watchlist {
   letter-spacing: 0.1rem;
 }
 
-.searchBar {
+#search {
+  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  border: none;
+  outline: none;
+  white-space: pre;
   margin-top: 2.25rem;
   margin-left: 1.5rem;
   border-radius: 1.5rem;
   width: 15rem;
   height: 1.5rem;
-  background-color: white;
-  position: relative;
-}
-
-#search {
-  font-size: 1rem;
-  letter-spacing: 0.1rem;
-  border: none;
-  width: 14rem;
-  outline: none;
-  white-space: pre;
-  position: absolute;
-  top: 2px;
-  left: 10px;
+  text-indent: 0.5rem;
 }
 
 input::-webkit-input-placeholder {
@@ -413,7 +406,7 @@ h2.noStocks {
     background-color: #118ab2;
   }
 
-  .searchBar {
+  #search {
     margin-top: 10px;
     margin-left: 0;
   }
