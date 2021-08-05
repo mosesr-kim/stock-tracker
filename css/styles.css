@@ -239,7 +239,7 @@ span.highPrice {
   justify-content: left;
   font-size: 0.75rem;
   font-weight: 700;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
 }
 
 .columnSymbol {
@@ -267,7 +267,7 @@ span.highPrice {
 .columnIcon {
   display: flex;
   justify-content: flex-end;
-  padding-right: 1.5rem;
+  padding-right: 1.25rem;
 }
 
 .logo {
@@ -388,6 +388,7 @@ h2.noStocks {
   a.watchlist {
     margin-left: 0;
     margin-top: 4.5rem;
+    font-size: 1rem;
   }
 
   a.watchlist {
