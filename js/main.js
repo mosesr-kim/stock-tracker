@@ -499,7 +499,7 @@ function createTrendingDOM(data) {
   columnPercentage.appendChild(trendingStockPercentage);
 
   const columnIcon = document.createElement('div');
-  columnIcon.className = 'column-20 columnIcon justify-center align-center';
+  columnIcon.className = 'column-20 columnIcon';
   trendingEntryContainer.appendChild(columnIcon);
 
   const checkButton = document.createElement('i');

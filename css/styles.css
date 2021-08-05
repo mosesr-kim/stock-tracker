@@ -235,15 +235,39 @@ span.highPrice {
 
 .columnName {
   display: flex;
-  text-align: center;
+  text-align: left;
+  justify-content: left;
   font-size: 0.75rem;
   font-weight: 700;
-  padding-left: 0.75rem;
+  padding-left: 1.5rem;
 }
 
 .columnSymbol {
+  display: flex;
+  text-align: left;
+  justify-content: left;
+  padding-left: 2.5rem;
   font-size: 1rem;
   font-weight: 700;
+}
+
+.columnPrice {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.columnPercentage {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  padding-left: 2rem;
+}
+
+.columnIcon {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
 }
 
 .logo {
@@ -464,7 +488,7 @@ h2.noStocks {
   .trendingStockSymbol,
   .trendingStockPrice,
   .trendingStockPercentage {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 
   .headerRow {
