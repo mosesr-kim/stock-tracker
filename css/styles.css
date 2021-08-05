@@ -275,7 +275,7 @@ span.highPrice {
 }
 
 h2.noStocks {
-  font-size: 1rem;
+  font-size: 1.25rem;
   padding: 0 1.5rem;
   font-weight: 500;
   font-style: italic;
@@ -507,5 +507,9 @@ h2.noStocks {
 
   .searchContainerResult {
     width: 90%;
+  }
+
+  h2.noStocks {
+    font-size: 1rem;
   }
 }
