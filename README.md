@@ -1,6 +1,6 @@
 # Stock Tracker
 
-A web application for stock enthusiasts who want to get real time data on stocks using their ticker symbol.
+A web application for stock enthusiasts who want to get real time data on stocks using their ticker symbol
 
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/82472092/128269860-06a70b3a-b37d-4de6-a6a4-52b1edc6fcb7.gif)
 
